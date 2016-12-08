@@ -1,0 +1,27 @@
+{
+  "name": "ambits",
+  "version": "1.0.0",
+  "description": "Mobile-first web application for habit tracking and location-based accountability",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CellularAnathema/ambits.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.1"
+  },
+  "bugs": {
+    "url": "https://github.com/CellularAnathema/ambits/issues"
+  },
+  "homepage": "https://github.com/CellularAnathema/ambits#readme"
+}
