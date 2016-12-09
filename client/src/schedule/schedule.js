@@ -10,7 +10,7 @@ class Schedule extends React.Component {
     };
   }
 
-  onDropDownSelect(select) {
+  onDropDownSelect(e) {
     this.setState({
       dropdownDefault: e.target.value
     });
@@ -29,7 +29,10 @@ class Schedule extends React.Component {
       <div>
         <navBar />
         <div>
-          <dropDown />
+          <dropDown
+            onDropDownSelect={this.onDropDownSelect.bind(this)}
+            dropdownDefault={this.state.dropdownDefault}
+          />
         </div>
         <div>
           <startDate />
