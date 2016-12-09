@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 var db = (process.env.MONGOLAB_URL || 'mongodb://localhost/ambits');
 
 mongoose.connect(db);
-var Location = require('./locations/locationSchema');
+var Ambit = require('./ambitData/ambitSchema.js');
 
 
 app.use(bodyParser.json());

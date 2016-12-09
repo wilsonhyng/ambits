@@ -1,5 +1,5 @@
 var Ambit = require('./ambitSchema.js');
-var Q = require('q');
+var q = require('q');
 
 var findAmbit = q.nbind(Ambit.findOne, Ambit);
 var findAllAmbits = q.nbind(Ambit.find, Ambit);
@@ -27,9 +27,8 @@ module.exports.addAmbit = function (req, res, next) {
       next(error);
     });
 };
-};
 
-module.export.saveCheckIn = function(req, res, next) {
+module.exports.saveCheckIn = function(req, res, next) {
   //add the current date to the ambits checkIn property
   //TODO: check for a preexisting check-in for this date first
 
@@ -45,11 +44,14 @@ module.export.saveCheckIn = function(req, res, next) {
     });
 };
 
-module.export.getAmbits = function(req, res, next) {
+module.exports.getAmbits = function(req, res, next) {
   //send an array containing all the ambits back to the user.
 
   findAllAmbits()
     .then(function(ambits){
       res.send(ambits);
+    })
+    .fail(function (error) {
+      next(error);
     });
 };

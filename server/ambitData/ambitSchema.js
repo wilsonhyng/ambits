@@ -24,6 +24,6 @@ var ambitSchema = new Schema({
   //repeats (every week? every other week? is this necessary?)
 });
 
-var Ambit = mongoose.model('Ambit', locationSchema);
+var Ambit = mongoose.model('Ambit', ambitSchema);
 
 module.exports = Ambit;
