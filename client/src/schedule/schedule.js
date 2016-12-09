@@ -1,18 +1,23 @@
+import React from 'react';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
-class Schedule extends React.Component {
+
+export default class Schedule extends React.Component {
   constructor (props) {
     super(props);
 
     this.state = {
-      dropdownDefault: 'Weekly',
-      startDateDefault: 'MM/DD/YYYY',
-      selectDaysDefault: []
+      dropdownValue: 'Weekly',
+      startDateValue: 'MM/DD/YYYY',
+      selectDaysValue: [],
+      ambitNameValue: ''
     };
   }
 
   onDropDownSelect(e) {
     this.setState({
-      dropdownDefault: e.target.value
+      dropdownValue: e.target.value
     });
   }
 
@@ -20,7 +25,11 @@ class Schedule extends React.Component {
 
   }
 
-  onInputDateSet() {
+  onNameInput() {
+
+  }
+
+  onSelectDaysInput() {
 
   }
 
@@ -29,16 +38,28 @@ class Schedule extends React.Component {
       <div>
         <navBar />
         <div>
-          <dropDown
-            onDropDownSelect={this.onDropDownSelect.bind(this)}
-            dropdownDefault={this.state.dropdownDefault}
+          <ambitName
+            onNameInput={this.onNameInput.bind(this)}
+            ambitNameValue={this.state.ambitNameValue}
           />
         </div>
         <div>
-          <startDate />
+          <dropDown
+            onDropDownSelect={this.onDropDownSelect.bind(this)}
+            dropdownValue={this.state.dropdownValue}
+          />
         </div>
         <div>
-          <selectDays />
+          <startDate
+            onStartDateSet={this.onStartDateSet.bind(this)}
+            startDateValue={this.startDateValue}
+          />
+        </div>
+        <div>
+          <selectDays
+            onSelectDaysInput={this.onSelectDaysInput.bind(this)}
+            selectDaysValue={this.selectDaysValue}
+          />
         </div>
         <div>
           <commitButton />
