@@ -3,8 +3,16 @@ const validateLocation = function (current, checkin) {
 
 };
 
-const postCheckin = function (ambit) {
-
+const postCheckin = function (ambitId, callback) {
+  $.ajax({
+    url:'__urlgoeshere__', //replace
+    data: {refId: ambitId},
+    type: 'POST',
+    contentType: 'application/json',
+    sucess: function(data) {
+      callback(data);
+    }
+  });
 };
 
 const checkinAmbit = function(ambit) {
@@ -24,5 +32,3 @@ const checkinAmbit = function(ambit) {
 }
 
 export { checkinAmbit };
-
- 
