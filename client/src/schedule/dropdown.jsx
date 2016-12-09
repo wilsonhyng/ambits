@@ -1,16 +1,16 @@
-const dropdown = (props) => (
+const dropdown = ({dropdownDefault, onDropDownSelect}) => (
     <div>
-    <DropdownButton
+    <DropDownMenu
       className="dropdown"
       bsStyle="default"
       title="Frequency"
-      value={this.state.dropdownDefault}
-      onChange={this.handleChange}
+      value={this.props.dropdownValue}
+      onChange={() => onDropDownSelect() /* add in parameter from MenuItem */}
     >
-      <MenuItem value="Daily">Daily</MenuItem>
-      <MenuItem value="Weekly">Weekly</MenuItem>
-      <MenuItem value="Monthly">Monthly</MenuItem>
-    </DropdownButton>
+      <MenuItem value={1} primaryText="Daily">Daily</MenuItem>
+      <MenuItem value={2} primaryText="Weekly">Weekly</MenuItem>
+      <MenuItem value={3} primaryText="Monthly">Monthly</MenuItem>
+    </DropDownMenu>
     </div>
 
 );
