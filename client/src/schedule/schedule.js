@@ -16,8 +16,13 @@ class Schedule extends React.Component {
     });
   }
 
+  onStartDateSet() {
 
+  }
 
+  onInputDateSet() {
+
+  }
 
   render() {
     return (
