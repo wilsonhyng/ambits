@@ -1,19 +1,28 @@
+
 class Schedule extends React.Component {
   constructor (props) {
     super(props);
+
     this.state = {
-      dropdownDefault: 'weekly',
+      dropdownDefault: 'Weekly',
       startDateDefault: 'MM/DD/YYYY',
-      selectDaysDefault: 0
+      selectDaysDefault: []
     };
   }
+
+  onDropDownSelect(select) {
+    this.setState({
+      dropdownDefault: e.target.value
+    });
+  }
+
 
 
 
   render() {
     return (
       <div>
-        <navBar    />
+        <navBar />
         <div>
           <dropDown />
         </div>
