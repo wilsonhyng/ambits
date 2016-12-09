@@ -10,10 +10,10 @@ module.exports.addAmbit = function (req, res, next) {
   var ambit = req.body.ambit;
   ambit.checkIns = [];
 
-  findAmbit({name: ambit.name}) //should check per user as well
+  findAmbit({refId: ambit.refId}) //should check per user as well
     .then(function(found){
       if (found) {
-        return next(new Error('an ambit with this name already exits'));
+        return next(new Error('Ambit refId already exists'));
       } else{
         return createAmbit(ambit);
       }
@@ -33,9 +33,9 @@ module.export.saveCheckIn = function(req, res, next) {
   //add the current date to the ambits checkIn property
   //TODO: check for a preexisting check-in for this date first
 
-  var name = req.body.refName;
+  var refId = req.body.refId;
 
-  findAmbit({name: name})
+  findAmbit({refId: refId})
     .then(function(ambit) {
         ambit.checkIns.push( new Date() );
         return ambit.save();

@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var ambitHelper = require('./ambitData/ambitHelper.js');
+
 var app = express();
 
 var mongoose = require('mongoose');
@@ -21,13 +23,11 @@ app.set('view engine', 'html');
 
 // Should be refactored to go under /api
 // Also, probably, to be rehandled in an external routehandler/ctrlrs
-app.get('/locations', function(req, res) {
-  res.send('locations go here');
-});
+app.get('/ambits', ambitHelper.getAmbits);
 
-app.post('/locations', function(req, res) {
-  res.send('something something');
-});
+app.post('/ambits', ambitHelper.addAmbit);
+
+app.post('/ambits/checkin', ambitHelper.saveCheckIn);
 
 // DB testing paths; remove when endpoints are built
 app.get('/db_post', function(req, res, next) {
@@ -42,7 +42,7 @@ app.get('/db_post', function(req, res, next) {
   }).catch(function(err) {
     next(err);
   });
-  
+
 });
 
 app.get('/db', function(req, res, next) {
@@ -51,7 +51,7 @@ app.get('/db', function(req, res, next) {
   })
   .catch(function(err) {
     next(err);
-  })
+  });
 });
 
 // To use on Heroku, must use port provided by process.env:
