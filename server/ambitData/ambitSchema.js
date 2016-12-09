@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ambitSchema = new Schema({
-  name: {type: String, index: true}, //three letters and then a number for repeats
+  refId: {type: Number, index: true}, //three letters and then a number for repeats
+  name: String,
   coords: {
     latitude: Number,
     longitude: Number
@@ -13,6 +14,7 @@ var ambitSchema = new Schema({
     tue: Boolean,
     wed: Boolean,
     thu: Boolean,
+    fri: Boolean,
     sat: Boolean,
     sun: Boolean
   },
