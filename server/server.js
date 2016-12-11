@@ -26,7 +26,7 @@ require('./config/passport');
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
-  const webpackHotMiddleware = require('webpack-hot-middleware');  
+  // const webpackHotMiddleware = require('webpack-hot-middleware');  
   const config = require('../webpack-dev-server.config.js');
   const compiler = webpack(config);
 
@@ -36,9 +36,9 @@ if (process.env.NODE_ENV !== 'production') {
     stats: { colors: true }
   }));
 
-  app.use(webpackHotMiddleware(compiler, {
-    log: console.log
-  }));
+  // app.use(webpackHotMiddleware(compiler, {
+  //   log: console.log
+  // }));
 
 }
 

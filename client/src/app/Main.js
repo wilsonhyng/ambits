@@ -10,6 +10,7 @@ import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import TextField from 'material-ui/TextField';
 
 const styles = {
   container: {
@@ -29,7 +30,7 @@ class Main extends Component {
     super(props, context);
 
     this.state = {
-      open: false,
+      open: true,
     };
   }
 
@@ -46,33 +47,37 @@ class Main extends Component {
   }
 
   render() {
-    const standardActions = (
+    const standardActions = [
       <FlatButton
-        label="Ok"
+        label="Login"
+        primary={true}
+        onTouchTap={this.handleRequestClose}
+      />,
+      <FlatButton
+        label="Signup"
         primary={true}
         onTouchTap={this.handleRequestClose}
       />
-    );
+    ];
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <AppBar />
+          <AppBar title="Ambitually"></AppBar>
           <Dialog
+            overlayClassName="hidden"
             open={this.state.open}
-            title="Super Secret Password?"
+            title="Welcome!"
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
           >
-            1-2-3-4-5
+            <TextField 
+              fullWidth={true}
+              hintText="email" /><br/>
+            <TextField
+              fullWidth={true}
+              hintText="password" /><br/>
           </Dialog>
-          <h1>Material-UI</h1>
-          <h2>example project</h2>
-          <RaisedButton
-            label="Super Secret Password."
-            secondary={true}
-            onTouchTap={this.handleTouchTap}
-          />
         </div>
       </MuiThemeProvider>
     );
