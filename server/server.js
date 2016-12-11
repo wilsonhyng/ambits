@@ -22,6 +22,26 @@ var ctrlAuth = require('./controllers/authentication');
 
 require('./config/passport');
 
+
+if (process.env.NODE_ENV !== 'production') {
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');  
+  const config = require('../webpack-dev-server.config.js');
+  const compiler = webpack(config);
+
+  // console.log(config.output.publicPath, config.output.path);
+  app.use(webpackDevMiddleware(compiler, {
+    // publicPath: config.output.path,
+    stats: { colors: true }
+  }));
+
+  app.use(webpackHotMiddleware(compiler, {
+    log: console.log
+  }));
+
+}
+
 //webpack auto update feature: (TODO: Investigate why the babel loader can not generate bundle.js)
 // if (process.env.NODE_ENV !== 'production') {
 //   const webpack = require('webpack');
@@ -39,9 +59,9 @@ require('./config/passport');
 // }
 
 app.use(bodyParser.json());
-app.use(express.static(path.resolve(__dirname, '../client/dist')));
+app.use(express.static(path.resolve(__dirname, '../client/src/www')));
 
-app.set('views',__dirname + '/../client');
+app.set('views',__dirname + '/../client/src/www');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
