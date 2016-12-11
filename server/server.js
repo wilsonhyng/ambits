@@ -1,17 +1,25 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var ambitHelper = require('./ambitData/ambitHelper.js');
-
+var ambitHelper = require('./ambitData/ambitHelper');
 var app = express();
-
 var mongoose = require('mongoose');
+var passport = require('passport');
 
 // To use on Heroku, set the environment variable:
 // $ heroku set:config MONGOLAB_URL=mongodb://user:password@mongolabstuff
 var db = (process.env.MONGOLAB_URL || 'mongodb://localhost/ambits');
-
 mongoose.connect(db);
-var Ambit = require('./ambitData/ambitSchema.js');
+
+var Ambit = require('./ambitData/ambitSchema');
+var User = require('./users/userModel');
+
+// if (process.env.NODE_ENV !== 'production') {
+//   require('longjohn');
+// }
+
+var ctrlAuth = require('./controllers/authentication');
+
+require('./config/passport');
 
 
 app.use(bodyParser.json());
@@ -24,10 +32,12 @@ app.set('view engine', 'html');
 // Should be refactored to go under /api
 // Also, probably, to be rehandled in an external routehandler/ctrlrs
 app.get('/ambits', ambitHelper.getAmbits);
-
 app.post('/ambits', ambitHelper.addAmbit);
 
 app.post('/ambits/checkin', ambitHelper.saveCheckIn);
+
+app.post('/register', ctrlAuth.register);
+app.post('/login', ctrlAuth.login);
 
 // DB testing paths; remove when endpoints are built
 app.get('/db_post', function(req, res, next) {

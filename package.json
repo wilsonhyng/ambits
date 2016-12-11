@@ -16,9 +16,13 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "crypto": "0.0.3",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
+    "jwt-simple": "^0.5.1",
     "mongoose": "^4.7.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "q": "^1.4.1"
   },
   "bugs": {
@@ -27,6 +31,7 @@
   "homepage": "https://github.com/CellularAnathema/ambits#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "longjohn": "^0.2.11",
     "mocha": "^3.2.0",
     "supertest": "^2.0.1"
   }
