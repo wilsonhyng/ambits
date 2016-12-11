@@ -4,7 +4,7 @@ const webpack = require('webpack');
 //Path for the bundle:
 const BUILD_DIR = path.resolve(__dirname,'client/dist');
 //Path for all jsx files:
-const APP_DIR = path.resolve(__dirname,'client/src');
+const APP_DIR = path.resolve(__dirname,'client/src/app');
 
 module.exports = {
   devtool: 'source-map',
@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',
-    publicPath: BUILD_DIR + '/assets'
+    publicPath: BUILD_DIR
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
