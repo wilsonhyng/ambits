@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var ambitHelper = require('./ambitData/ambitHelper');
+var ambitHelper = require('./ambitData/ambitHelper.js');
+var path = require('path');
 var app = express();
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -21,9 +22,24 @@ var ctrlAuth = require('./controllers/authentication');
 
 require('./config/passport');
 
+//webpack auto update feature: (TODO: Investigate why the babel loader can not generate bundle.js)
+// if (process.env.NODE_ENV !== 'production') {
+//   const webpack = require('webpack');
+//   const webpackDevMiddleware = require('webpack-dev-middleware');
+//   const webpackHotMiddleware = require('webpack-hot-middleware');
+//   const config = require('../webpack.config.js');
+//   const compiler = webpack(config);
+    
+//   app.use(webpackHotMiddleware(compiler));
+//   app.use(webpackDevMiddleware(compiler, {
+//     noInfo: false,
+//     publicPath: config.output.path,
+//     stats: {colors: true}
+//   }));
+// }
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname  +'/../client'));
+app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
 app.set('views',__dirname + '/../client');
 app.engine('html', require('ejs').renderFile);
