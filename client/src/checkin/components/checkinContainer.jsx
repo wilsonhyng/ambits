@@ -2,7 +2,7 @@ import React from 'react';
 import Utils from '../../utils/utils.js';
 
 class CheckinContainer extends React.Component {
-  constructor() {
+  constructor(props) {
     super(props); 
     this.state = {
       ambitList: {gym: {
@@ -14,23 +14,21 @@ class CheckinContainer extends React.Component {
         checkedIn: false,
       }}
     }; 
-  },
-  handleCreateAmbit() {
-
-  },
+  }
+  handleCreateAmbit() { }
   handleCheckinAmbit(ambit) {
     Utils.checkinAmbit(ambit);
-  },
-  handleShowStats(){},
+  }
+
+  handleShowStats(){}
 
   render() {
     return (
     <div>
-      <AmbitList ambitList = {this.state.ambitList} />
-      <Controls/>
+      <h1>Checkin Container</h1>
     </div>
     );
   }
-}
+};
 
-export {CheckinContainer}
+export default CheckinContainer;
