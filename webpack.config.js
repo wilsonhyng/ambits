@@ -4,7 +4,7 @@ var webpack = require('webpack');
 //Path for the bundle:
 var BUILD_DIR = path.resolve(__dirname,'client/dist');
 //Path for all jsx files:
-var APP_DIR = path.resolve(__dirname,'client/src');
+var APP_DIR = path.resolve(__dirname,'client/src/app');
 
 module.exports = {
   entry: APP_DIR + '/checkin/index.jsx',
