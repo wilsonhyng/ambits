@@ -32,7 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   // console.log(config.output.publicPath, config.output.path);
   app.use(webpackDevMiddleware(compiler, {
-    // publicPath: config.output.path,
+    publicPath: config.output.publicPath,
     stats: { colors: true }
   }));
 

@@ -1,19 +1,21 @@
-<!doctype html>
-<html class="no-js" lang="">
+<html>
+  <meta charset="utf-8">
+  <!-- Use minimum-scale=1 to enable GPU rasterization -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"
+  >
+  <meta name="mobile-web-app-capable" content="yes">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Material-UI Example</title>
-    <meta name="description" content="Google's material design UI components built with React.">
-
-    <!-- Use minimum-scale=1 to enable GPU rasterization -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"
-    >
+    <title>Ambitually</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Android Screen Lock -->
+    <script> 
+      if (window.navigator.userAgent.match(/Android/i)) {
+        window.screen.orientation.lock('portrait');
+      }
+    </script>
   </head>
-
   <body>
     <div id="app"></div>
 

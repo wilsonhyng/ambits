@@ -4,7 +4,7 @@
   "description": "Mobile-first web application for habit tracking and location-based accountability",
   "main": "server/server.js",
   "scripts": {
-    "example": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --hot --colors",
+    "example": "webpack-dev-server --config webpack-dev-server.config.js --progress --hot --inline --colors",
     "client-start": "webpack -d --watch",
     "start": "node server/server.js",
     "test": "node server/server.js & mocha server/specs/; pkill -n node"

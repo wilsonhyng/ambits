@@ -7,6 +7,7 @@ const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const config = {
   // Entry points to the project
   entry: [
+    'webpack-hot-middleware/client',
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
     path.join(__dirname, '/client/src/app/app.js'),
@@ -22,10 +23,13 @@ const config = {
   },
   devtool: 'eval',
   output: {
-    path: buildPath, // Path of output file
+    // path: buildPath, // Path of output file
+    path: path.resolve(__dirname, 'client/src/www'),
+    publicPath: '/',
     filename: 'app.js',
   },
   plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
     // Enables Hot Modules Replacement
     new webpack.HotModuleReplacementPlugin(),
     // Allows error warnings but does not stop compiling.
