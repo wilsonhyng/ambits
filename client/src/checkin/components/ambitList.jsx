@@ -1,5 +1,2 @@
 var AmbitList = (props) => {
-
-
-
 };
