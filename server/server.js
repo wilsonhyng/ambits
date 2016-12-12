@@ -26,7 +26,7 @@ require('./config/passport');
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
-  // const webpackHotMiddleware = require('webpack-hot-middleware');  
+  // const webpackHotMiddleware = require('webpack-hot-middleware');
   const config = require('../webpack-dev-server.config.js');
   const compiler = webpack(config);
 
@@ -49,7 +49,7 @@ if (process.env.NODE_ENV !== 'production') {
 //   const webpackHotMiddleware = require('webpack-hot-middleware');
 //   const config = require('../webpack.config.js');
 //   const compiler = webpack(config);
-    
+
 //   app.use(webpackHotMiddleware(compiler));
 //   app.use(webpackDevMiddleware(compiler, {
 //     noInfo: false,
@@ -70,7 +70,7 @@ app.set('view engine', 'html');
 app.get('/ambits', ambitHelper.getAmbits);
 app.post('/ambits', ambitHelper.addAmbit);
 
-app.post('/ambits/checkin', ambitHelper.saveCheckIn);
+app.put('/ambits/:id', ambitHelper.saveCheckIn);
 
 app.post('/register', ctrlAuth.register);
 app.post('/login', ctrlAuth.login);

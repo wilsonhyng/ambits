@@ -12,6 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import Login from './login/login.jsx';
+// import {Link} from 'react';
 
 const styles = {
   container: {
@@ -36,6 +37,8 @@ class Main extends Component {
         <div>
           <AppBar title='Ambitually'></AppBar>
           <Login startsOpen={true} />
+
+          {this.props.children}
         </div>
       </MuiThemeProvider>
     );
