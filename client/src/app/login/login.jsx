@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
+import * as loginCtrl from './loginCtrl';
 
 class Login extends Component {
   constructor(props, context) {
@@ -11,35 +12,55 @@ class Login extends Component {
       username: '',
       email: '',
       password: '',
-      loginIsOpen: this.props.startsOpen,
+      loginIsOpen: !loginCtrl.getJwt(),
       isSigningUp: false,
+      submitError: ''
     };
   };
 
   handleLogin = () => {
-    var loginObject = {
+    var returningUser = {
       email: this.state.email,
       password: this.state.password
     };
-    // Do Login stuff here
-    this.setState({
-      loginIsOpen: false,
-    });
+    loginCtrl.login(returningUser)
+    .then(res => {
+      this.setState({
+        loginIsOpen: false
+      })
+    })
+    .catch(err => {
+      const msg = err.response.data.message;
+      this.setState({
+        submitError: msg
+      });
+    })
   };
 
   handleSignUp = () => {
-    var signUpObject = {
+    var newUser = {
       email: this.state.email,
       username: this.state.username,
       password: this.state.password
     };
-
-    this.setState({
-      isSigningUp: false
-    });
+    loginCtrl.signup(newUser)
+    .then(res => {
+      this.setState({
+        loginIsOpen: false
+      })
+    })
+    .catch(err => {
+      const msg = err.response.data.message;
+      this.setState({
+        submitError: msg
+      });
+    })
   };
 
   handleChange = (name,e) => {
+    if (this.state.submitError) {
+      this.setState({ submitError: '' });
+    }
     this.setState({
       [name]: e.target.value
     });
@@ -97,6 +118,7 @@ class Login extends Component {
               fullWidth={true}
               hintText='password'
               type='password'
+              errorText={this.state.submitError}
              />
           </Dialog>
     );
