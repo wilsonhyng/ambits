@@ -6,7 +6,7 @@ import CheckinContainer from './checkin/components/checkinContainer.jsx';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Main from './Main'; // Our custom react components
-import CheckIn from './checkin/components/checkinContainer.jsx';
+
 import Create from './createAmbit/createAmbit.jsx';
 
 // Needed for onTouchTap
