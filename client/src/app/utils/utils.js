@@ -1,3 +1,6 @@
+import axios from 'axios';
+
+
 //private helper functions:
 var validateLocation = function (current, checkin) {
   const MIN_DIST = 200; // acceptable distance between ambit loc and checkin loc
@@ -25,37 +28,99 @@ var validateLocation = function (current, checkin) {
   }
 };
 
-//public functions:
-export const postCheckin = function (ambitId, callback) {
-  $.ajax({
-    url:'/ambits/' + ambitId,
-    type: 'POST',
-    success: function(data) {
-      callback(data);
+const daysOftheWeek = function(boolArr) {
+  days = {
+    0:'Su',
+    1:'M',
+    2:'Tu',
+    3:'W',
+    4:'Thu',
+    5:'Fri',
+    6:'Sa'
+  };
+  var result ='';
+  var displayDays = boolArr.map((b, i) => {
+    b ? days.i : b;
+  }).filter(d => (!!d)).forEach((day, i, a) => { 
+    if(i === a.length) {
+      result += day;
+    } else {
+      result += day + '/';
     }
   });
+  return result;
+};
+
+//Decorate ambits for client side 
+const decorateAmbits = function(ambits) {
+  ambits.forEach(ambit => {
+    if(ambit.weekdays.every(day => day === true)) {
+      ambit.frequency = 'Daily';
+    } else {
+      ambit.frequency = 'Weekly - '+ daysOftheWeek(ambit.weekdays);
+    }
+    //TODO: clean the server side check.
+    //check if the user is already checked in for the day:
+    //TODO: make the date time specific.
+    var now = (new Date()).toDateString();
+    var recentCheckin = ambit.checkIns[ambit.checkIns.length - 1];
+    if(recentCheckin && recentCheckin.toDateString() === now) {
+      ambit.checkedIn = true;
+    } else {
+      ambit.checkedIn = false;
+    }
+  });
+  return ambits;
+};
+
+const url = '';
+
+//public functions:
+export const postCheckin = function (ambitId, callback) {
+  axios({
+    method:'post',
+    url:'/ambits/' + ambitId,
+    contentType: 'application/json'
+    }).then(function(response){
+      callback();
+    }).catch(function(err){
+      throw err;
+    });
 };
 
 export const postAmbit = function (ambit, callback){
-  $.ajax({
+  axios({
+    method:'post',
     url:'/ambits',
-    type: 'POST',
-    contentType: 'application/json',
-    success: function(data) {
-      callback(data);
-    }
-  })
-}
+    contentType: 'application/json'
+    }).then(function(response){
+      callback(response, null);
+    }).catch(function(error) {
+      callback(null, error);
+    });
+};
 
 export const getAllAmbits = function(callback) {
-    $.ajax({
-    url:'/ambits',
-    data: {refId: ambitId},
-    type: 'GET',
+  axios({
+    method: 'get',
+    url: url + '/ambits',
     contentType: 'application/json',
-    success: function(data) {
-      callback(data);
-    }
+  }).then(function(response) {
+    //testing
+    response.data.push( {
+        refId: 1234,
+        name: 'Gym',
+        coords: {
+          latitude: 37.784,
+          longitude: -122.40903
+        },
+        weekdays:[true,true,true,true,true,true,true],
+        startDate:'2016-12-12',
+        checkIns:[]
+        });
+    callback(decorateAmbits(response.data));
+  }).catch(function(error){
+    throw error;
   });
 };
 
@@ -67,7 +132,7 @@ export const checkinAmbit = function(ambit, successCb,errorCb) {
   navigator.geolocation.getCurrentPosition(function(position) {
     console.log(position.coords);
     var coordinates = position.coords;
-    if(validateLocation(ambit.location, coordinates)) {
+    if(validateLocation(ambit.coords, coordinates)) {
       console.log('valid');
       successCb();
     } else {

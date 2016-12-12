@@ -5,6 +5,8 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CircularProgress from'material-ui/CircularProgress';
+import Snackbar from 'material-ui/Snackbar';
+
 
 //styling
 const muiTheme = getMuiTheme({
@@ -20,22 +22,38 @@ const spinnerStyle  = {
   transform: 'translate(-50%, -50%)'
 };
 
+const userFeedback = {
+  default: '',
+  cheat:'Not at the Location',
+  geoNotFount: 'Geolocation feature is not enabled',
+  successfulCheckin: 'Check in successful',
+  checkInternetConnection:'Cannot fetch ambits:( Check internet connection'  
+};
+
+
 export default class CheckinContainer extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      ambits: [{
-        name: 'Gym',
-        location: {
-          latitude: '37.780',
-          longitude: '-122.406'
-        },
-        checkedIn: false,
-        frequency: "Daily"
-      }],
-      loading: false
+      ambits: [],
+      loading: false,
+      feedback: {
+        open: false,
+        autoHideDuration: 3000,
+        message: userFeedback.default
+      }
     };
     this.handleCheckinAmbit = this.handleCheckinAmbit.bind(this);
+  }
+  componentDidMount() {
+    Utils.getAllAmbits((data, error) => {
+      if(error) {
+        //send user feedback: no connection
+      } else {       
+        this.setState({ambits: data});
+      }
+    });
   }
 
   handleCreateAmbit(event) {
@@ -46,27 +64,33 @@ export default class CheckinContainer extends React.Component {
   getAmbits() {
     Utils.getAllAmbits((data) => {
       this.setState({
-        ambits: JSON.parse(data)
+        ambits: data
       });
     });
   }
 
   handleCheckinAmbit(ambit) {
     this.setState({loading: true}); //loading...
+    //validate checkin:
     Utils.checkinAmbit(ambit, () => {
+      //if valid update the state
       this.state.ambits.find(item => ambit.name === item.name).checkedIn = true;
       this.setState({
         loading:false,
-        ambits: this.state.ambits
+        ambits: this.state.ambits,
+        feedback: {open: true, message: userFeedback.successfulCheckin}
+      });
+      //update the database
+      Utils.postCheckin(ambit.refId, () => {
+        console.log('delivered');
       });
     }, ()=>{
-      this.setState({loading:false});
-      //you can't cheat messages
+      //you can't cheat message:
+      this.setState({loading:false, feedback: { open: true, message:userFeedback.cheat}});
     });
   }
 
   handleShowStats(){}
-
 
   render() {
     if(!this.state.loading) {
@@ -75,6 +99,11 @@ export default class CheckinContainer extends React.Component {
           <div>
             <AmbitList ambits={this.state.ambits} 
             handleCheckinAmbit={this.handleCheckinAmbit}/>
+            <Snackbar
+            open={this.state.feedback.open}
+            message={this.state.feedback.message}
+            autoHideDuration={this.state.feedback.autoHideDuration}
+            />
           </div>
         </MuiThemeProvider>
       );

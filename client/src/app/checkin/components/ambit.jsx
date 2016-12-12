@@ -5,11 +5,15 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
 
-const checkinStyle = {
+const notCheckedStyle = {
+  color: 'white', //TODO: not working colors... 
+  rippleColor: 'green', 
+  backgroundColor:'green',
+};
+
+const checkedStyle = {
   color: 'white',
-  backgroundColor:'red',
-  hoverColor:'green', //TODO: not working colors... 
-  rippleColor: 'green' 
+  backgroundColor:'blue',
 };
 
 const statsStyle = {
@@ -21,7 +25,6 @@ class Ambit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: false
     };
   }
 
@@ -36,14 +39,14 @@ class Ambit extends React.Component {
         <CardActions>
           <FlatButton
             label= {
-              this.state.checked ? "You Rock!":"Check In!"
+              this.props.ambit.checkedIn ? "Checked In":"Check In!"
             }
             onTouchTap={() => { 
-              this.setState({checked:true}); //TODO: Only when the checkin is successful.
-              this.props.handleCheckinAmbit(this.props.ambit); //TODO: while checking in start spinner.
-              } //TODO: failed checkin -> feedback through the snackbar. / successful checkin --> feedback through the snackbar.
+              this.props.handleCheckinAmbit(this.props.ambit); 
+              } 
             }
-            style={checkinStyle}
+            disabled = {this.props.ambit.checkedIn}
+            style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
           />
           <FlatButton
             label="Stats" //send to the stats page of the ambit.
