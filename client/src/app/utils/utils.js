@@ -1,9 +1,7 @@
-
-
 //private helper functions:
 var validateLocation = function (current, checkin) {
   const MIN_DIST = 200; // acceptable distance between ambit loc and checkin loc
-  
+
   var rad = function(x) {
     return x * Math.PI / 180;
   };
@@ -30,23 +28,32 @@ var validateLocation = function (current, checkin) {
 //public functions:
 export const postCheckin = function (ambitId, callback) {
   $.ajax({
-    url:'__urlgoeshere__', //TODO: define the interface
-    data: {refId: ambitId},
+    url:'/ambits/' + ambitId,
     type: 'POST',
-    contentType: 'application/json',
-    sucess: function(data) {
+    success: function(data) {
       callback(data);
     }
   });
-};  
+};
+
+export const postAmbit = function (ambit, callback){
+  $.ajax({
+    url:'/ambits',
+    type: 'POST',
+    contentType: 'application/json',
+    success: function(data) {
+      callback(data);
+    }
+  })
+}
 
 export const getAllAmbits = function(callback) {
     $.ajax({
-    url:'__urlgoeshere__', //TODO: define the interface.
+    url:'/ambits',
     data: {refId: ambitId},
     type: 'GET',
     contentType: 'application/json',
-    sucess: function(data) {
+    success: function(data) {
       callback(data);
     }
   });
@@ -61,12 +68,13 @@ export const checkinAmbit = function(ambit, callback) {
     console.log(position.coords);
     var coordinates = position.coords;
     if(validateLocation(ambit.location, coordinates)) {
+      console.log('valid');
       callback();
     } else {
       //inform user that it is not a valid checkin attempt
-      console.log('please enable the navigation to use the app');
+      console.log('No cheating!!!');
     }
-  }, function(err) { 
+  }, function(err) {
     throw err;
   }, {timeout: 10000});
  } else {
@@ -74,7 +82,3 @@ export const checkinAmbit = function(ambit, callback) {
   console.log('your device does not support geolocation :(');
  }
 };
-
-
-
-

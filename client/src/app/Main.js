@@ -13,8 +13,6 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import Login from './login/login.jsx';
 
-// import {Link} from 'react';
-
 const styles = {
   container: {
     textAlign: 'center',

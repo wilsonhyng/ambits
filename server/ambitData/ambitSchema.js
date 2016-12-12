@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ambitSchema = new Schema({
-  refId: {type: Number, index: true}, //three letters and then a number for repeats
+  refId: {type: Number, index: true}, //a number used to keep track of the ambit
   name: String,
   coords: {
     latitude: Number,

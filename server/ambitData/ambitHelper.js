@@ -19,7 +19,7 @@ module.exports.addAmbit = function (req, res, next) {
       }
     })
     .then(function (createdAmbit) {
-      if (createdAmbitn) {
+      if (createdAmbit) {
         res.json(createdAmbit);
       }
     })

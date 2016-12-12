@@ -5,7 +5,7 @@ import AmbitList from './ambitList.jsx';
 
 export default class CheckinContainer extends React.Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
       ambits: [{
         name: 'Gym',
@@ -17,10 +17,13 @@ export default class CheckinContainer extends React.Component {
         frequency: "Daily"
       }]
     };
-    this.handleCheckinAmbit = this.handleCheckinAmbit.bind(this); 
+    this.handleCheckinAmbit = this.handleCheckinAmbit.bind(this);
   }
 
-  handleCreateAmbit() {}
+  handleCreateAmbit(event) {
+
+    event.preventDefault();
+  }
 
   getAmbits() {
     Utils.getAllAmbits((data) => {
@@ -44,10 +47,9 @@ export default class CheckinContainer extends React.Component {
   render() {
     return (
       <div >
-        <AmbitList ambits={this.state.ambits} 
+        <AmbitList ambits={this.state.ambits}
         handleCheckinAmbit={this.handleCheckinAmbit}/>
       </div>
     );
   }
 };
-

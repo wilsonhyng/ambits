@@ -63,7 +63,7 @@ app.set('view engine', 'html');
 app.get('/ambits', ambitHelper.getAmbits);
 app.post('/ambits', ambitHelper.addAmbit);
 
-app.put('/ambits/:id', ambitHelper.saveCheckIn);
+app.post('/ambits/:id', ambitHelper.saveCheckIn);
 
 app.post('/register', ctrlAuth.register);
 app.post('/login', ctrlAuth.login);
