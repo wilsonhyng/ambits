@@ -15,14 +15,14 @@ module.exports = {
 
     if (!email || !username || !password) {
       res.status(400).json({
-        message: "All fields required"
+        message: "All fields required."
       });
     } else {
       findUser({ email: email })
         .then(function (user) {
           if (user) {
             res.status(400).json({
-              message: 'User already exists'
+              message: 'User already exists.'
             });
             return null;
           } else {
@@ -47,20 +47,19 @@ module.exports = {
   },
   login: function (req, res, next) {
     var email = req.body.email;
-    var username = req.body.username;
     var password = req.body.password;
-    console.log(res.body);
 
-    if (!email || !username || !password) {
+    // console.log(req.body);
+    if (!email || !password) {
       res.status(400).json({
-        message: 'All fields required'
+        message: 'All fields required.'
       });
     } else {
       passport.authenticate('local', function (err, user, info) {
         var token;
         if (err) {  
           res.status(400).json({
-            message: err
+            message: "Incorrect username or password"
           });
         }
         if (user) {
@@ -68,7 +67,7 @@ module.exports = {
           res.json({token: token});
         } else {
           res.status(400).json({
-            message: info
+            message: "Incorrect username or password."
           });
         }
       })(req, res);
