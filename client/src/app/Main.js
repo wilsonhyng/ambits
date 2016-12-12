@@ -28,56 +28,103 @@ const muiTheme = getMuiTheme({
 class Main extends Component {
   constructor(props, context) {
     super(props, context);
-
     this.state = {
-      open: true,
+      username: '',
+      email: '',
+      password: '',
+      loginIsOpen: true,
+      isSigningUp: false,
     };
   }
 
-  handleRequestClose = () => {
+  handleLogin = () => {
+    var loginObject = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
     this.setState({
-      open: false,
+      loginIsOpen: false,
+    });
+  }
+  handleChange = (name,e) => {
+    this.setState({
+      [name]: e.target.value
     });
   }
 
-  handleTouchTap = () => {
+  handleSignUp = () => {
+    var signUpObject = {
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password
+    };
+
     this.setState({
-      open: true,
+      isSigningUp: false
+    });
+  }
+
+  toggleSignUp = () => {
+    this.setState({
+      isSigningUp: !this.state.isSigningUp
     });
   }
 
   render() {
+    const signUp = this.state.isSigningUp;
+    const signUpField = signUp ? 
+      (<TextField 
+        onChange={this.handleChange.bind(this,'username')}
+        fullWidth={true}
+        hintText='username' />) :
+      null;
+
     const standardActions = [
-      <FlatButton
-        label="Login"
-        primary={true}
-        onTouchTap={this.handleRequestClose}
+      <RaisedButton
+        label='Login'
+        primary={!this.state.isSigningUp}
+        onTouchTap={(!signUp) ? 
+          this.handleLogin : 
+          this.toggleSignUp.bind(this)
+        }
       />,
-      <FlatButton
-        label="Signup"
-        primary={true}
-        onTouchTap={this.handleRequestClose}
+      <RaisedButton
+        label='Signup'
+        primary={this.state.isSigningUp}
+        onTouchTap={(signUp) ? 
+          this.handleSignUp :
+          this.toggleSignUp.bind(this)
+        }
       />
     ];
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <AppBar title="Ambitually"></AppBar>
+          <AppBar title='Ambitually'></AppBar>
           <Dialog
-            overlayClassName="hidden"
-            open={this.state.open}
-            title="Welcome!"
+            overlayClassName='hidden'
+            open={this.state.loginIsOpen}
+            title='Welcome!'
             actions={standardActions}
-            onRequestClose={this.handleRequestClose}
+            modal={true}
           >
             <TextField 
+              onChange={this.handleChange.bind(this,'email')}
               fullWidth={true}
-              hintText="email" /><br/>
+              hintText='email' />
+            {signUpField}
             <TextField
+              onChange={this.handleChange.bind(this,'password')}
               fullWidth={true}
-              hintText="password" /><br/>
+              hintText='password'
+              type='password'
+             />
           </Dialog>
+
+
+
         </div>
       </MuiThemeProvider>
     );

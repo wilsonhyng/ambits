@@ -17,6 +17,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "crypto": "0.0.3",
     "ejs": "^2.5.5",
@@ -52,10 +53,7 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
-    "chai": "^3.5.0",
     "longjohn": "^0.2.11",
-    "mocha": "^3.2.0",
-    "supertest": "^2.0.1",
     "webpack-dev-server": "^1.16.2"
   }
 }
