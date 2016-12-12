@@ -5,7 +5,6 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
 
-
 const checkinStyle = {
   color: 'white',
   backgroundColor:'red',
@@ -17,7 +16,6 @@ const statsStyle = {
   color: 'white',
   backgroundColor:'red',
 };
-
 
 class Ambit extends React.Component {
   constructor(props) {
@@ -64,8 +62,6 @@ Ambit.propTypes = {
 };
 
 export default Ambit;
-
-
 
 
 

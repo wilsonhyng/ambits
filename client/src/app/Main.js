@@ -31,7 +31,7 @@ class Main extends Component {
     super(props, context);
   }
   render() {
-    return (
+   return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <AppBar title='Ambitually'></AppBar>

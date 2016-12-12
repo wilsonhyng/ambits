@@ -15,7 +15,6 @@ AmbitList.propTypes = {
   handleCheckinAmbit: React.PropTypes.func.isRequired
 };
 
-// const AmbitList = ()=> (<h2>testing</h2>);
 export default AmbitList;  
 
 

@@ -60,7 +60,7 @@ export const getAllAmbits = function(callback) {
 };
 
 
-export const checkinAmbit = function(ambit, callback) {
+export const checkinAmbit = function(ambit, successCb,errorCb) {
   //get current location
   if (navigator.geolocation) {
   /* geolocation is available */
@@ -69,11 +69,12 @@ export const checkinAmbit = function(ambit, callback) {
     var coordinates = position.coords;
     if(validateLocation(ambit.location, coordinates)) {
       console.log('valid');
-      callback();
+      successCb();
     } else {
       //inform user that it is not a valid checkin attempt
-      console.log('No cheating!!!');
-    }
+      //cheating
+      errorCb();
+    } 
   }, function(err) {
     throw err;
   }, {timeout: 10000});
