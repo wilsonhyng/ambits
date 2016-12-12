@@ -102,6 +102,7 @@ class Login extends Component {
 
     return (
           <Dialog
+            autoDetectWindowHeight={false}
             overlayClassName='hidden'
             open={this.state.loginIsOpen}
             title='Welcome!'
