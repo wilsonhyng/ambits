@@ -42,7 +42,7 @@ const config = {
   module: {
     loaders: [
       {
-        test: /\.js$/, // All .js files
+        test: /\.jsx?$/, // All .js files
         loaders: ['babel-loader'],
         exclude: [nodeModulesPath],
       },
