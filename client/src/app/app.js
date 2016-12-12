@@ -6,7 +6,7 @@ import CheckinContainer from './checkin/components/checkinContainer.jsx';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Main from './Main'; // Our custom react components
-
+import Map from './map/map.jsx';
 import Create from './createAmbit/createAmbit.jsx';
 
 // Needed for onTouchTap
@@ -66,7 +66,7 @@ render(
   <Router history={browserHistory}>
     <Route component={Main}>
       <Route path='/' component={CheckinContainer}/>
-      <Route path='/create' component={Create}/>
+      <Route path='/map' component={Map}/>
     </Route>
   </Router>,
   document.getElementById('app'));

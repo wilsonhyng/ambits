@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
 import loadGoogleMapsAPI from 'load-google-maps-api';
+import RaisedButton from 'material-ui/RaisedButton';
+import {Link} from 'react-router';
+
+const actionStyle = {
+  color: 'white',
+  backgroundColor:'orange',
+  'margin-top': '2px'
+};
+
+
 
 class Map extends Component {
   constructor(props, context) {
@@ -46,7 +56,15 @@ class Map extends Component {
 
   render() {
     return (
-      <div id="map"></div>
+      <div>
+        <div id="map"> </div>
+          <RaisedButton 
+          // onTouchTap={this.handleCreateAmbit} 
+          buttonStyle={actionStyle}
+          containerElement={<Link to='/schedule'/>}
+          fullWidth = {true}
+          >Schedule This Location</RaisedButton>
+      </div>
     )
   }
 }

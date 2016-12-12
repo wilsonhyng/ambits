@@ -6,6 +6,9 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CircularProgress from'material-ui/CircularProgress';
 import Snackbar from 'material-ui/Snackbar';
+import {Router, Route, Link} from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
+//import Controls from './controls.jsx';
 
 
 //styling
@@ -14,6 +17,13 @@ const muiTheme = getMuiTheme({
     accent1Color: deepOrange500,
   },
 });
+
+const createStyle = {
+  color: 'white',
+  backgroundColor:'orange',
+  'margin-top': '6px'
+};
+
 
 const spinnerStyle  = {
   position: 'fixed',
@@ -44,7 +54,7 @@ export default class CheckinContainer extends React.Component {
         message: userFeedback.default
       }
     };
-    this.handleCheckinAmbit = this.handleCheckinAmbit.bind(this);
+    this.handleCheckinAmbit = this.handleCheckinAmbit.bind(this);   
   }
   componentDidMount() {
     Utils.getAllAmbits((data, error) => {
@@ -54,11 +64,6 @@ export default class CheckinContainer extends React.Component {
         this.setState({ambits: data});
       }
     });
-  }
-
-  handleCreateAmbit(event) {
-
-    event.preventDefault();
   }
 
   getAmbits() {
@@ -99,6 +104,14 @@ export default class CheckinContainer extends React.Component {
           <div>
             <AmbitList ambits={this.state.ambits} 
             handleCheckinAmbit={this.handleCheckinAmbit}/>
+            
+            <RaisedButton 
+            // onTouchTap={this.handleCreateAmbit} 
+            buttonStyle={createStyle}
+            containerElement={<Link to='/map'/>}
+            fullWidth = {true}
+            >Create Ambit</RaisedButton>
+            
             <Snackbar
             open={this.state.feedback.open}
             message={this.state.feedback.message}
@@ -116,3 +129,5 @@ export default class CheckinContainer extends React.Component {
     }
   }
 };
+
+// /<Controls handleCreateAmbit={this.handleCreateAmbit}/>

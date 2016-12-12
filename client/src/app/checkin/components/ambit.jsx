@@ -4,6 +4,7 @@ import Paper from 'material-ui/Paper';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
+import {Link} from 'react-router';
 
 const notCheckedStyle = {
   color: 'white', //TODO: not working colors... 
@@ -49,7 +50,7 @@ class Ambit extends React.Component {
             style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
           />
           <FlatButton
-            label="Stats" //send to the stats page of the ambit.
+            label={<Link to='/display' style={{color:'white', 'text-decoration':'none'}}>Stats</Link>}//send to the stats page of the ambit.
             style={statsStyle}
           />
         </CardActions> 

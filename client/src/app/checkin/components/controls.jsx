@@ -1,7 +1,13 @@
+import FlatButton from 'material-ui/FlatButton';
 
-const Controls = (props) => {
-  return (
-   <button onClick={}>Create</button>
-   <button onClick={}>Schedule</button>
-    );
+//mid page
+const style = {
+  color: 'white',
+  backgroundColor:'orange',
 };
+
+export default const Controls = (props) => {
+  return (<div>
+   <FlatButton onTouchTap={props.handleCreateAmbit}>Create Ambit</FlatButton>
+    </div>);
+};  
