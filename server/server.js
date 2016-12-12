@@ -45,14 +45,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(bodyParser.json());
 
-if (process.env.NODE_ENV !== 'production') {
-  const staticPath = path.resolve(__dirname, '../client/src/www');
-} else {
-  const staticPath = path.resolve(__dirname, '../client/dist');
-}
+
+
+const staticPath =  (process.env.NODE_ENV === 'production') ?
+  path.resolve(__dirname, '../client/dist') :
+  path.resolve(__dirname, '../client/src/www');
+
 
 app.use(express.static(staticPath));
-app.set('views',deployPath);
+app.set('views',staticPath);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
