@@ -2,6 +2,7 @@ import React from 'react';
 import * as Utils from '../../utils/utils.js';
 import AmbitList from './ambitList.jsx';
 
+
 export default class CheckinContainer extends React.Component {
   constructor(props) {
     super(props); 
@@ -12,7 +13,8 @@ export default class CheckinContainer extends React.Component {
           latitude: '37.780',
           longitude: '-122.406'
         },
-        checkedIn: false
+        checkedIn: false,
+        frequency: "Daily"
       }]
     };
     this.handleCheckinAmbit = this.handleCheckinAmbit.bind(this); 
@@ -41,11 +43,10 @@ export default class CheckinContainer extends React.Component {
 
   render() {
     return (
-    <div>
-      <h1>Checkin Container </h1>
-      <AmbitList ambits={this.state.ambits} 
-      handleCheckinAmbit={this.handleCheckinAmbit}/>
-    </div>
+      <div >
+        <AmbitList ambits={this.state.ambits} 
+        handleCheckinAmbit={this.handleCheckinAmbit}/>
+      </div>
     );
   }
 };
