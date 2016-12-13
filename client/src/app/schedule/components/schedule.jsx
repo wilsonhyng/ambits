@@ -8,6 +8,8 @@ import SelectTime from './selectTime.jsx';
 import SelectFrequency from './selectFrequency.jsx';
 import Divider from 'material-ui/Divider';
 import * as Utils from '../../utils/utils.js';
+import {Coords} from '../../map/map.jsx';
+
 
 export default class ScheduleContainer extends React.Component {
   constructor (props) {
@@ -16,8 +18,8 @@ export default class ScheduleContainer extends React.Component {
     this.state = {
       name: '',
       coords:{
-        latitude:0,
-        longitude:0,
+        latitude: Coords.latitude,
+        longitude:Coords.longitude
       },
       // frequency:'',
       weekdays: [false, false, false, false, false, false, false],
@@ -26,7 +28,7 @@ export default class ScheduleContainer extends React.Component {
       startTime:null,
       checkIns:[]
     };
-
+    
     this.onNameInput = this.onNameInput.bind(this);
     this.onStartDateSet = this.onStartDateSet.bind(this);
     this.onSelectTime = this.onSelectTime.bind(this);
@@ -71,10 +73,10 @@ export default class ScheduleContainer extends React.Component {
   onScheduleAmbit() {
     var ambitState = this.state;
     console.log(ambitState);
-    Utils.postAmbit(ambitState, function() {
-      console.log('posted!')
-    })
 
+    Utils.postAmbit(ambitState, function() {
+      console.log('posted!');
+    });
   }
 
   // onDropDownSelect(event, index, value) {

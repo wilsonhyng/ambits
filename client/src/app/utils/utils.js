@@ -28,6 +28,7 @@ var validateLocation = function (current, checkin) {
   }
 };
 
+//calculate ambit frequency and process for display
 const daysOftheWeek = function(boolArr) {
   var days = {
     0:'Su',
@@ -107,7 +108,7 @@ export const getAllAmbits = function(callback) {
     url: url + '/ambits',
     contentType: 'application/json',
   }).then(function(response) {
-    //testing
+    //testing comment out 
     response.data.push( {
         refId: 1234,
         name: 'Gym',
