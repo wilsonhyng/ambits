@@ -58,29 +58,5 @@ const SelectDays = (props) => (
   </div>
 );
 
-    // <Checkbox
-    //   label="Wednesday"
-    //   style={styles.checkbox}
-    //   onCheck={props.onSelectDaysInput.bind(this, 3)}
-    // />
-
-    // <Checkbox
-    //   label="Thursday"
-    //   style={styles.checkbox}
-    //   onCheck={props.onSelectDaysInput.bind(this, 4)}
-    // />
-
-    // <Checkbox
-    //   label="Friday"
-    //   style={styles.checkbox}
-    //   onCheck={props.onSelectDaysInput.bind(this, 5)}
-    // />
-
-    // <Checkbox
-    //   label="Saturday"
-    //   style={styles.checkbox}
-    //   onCheck={props.onSelectDaysInput.bind(this, 6)}
-    // />
-
 
 export default SelectDays;

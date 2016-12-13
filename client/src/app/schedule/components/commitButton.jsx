@@ -8,7 +8,7 @@ const style = {
 const CommitButton = (props) => (
   <div>
     <RaisedButton
-    label="Schedule It!"
+    label="SCHEDULE"
     style={style}
     onTouchTap= {props.onScheduleAmbit
     } // create ambit using date, name etc from current state

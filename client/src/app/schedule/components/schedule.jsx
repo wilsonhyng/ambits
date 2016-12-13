@@ -1,12 +1,12 @@
 import React from 'react';
-// import DropDownMenu from 'material-ui/DropDownMenu';
-// import MenuItem from 'material-ui/MenuItem';
 import DropDownList from './dropdown.jsx';
 import CommitButton from './commitButton.jsx';
 import StartDate from './startDate.jsx';
 import SelectDays from './selectDays.jsx';
 import AmbitNameInput from './ambitNameInput.jsx';
 import SelectTime from './selectTime.jsx';
+import SelectFrequency from './selectFrequency.jsx';
+import Divider from 'material-ui/Divider';
 import * as Utils from '../../utils/utils.js';
 
 export default class ScheduleContainer extends React.Component {
@@ -19,8 +19,11 @@ export default class ScheduleContainer extends React.Component {
         latitude:0,
         longitude:0,
       },
-      weekdays: [false, false, false, false, false, false, false],//[Su,M,T,w,Th,F,Sa]
+      // frequency:'',
+      weekdays: [false, false, false, false, false, false, false],
+      //[Su,M,T,w,Th,F,Sa]
       startDate: null,
+      startTime:null,
       checkIns:[]
     };
 
@@ -28,6 +31,8 @@ export default class ScheduleContainer extends React.Component {
     this.onStartDateSet = this.onStartDateSet.bind(this);
     this.onSelectTime = this.onSelectTime.bind(this);
     this.onScheduleAmbit = this.onScheduleAmbit.bind(this);
+    // this.onFrequencyChange = this.onFrequencyChange.bind(this);
+    // this.onDropDownSelect = this.onDropDownSelect.bind(this);
     this.onSelectDays = {
       onSelectDaysInputSunday: this.onSelectDaysInputSunday.bind(this),
       onSelectDaysInputMonday: this.onSelectDaysInputMonday.bind(this),
@@ -46,14 +51,21 @@ export default class ScheduleContainer extends React.Component {
       });
   }
 
+// Need to reformat date object to not include current time before passing into database
   onStartDateSet(event, date) {
     this.setState({
-      startDate: date //iso date TODO
+      startDate: date
     });
+    console.log(this.state);
   }
 
+
+// Need to reformat time object to not include current date before passing into database
   onSelectTime(event, time) {
-    console.log(time);
+    // this.setState({
+    //   startTime:time
+    // });
+    // console.log(this.state);
   }
 
   onScheduleAmbit() {
@@ -62,7 +74,17 @@ export default class ScheduleContainer extends React.Component {
     Utils.postAmbit(ambitState, function() {
       console.log('posted!')
     })
+
   }
+
+  // onDropDownSelect(event, index, value) {
+  //   this.setState({
+  //     dropdownValue: value
+  //   });
+  //   console.log(this.state.dropdownValue)
+  // }
+
+
 // this function was meant to take in the day index and the checked boolean, however 'this' being bound in the SelectDays module is causing issues with accessing this.state.
 //////////////////////////////////////////////////
     // onSelectDaysInput(day, event, checked) {
@@ -125,12 +147,6 @@ onSelectDaysInputSaturday(event, checked) {
 }
 //////////////////////////////////////////////////
 
-  // onDropDownSelect(eventObj, selectedItemKey, selectedItemPayload) {
-  //   this.setState({
-  //     dropdownValue: selectedItemPayload
-  //   });
-  //   console.log(selectedItemPayload, 'dropdownvalue select');
-  // }
 
   render() {
     return (
@@ -147,15 +163,10 @@ onSelectDaysInputSaturday(event, checked) {
             startDate={this.state.startDate}/>
         </div>
         <div>
-          <DropDownList
-            onDropDownSelect={this.onDropDownSelect}
-            dropdownValue={this.state.sdropdownValue}
-            handleDropDownChange={this.state.handleDropDownChange}/>
-        </div>
-        <div>
         <SelectTime
             onSelectTime={this.onSelectTime}/>
         </div>
+        <Divider />
         <div>
         <SelectDays
             onSelectDays={this.onSelectDays}

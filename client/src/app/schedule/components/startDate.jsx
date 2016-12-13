@@ -7,6 +7,9 @@ const StartDate = (props) => (
     hintText="Select Ambit Start Date"
     value = {props.startDate}
     onChange= {props.onStartDateSet}
+    autoOk= {true}
+    locale="en-US"
+    firstDayOfWeek={0}
     />
   </div>
 );
