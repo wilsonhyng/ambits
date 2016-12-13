@@ -15,7 +15,10 @@ export default class ScheduleContainer extends React.Component {
 
     this.state = {
       name: '',
-      dropdownValue: 'Weekly',
+      coords:{
+        latitude:0,
+        longitude:0,
+      },
       weekdays: [false, false, false, false, false, false, false],//[Su,M,T,w,Th,F,Sa]
       startDate: null,
       checkIns:[]
@@ -24,6 +27,7 @@ export default class ScheduleContainer extends React.Component {
     this.onNameInput = this.onNameInput.bind(this);
     this.onStartDateSet = this.onStartDateSet.bind(this);
     this.onSelectTime = this.onSelectTime.bind(this);
+    this.onScheduleAmbit = this.onScheduleAmbit.bind(this);
     this.onSelectDays = {
       onSelectDaysInputSunday: this.onSelectDaysInputSunday.bind(this),
       onSelectDaysInputMonday: this.onSelectDaysInputMonday.bind(this),
@@ -32,7 +36,7 @@ export default class ScheduleContainer extends React.Component {
       onSelectDaysInputThursday: this.onSelectDaysInputThursday.bind(this),
       onSelectDaysInputFriday: this.onSelectDaysInputFriday.bind(this),
       onSelectDaysInputSaturday: this.onSelectDaysInputSaturday.bind(this),
-    }
+    };
   }
 
 
@@ -44,7 +48,7 @@ export default class ScheduleContainer extends React.Component {
 
   onStartDateSet(event, date) {
     this.setState({
-      startDate: date
+      startDate: date //iso date TODO
     });
   }
 
@@ -54,8 +58,8 @@ export default class ScheduleContainer extends React.Component {
 
   onScheduleAmbit() {
     var ambitState = this.state;
-    console.log(this.state)
-    Utils.postAmbit(this.state, function() {
+    console.log(ambitState);
+    Utils.postAmbit(ambitState, function() {
       console.log('posted!')
     })
   }
