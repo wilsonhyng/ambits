@@ -10,7 +10,7 @@ const config = {
     // 'webpack-hot-middleware/client',
     // 'webpack/hot/dev-server',
     // 'webpack/hot/only-dev-server',
-    path.join(__dirname, '/client/src/app/app.js'),
+    path.join(__dirname, '/client/src/app/app.jsx'),
   ],
   // Server Configuration options
   devServer: {
