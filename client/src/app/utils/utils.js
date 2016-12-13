@@ -118,6 +118,17 @@ export const getAllAmbits = function(callback) {
         startDate:'2016-12-12',
         checkIns:[]
         });
+    response.data.push( {
+        refId: 1234,
+        name: 'Work at WeWork',
+        coords: {
+          latitude: 37.784,
+          longitude: -122.40903
+        },
+        weekdays:[true,true,true,true,true,true,true],
+        startDate:'2016-12-12',
+        checkIns:[]
+        });
     callback(decorateAmbits(response.data));
   }).catch(function(error){
     throw error;
