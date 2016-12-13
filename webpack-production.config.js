@@ -9,7 +9,7 @@ const APP_DIR = path.resolve(__dirname,'client/src/app');
 
 module.exports = {
   devtool: 'source-map',
-  entry: APP_DIR + '/app.js',
+  entry: APP_DIR + '/app.jsx',
   output: {
     path: BUILD_DIR,
     filename: 'app.js',

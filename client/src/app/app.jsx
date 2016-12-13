@@ -29,10 +29,10 @@ render(
   <Router history={browserHistory}>
     <Route component={Main}>
 
-      <Route path='/' component={CheckinContainer}/>
+      <Route path='/'         component={CheckinContainer}/>
       <Route path='/schedule' component={Schedule}/>
-      <Route path='/map' component={Map}/>
-      <Route path='/display' component={Display}/>
+      <Route path='/map'      component={Map}/>
+      <Route path='/display'  component={Display}/>
     </Route>
   </Router>,
   document.getElementById('app'));
