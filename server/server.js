@@ -68,6 +68,11 @@ app.post('/ambits/:id', ambitHelper.saveCheckIn);
 app.post('/register', ctrlAuth.register);
 app.post('/login', ctrlAuth.login);
 
+//prevents a "cannot GET" error on page reload by redirecting to main page
+app.get('*', function (req, res) {
+    res.redirect('/');
+});
+
 // DB testing paths; remove when endpoints are built
 app.get('/db_post', function(req, res, next) {
   var elapsed = Math.floor(Math.random()*100000);
