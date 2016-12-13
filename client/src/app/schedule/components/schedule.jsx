@@ -53,8 +53,10 @@ export default class ScheduleContainer extends React.Component {
   }
 
   onScheduleAmbit() {
+    var ambitState = this.state;
+    console.log(this.state)
     Utils.postAmbit(this.state, function() {
-      console.log('click!')
+      console.log('posted!')
     })
   }
 // this function was meant to take in the day index and the checked boolean, however 'this' being bound in the SelectDays module is causing issues with accessing this.state.
