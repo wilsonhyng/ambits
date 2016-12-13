@@ -17,7 +17,6 @@ import Map              from './map/map.jsx';
 import Display          from './displayAmbit/displayAmbit.jsx';
 
 
-
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
