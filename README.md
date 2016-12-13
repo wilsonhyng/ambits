@@ -13,9 +13,10 @@ Mobile-first web application for habit tracking and location-based accountabilit
 
 ## Team
   - __Greenfield__: Efe Surekli, George Michel, Robert Littlejohn, Ryan Choi
-  - __Brownfield__:
-  -- Team 1 TBD
-    -- Team 2 TBD
+  - __Legacy__: 
+  -- Product Owner: Wilson Ng 
+  -- Scrum Master: Joe Denea
+  -- Awesome Team: Vy Trinh, Yoshi Oritatsu
 
 ## Usage
 
