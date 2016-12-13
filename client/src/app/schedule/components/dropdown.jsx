@@ -8,7 +8,7 @@ const dropDownStyles = {
   },
 };
 
-const DropdownList = (props) => {
+const DropDownList = (props) => {
   return (
     <div className="dropdown">
     <DropDownMenu
@@ -27,4 +27,4 @@ const DropdownList = (props) => {
 };
 
 
-export default DropdownList;
+export default DropDownList;
