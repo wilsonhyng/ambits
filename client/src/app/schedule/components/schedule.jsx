@@ -14,10 +14,11 @@ export default class ScheduleContainer extends React.Component {
     super(props);
 
     this.state = {
+      name: '',
       dropdownValue: 'Weekly',
-      startDateValue: null,
-      selectDaysValue: [false, false, false, false, false, false, false], //[Su,M,T,w,Th,F,Sa]
-      ambitNameValue: ''
+      weekdays: [false, false, false, false, false, false, false],//[Su,M,T,w,Th,F,Sa]
+      startDate: null,
+      checkIns:[]
     };
 
     this.onNameInput = this.onNameInput.bind(this);
@@ -35,33 +36,37 @@ export default class ScheduleContainer extends React.Component {
   }
 
 
-  onNameInput(nameInputEvent) {
-    if (nameInputEvent.keyCode === 13) {
+  onNameInput(nameInput) {
       this.setState({
-        ambitNameValue: nameInputEvent.target.value
+        name: nameInput.target.value
       });
-    }
   }
 
   onStartDateSet(event, date) {
     this.setState({
-      startDateValue: date
+      startDate: date
     });
   }
 
   onSelectTime(event, time) {
     console.log(time);
   }
+
+  onScheduleAmbit() {
+    Utils.postAmbit(this.state, function() {
+      console.log('click!')
+    })
+  }
 // this function was meant to take in the day index and the checked boolean, however 'this' being bound in the SelectDays module is causing issues with accessing this.state.
 //////////////////////////////////////////////////
     // onSelectDaysInput(day, event, checked) {
 
       // var currentState = this.state;
-      // currentState.selectDaysValue[day] = checked;
+      // currentState.weekdays[day] = checked;
       // console.log(day, checked);
       // this.setState(currentState);
       // this.setState({
-      //   startDateValue[day] = checked
+      //   startDate[day] = checked
       // })
       // ;
     // }
@@ -73,43 +78,43 @@ export default class ScheduleContainer extends React.Component {
 //////////////////////////////////////////////////
 onSelectDaysInputSunday(event, checked) {
   var currentState = this.state;
-  currentState.selectDaysValue[0] = checked;
+  currentState.weekdays[0] = checked;
   this.setState(currentState);
 }
 
 onSelectDaysInputMonday(event, checked) {
   var currentState = this.state;
-  currentState.selectDaysValue[1] = checked;
+  currentState.weekdays[1] = checked;
   this.setState(currentState)
 }
 
 onSelectDaysInputTuesday(event, checked) {
   var currentState = this.state;
-  currentState.selectDaysValue[2] = checked;
+  currentState.weekdays[2] = checked;
   this.setState(currentState);
 }
 
 onSelectDaysInputWednesday(event, checked) {
   var currentState = this.state;
-  currentState.selectDaysValue[3] = checked;
+  currentState.weekdays[3] = checked;
   this.setState(currentState)
 }
 
 onSelectDaysInputThursday(event, checked) {
   var currentState = this.state;
-  currentState.selectDaysValue[4] = checked;
+  currentState.weekdays[4] = checked;
   this.setState(currentState)
 }
 
 onSelectDaysInputFriday(event, checked) {
   var currentState = this.state;
-  currentState.selectDaysValue[5] = checked;
+  currentState.weekdays[5] = checked;
   this.setState(currentState)
 }
 
 onSelectDaysInputSaturday(event, checked) {
   var currentState = this.state;
-  currentState.selectDaysValue[6] = checked;
+  currentState.weekdays[6] = checked;
   this.setState(currentState)
 }
 //////////////////////////////////////////////////
@@ -127,13 +132,13 @@ onSelectDaysInputSaturday(event, checked) {
         <div>
           <AmbitNameInput
             onNameInput={this.onNameInput}
-            ambitNameValue={this.state.ambitNameValue}
+            name={this.state.name}
             />
         </div>
         <div>
           <StartDate
             onStartDateSet={this.onStartDateSet}
-            startDateValue={this.state.startDateValue}/>
+            startDate={this.state.startDate}/>
         </div>
         <div>
           <DropDownList
@@ -148,10 +153,12 @@ onSelectDaysInputSaturday(event, checked) {
         <div>
         <SelectDays
             onSelectDays={this.onSelectDays}
-            selectDaysValue={this.state.selectDaysValue}/>
+            weekdays={this.state.weekdays}/>
         </div>
         <div>
-          <CommitButton currentState = {this.state}/>
+          <CommitButton
+            currentState = {this.state}
+            onScheduleAmbit = {this.onScheduleAmbit}/>
         </div>
       </div>
     );
