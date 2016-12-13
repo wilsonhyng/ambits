@@ -12,7 +12,7 @@ class Login extends Component {
       username: '',
       email: '',
       password: '',
-      loginIsOpen: !loginCtrl.getJwt(),
+      loginIsOpen: true,
       isSigningUp: false,
       submitError: ''
     };
@@ -28,6 +28,9 @@ class Login extends Component {
       this.setState({
         loginIsOpen: false
       })
+      this.props.main.setState({
+        isLoggedIn: true
+      });
     })
     .catch(err => {
       const msg = err.response.data.message;
@@ -47,7 +50,10 @@ class Login extends Component {
     .then(res => {
       this.setState({
         loginIsOpen: false
-      })
+      });
+      this.props.main.setState({
+        isLoggedIn: true
+      });
     })
     .catch(err => {
       const msg = err.response.data.message;

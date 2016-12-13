@@ -12,6 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import Login from './login/login.jsx';
+import * as loginCtrl from './login/loginCtrl';
 
 const styles = {
   container: {
@@ -29,13 +30,37 @@ const muiTheme = getMuiTheme({
 class Main extends Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      isLoggedIn: !!loginCtrl.getJwt()
+    };
   }
+
+
+  handleLogout() {
+    loginCtrl.logout();
+    this.setState({
+      isLoggedIn: false
+    });
+  }
+
   render() {
-   return (
+    const logOutButton = this.state.isLoggedIn ? 
+      (<FlatButton label="Logout"
+        onTouchTap={this.handleLogout.bind(this)}
+       />
+      ) :
+      null;
+    const LoginModal = !this.state.isLoggedIn ?
+      (<Login main={this} />) :
+      null;
+    return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <AppBar title='Ambitually'></AppBar>
-          <Login startsOpen={true} />
+          <AppBar 
+            title='Ambitually'
+            iconElementRight={logOutButton}
+          />
+          {LoginModal}
           {this.props.children}
         </div>
       </MuiThemeProvider>
