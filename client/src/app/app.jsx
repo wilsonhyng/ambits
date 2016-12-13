@@ -9,7 +9,7 @@ import injectTapEventPlugin
                         from 'react-tap-event-plugin';
 
 // Routes
-import Main             from './Main'; // Our custom react components
+import Main             from './Main.jsx'; // Our custom react components
 
 import CheckinContainer from './checkin/components/checkinContainer.jsx';
 import Schedule         from './schedule/components/schedule.jsx'
