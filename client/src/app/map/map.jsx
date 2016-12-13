@@ -5,11 +5,19 @@ import {Link} from 'react-router';
 
 const actionStyle = {
   color: 'white',
-  backgroundColor:'orange',
-  'margin-top': '2px'
+  backgroundColor:'purple',
+  position: 'fixed',
+  top: '80%',
+  left: '50%',
+  height:'50px',
+  width:'240px',
+  transform: 'translate(-50%, -50%)'
 };
 
-
+const linkStyle = {
+  color:'white',
+  'text-decoration':'none'
+};
 
 class Map extends Component {
   constructor(props, context) {
@@ -57,13 +65,16 @@ class Map extends Component {
   render() {
     return (
       <div>
-        <div id="map"> </div>
-          <RaisedButton 
-          // onTouchTap={this.handleCreateAmbit} 
-          buttonStyle={actionStyle}
-          containerElement={<Link to='/schedule'/>}
-          fullWidth = {true}
-          >Schedule This Location</RaisedButton>
+        <div id="map"> 
+        </div>
+        <RaisedButton 
+        // onTouchTap={this.handleCreateAmbit} 
+        label ={<Link to='/schedule' style ={linkStyle} >Schedule for this Location</Link> }
+        buttonStyle={actionStyle}
+        primary = {true}
+        // containerElement={<Link to='/schedule'/>}
+        fullWidth={false}
+        ></RaisedButton>
       </div>
     )
   }

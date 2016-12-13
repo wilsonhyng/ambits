@@ -22,6 +22,15 @@ const statsStyle = {
   backgroundColor:'red',
 };
 
+const cardStyle = {
+  'margin': '10px'
+};
+
+const linkStyle = {
+  color:'white',
+  'text-decoration':'none'
+};
+
 class Ambit extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +40,7 @@ class Ambit extends React.Component {
 
   render () {
     return (
-      <Card>
+      <Card style={cardStyle}>
         <CardHeader
           title = {this.props.ambit.name}
           avatar = "http://www.19130fitness.com/wp-content/uploads/2015/07/crossfit-barbell.png"
@@ -50,7 +59,7 @@ class Ambit extends React.Component {
             style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
           />
           <FlatButton
-            label={<Link to='/display' style={{color:'white', 'text-decoration':'none'}}>Stats</Link>}//send to the stats page of the ambit.
+            label={<Link to='/display' style={linkStyle}>Stats</Link>}//send to the stats page of the ambit.
             style={statsStyle}
           />
         </CardActions> 

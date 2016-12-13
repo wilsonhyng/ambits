@@ -28,6 +28,7 @@ var validateLocation = function (current, checkin) {
   }
 };
 
+//calculate ambit frequency and process for display
 const daysOftheWeek = function(boolArr) {
   var days = {
     0:'Su',
