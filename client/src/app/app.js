@@ -1,16 +1,22 @@
-import React from 'react';
-import {render} from 'react-dom';
-import {Router, Route, Link, browserHistory} from 'react-router';
+// React
+import React            from 'react';
+import {render}         from 'react-dom';
+import {Router, Route, Link, browserHistory}
+                        from 'react-router';
 
-import Main from './Main'; // Our custom react components
-import Map from './map/map.jsx';
-import Schedule from './schedule/components/schedule.jsx'
+// Tap Event Plugin
+import injectTapEventPlugin
+                        from 'react-tap-event-plugin';
+
+// Routes
+import Main             from './Main'; // Our custom react components
+
 import CheckinContainer from './checkin/components/checkinContainer.jsx';
-// import DisplayAmbit from './displayAmbit/displayAmbit.jsx';
+import Schedule         from './schedule/components/schedule.jsx'
+import Map              from './map/map.jsx';
+import Display          from './displayAmbit/displayAmbit.jsx';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Display from './displayAmbit/displayAmbit.jsx';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
