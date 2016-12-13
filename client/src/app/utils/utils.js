@@ -108,7 +108,7 @@ export const getAllAmbits = function(callback) {
     url: url + '/ambits',
     contentType: 'application/json',
   }).then(function(response) {
-    //testing
+    //testing comment out 
     response.data.push( {
         refId: 1234,
         name: 'Gym',
