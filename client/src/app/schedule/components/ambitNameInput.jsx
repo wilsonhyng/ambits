@@ -1,5 +1,6 @@
-import React from 'react';
-import TextField from 'material-ui/TextField';
+import React            from 'react';
+import TextField        from 'material-ui/TextField';
+
 
 const AmbitNameInput = (props) => (
   <div>
@@ -10,5 +11,6 @@ const AmbitNameInput = (props) => (
     />
   </div>
 );
+
 
 export default AmbitNameInput;

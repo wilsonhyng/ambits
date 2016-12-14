@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import Dialog from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import * as loginCtrl from './loginCtrl';
+import React            from 'react';
+import {Component}      from 'react';
+import RaisedButton     from 'material-ui/RaisedButton';
+import FlatButton       from 'material-ui/FlatButton';
+import Dialog           from 'material-ui/Dialog';
+import TextField        from 'material-ui/TextField';
+import * as loginCtrl   from './loginCtrl';
+
 
 class Login extends Component {
   constructor(props, context) {
@@ -107,29 +109,30 @@ class Login extends Component {
     ];
 
     return (
-          <Dialog
-            autoDetectWindowHeight={false}
-            overlayClassName='hidden'
-            open={this.state.loginIsOpen}
-            title='Welcome!'
-            actions={standardActions}
-            modal={true}
-          >
-            <TextField 
-              onChange={this.handleChange.bind(this,'email')}
-              fullWidth={true}
-              hintText='email' />
-            {signUpField}
-            <TextField
-              onChange={this.handleChange.bind(this,'password')}
-              fullWidth={true}
-              hintText='password'
-              type='password'
-              errorText={this.state.submitError}
-             />
-          </Dialog>
+      <Dialog
+        autoDetectWindowHeight={false}
+        overlayClassName='hidden'
+        open={this.state.loginIsOpen}
+        title='Welcome!'
+        actions={standardActions}
+        modal={true}
+      >
+        <TextField 
+          onChange={this.handleChange.bind(this,'email')}
+          fullWidth={true}
+          hintText='email' />
+        {signUpField}
+        <TextField
+          onChange={this.handleChange.bind(this,'password')}
+          fullWidth={true}
+          hintText='password'
+          type='password'
+          errorText={this.state.submitError}
+         />
+      </Dialog>
     );
   }
 }
+
 
 export default Login;
