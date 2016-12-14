@@ -20,6 +20,8 @@ const fakeAmbit = {
         checkIns:[]
       };
 
+
+
 class AmbitWeekdays extends Component {
   constructor(props) {
     super(props);
