@@ -29,7 +29,7 @@ const cardStyle = {
 
 const linkStyle = {
   color:'white',
-  'text-decoration':'none'
+  'textDecoration':'none'
 };
 
 

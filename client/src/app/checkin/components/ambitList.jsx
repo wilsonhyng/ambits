@@ -5,8 +5,8 @@ import Ambit from './ambit.jsx';
 const AmbitList = (props) => {
   return (<div className='ambitList'> 
   {
-    props.ambits.map(item => 
-      (<Ambit ambit={item} handleCheckinAmbit={props.handleCheckinAmbit}/>))
+    props.ambits.map((item, index) => 
+      (<Ambit ambit={item} handleCheckinAmbit={props.handleCheckinAmbit} key={index}/>))
   }
   </div>);
 }
