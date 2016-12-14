@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
-import loadGoogleMapsAPI from 'load-google-maps-api';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Link} from 'react-router';
+import React            from 'react';
+import {Component}      from 'react';
+import loadGoogleMapsAPI
+                        from 'load-google-maps-api';
+import RaisedButton     from 'material-ui/RaisedButton';
+import {Link}           from 'react-router';
 
 const actionStyle = {
   color: 'white',
