@@ -24,6 +24,7 @@ var Coords = {
   longitude: 0
 };
 
+
 class Map extends Component {
   constructor(props, context) {
     super(props, context);
@@ -94,7 +95,6 @@ class Map extends Component {
   }
 }
 
+
 export { Coords }; //there is single-entry point to schedule and it is through maps.
 export default Map;
-
-

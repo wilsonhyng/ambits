@@ -1,5 +1,6 @@
-import React from 'react';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import React            from 'react';
+import {RadioButton, RadioButtonGroup}
+                        from 'material-ui/RadioButton';
 
 const styles = {
   block: {
@@ -9,6 +10,7 @@ const styles = {
     marginBottom: 16,
   },
 };
+
 
 const SelectFrequency = (props) => (
   <div>
@@ -34,5 +36,6 @@ const SelectFrequency = (props) => (
     </RadioButtonGroup>
   </div>
 );
+
 
 export default SelectFrequency;

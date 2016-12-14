@@ -34,4 +34,5 @@ render(
       <Route path='/display'  component={Display}/>
     </Route>
   </Router>,
-  document.getElementById('app'));
+  document.getElementById('app')
+);

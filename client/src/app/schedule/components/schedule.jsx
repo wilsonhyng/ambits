@@ -1,14 +1,14 @@
-import React from 'react';
-import DropDownList from './dropdown.jsx';
-import CommitButton from './commitButton.jsx';
-import StartDate from './startDate.jsx';
-import SelectDays from './selectDays.jsx';
-import AmbitNameInput from './ambitNameInput.jsx';
-import SelectTime from './selectTime.jsx';
-import SelectFrequency from './selectFrequency.jsx';
-import Divider from 'material-ui/Divider';
-import * as Utils from '../../utils/utils.js';
-import {Coords} from '../../map/map.jsx';
+import React            from 'react';
+import DropDownList     from './dropdown.jsx';
+import CommitButton     from './commitButton.jsx';
+import StartDate        from './startDate.jsx';
+import SelectDays       from './selectDays.jsx';
+import AmbitNameInput   from './ambitNameInput.jsx';
+import SelectTime       from './selectTime.jsx';
+import SelectFrequency  from './selectFrequency.jsx';
+import Divider          from 'material-ui/Divider';
+import * as Utils       from '../../utils/utils.js';
+import {Coords}         from '../../map/map.jsx';
 
 
 export default class ScheduleContainer extends React.Component {

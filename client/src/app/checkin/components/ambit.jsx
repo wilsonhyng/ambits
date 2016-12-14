@@ -32,6 +32,7 @@ const linkStyle = {
   'text-decoration':'none'
 };
 
+
 class Ambit extends React.Component {
   constructor(props) {
     super(props);
@@ -75,14 +76,5 @@ Ambit.propTypes = {
   handleCheckinAmbit: React.PropTypes.func.isRequired
 };
 
+
 export default Ambit;
-
-
-
-
-
-
-
-
-
-
