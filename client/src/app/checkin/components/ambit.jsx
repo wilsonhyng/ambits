@@ -1,10 +1,11 @@
-import React from 'react';
-import Checkbox from 'material-ui/Checkbox';
-import Paper from 'material-ui/Paper';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import Snackbar from 'material-ui/Snackbar';
-import {Link} from 'react-router';
+import React            from 'react';
+import Checkbox         from 'material-ui/Checkbox';
+import Paper            from 'material-ui/Paper';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText}
+                        from 'material-ui/Card';
+import FlatButton       from 'material-ui/FlatButton';
+import Snackbar         from 'material-ui/Snackbar';
+import {Link}           from 'react-router';
 
 const notCheckedStyle = {
   color: 'white', //TODO: not working colors... 

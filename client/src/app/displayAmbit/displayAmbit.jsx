@@ -1,7 +1,7 @@
-import React from 'react';
+import React            from 'react';
 
 import {List, ListItem} from 'material-ui/List';
-import * as Utils from '../utils/utils.js';
+import * as Utils       from '../utils/utils.js';
 
 export default class displayAmbit extends React.Component {
   constructor(props) {

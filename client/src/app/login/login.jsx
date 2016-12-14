@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import Dialog from 'material-ui/Dialog';
-import TextField from 'material-ui/TextField';
-import * as loginCtrl from './loginCtrl';
+import React            from 'react';
+import {Component}      from 'react';
+import RaisedButton     from 'material-ui/RaisedButton';
+import FlatButton       from 'material-ui/FlatButton';
+import Dialog           from 'material-ui/Dialog';
+import TextField        from 'material-ui/TextField';
+import * as loginCtrl   from './loginCtrl';
 
 class Login extends Component {
   constructor(props, context) {

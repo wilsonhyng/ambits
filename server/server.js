@@ -1,10 +1,12 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+var express     = require('express');
+var app         = express();
+
+var path        = require('path');
+var bodyParser  = require('body-parser');
+var passport    = require('passport');
+var mongoose    = require('mongoose');
+
 var ambitHelper = require('./ambitData/ambitHelper.js');
-var path = require('path');
-var app = express();
-var mongoose = require('mongoose');
-var passport = require('passport');
 
 // To use on Heroku, set the environment variable:
 // $ heroku set:config MONGOLAB_URL=mongodb://user:password@mongolabstuff
@@ -12,7 +14,7 @@ var db = (process.env.MONGOLAB_URL || 'mongodb://localhost/ambits');
 mongoose.connect(db);
 
 var Ambit = require('./ambitData/ambitSchema');
-var User = require('./users/userModel');
+var User  = require('./users/userModel');
 
 // if (process.env.NODE_ENV !== 'production') {
 //   require('longjohn');
@@ -47,9 +49,9 @@ app.use(bodyParser.json());
 
 
 
-const staticPath =  (process.env.NODE_ENV === 'production') ?
-  path.resolve(__dirname, '../client/dist') :
-  path.resolve(__dirname, '../client/src/www');
+const staticPath = (process.env.NODE_ENV === 'production') ?
+                    path.resolve(__dirname, '../client/dist') :
+                    path.resolve(__dirname, '../client/src/www');
 
 
 app.use(express.static(staticPath));
