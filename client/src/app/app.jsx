@@ -38,7 +38,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route component={Main}>
-        <Route path='/'         component={Week}/>
+        <Route path='/'         component={Day}/>
         <Route path='/ambit'    component={Ambit}/>
         <Route path='/week'     component={Week}/>
         <Route path='/schedule' component={Schedule}/>
