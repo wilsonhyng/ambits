@@ -25,9 +25,25 @@ class AmbitWeekdays extends Component {
   constructor(props) {
     super(props);
     this.state ={
-      weekdays: [true,true,false,true,true,false,false]
+      checkIns: this.props.ambit.checkIns,
+      coords: this.props.ambit.coords,
+      name:  this.props.ambit.name,
+      refId:  this.props.ambit.refId,
+      startDate: this.props.ambit.startDate,
+      weekdays:  this.props.ambit.weekdays, 
     }
   }
+
+  // getInitialState: function() {
+  //  return {
+  //   checkIns: this.props.ambit.checkIns,
+  //   coords: this.props.ambit.coords,
+  //   name:  this.props.ambit.name,
+  //   refId:  this.props.ambit.refId,
+  //   startDate: this.props.ambit.startDate,
+  //   weekdays:  this.props.ambit.weekdays, 
+  //  }
+  // }
   
   render() {
 
