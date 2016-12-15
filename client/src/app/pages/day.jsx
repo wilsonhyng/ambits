@@ -84,6 +84,7 @@ class Day extends Component {
     //validate checkin:
     Utils.checkinAmbit(ambit, () => {
       //if valid update the state
+      ambit.checkedIn = true;
       this.props.dispatch(updateAmbit(ambit))
       this.setState({
         loading:  false,
@@ -95,7 +96,13 @@ class Day extends Component {
       });
     }, ()=>{
       //you can't cheat message:
-      this.setState({loading:false, feedback: { open: true, message:userFeedback.cheat}});
+      this.setState({
+        loading: false,
+        feedback: {
+          open: true,
+          message:userFeedback.cheat
+        }
+      });
     });
   }
 
@@ -134,10 +141,12 @@ class Day extends Component {
   }
 };
 
+
 const mapStateToProps = (state) => ({
   ambits: state.ambits
 });
 
 Day = connect(mapStateToProps)(Day);
+
 
 export default Day;
