@@ -10,37 +10,31 @@ import {Link}           from 'react-router';
 const notCheckedStyle = {
   color: 'white', //TODO: not working colors... 
   rippleColor: 'green', 
-  backgroundColor:'green',
-  fontSize: 30%,
+  backgroundColor:'green'
 };
 
 const checkedStyle = {
   color: 'white',
-  backgroundColor:'blue',
-  fontSize: 30%,
+  backgroundColor:'blue'
 };
 
 const statsStyle = {
   color: 'white',
-  backgroundColor:'red',
-  fontSize: 30%,
+  backgroundColor:'red'
 };
 
 const ambitStyle = {
   color: 'white',
-  backgroundColor:'blue',
-  fontSize: 30%,
+  backgroundColor:'blue'
 };
 
 const cardStyle = {
-  margin: '10px',
-  fontSize: 30%,
+  margin: '10px'
 };
 
 const linkStyle = {
   color:'white',
-  textDecoration:'none',
-  fontSize: 30%,
+  textDecoration:'none'
 };
 
 
