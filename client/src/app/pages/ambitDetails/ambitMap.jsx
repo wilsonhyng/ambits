@@ -47,7 +47,8 @@ class AmbitMap extends Component {
 
     let map = new googleMaps.Map(document.getElementById('map'), {
       zoom: 17,
-      center: ambitLocation
+      center: ambitLocation,
+      disableDefaultUI: true
     });
 
     let marker = new googleMaps.Marker({
@@ -55,14 +56,45 @@ class AmbitMap extends Component {
       map: map
     });
 
+    // showMyLocation (getting curr loc takes sometime)
+    this.showMyLocation(googleMaps, map)
+
     // Awful, impure pattern, fix ?????
     this.mapInstance = map;
     this.centerMarker = marker;
     this.googleMaps = googleMaps;
   }
 
+  // Use HTML5 geolocation to find the current location
+  // getMyPosition Using Promise and place a blue dot on the map
+  showMyLocation(googleMaps, map) {
+    const getMyPosition = () => {
+      return new Promise(function (resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+    }
+
+    getMyPosition()
+      .then((position) => {
+        // concert position to Google Map convention
+        let currentLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        // place a blue dot on my current locaiton
+        let marker2 = new googleMaps.Marker({
+          position: currentLocation,
+          map: map,
+          icon: 'http://www.robotwoods.com/dev/misc/bluecircle.png'
+        });
+      })
+      .catch((err) => {
+        console.error(err.message);
+      });
+  }
+
   render() {
-    // styling for Map GridList
+    // styling for Map
     const styles = {
       mapWidth: {
         height: 250
