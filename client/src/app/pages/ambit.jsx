@@ -5,9 +5,9 @@ import {GridList, GridTile}   from 'material-ui/GridList';
 import FlatButton       from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
 
-import AmbitMap                    from './ambitDetails/ambitMap.jsx';
-import AmbitDescription            from './ambitDetails/ambitDescription.jsx';
-import AmbitWeekdays               from './ambitDetails/ambitWeekdays.jsx';
+import AmbitMap                    from './ambit/ambitMap.jsx';
+import AmbitDescription            from './ambit/ambitDescription.jsx';
+import AmbitWeekdays               from './ambit/ambitWeekdays.jsx';
 
 // Redux
 import { connect }      from 'react-redux';
