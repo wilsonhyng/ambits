@@ -19,12 +19,12 @@ class Ambit extends Component {
     super(props);
   }
 
-  // When the component mounts, load fakeData
   componentDidMount() {
+    this.props.dispatch(updateTitle(this.props.ambit.name));
   }
 
   render() {
-    this.props.dispatch(updateTitle(this.props.ambit.name));
+
 
     // styling for Grids
     const styles = {
