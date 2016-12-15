@@ -1,5 +1,6 @@
 import React            from 'react';
 import RaisedButton     from 'material-ui/RaisedButton';
+import {Link}           from 'react-router';
 
 const style = {
   margin: 12,
@@ -9,7 +10,7 @@ const style = {
 const CommitButton = (props) => (
   <div>
     <RaisedButton
-    label="SCHEDULE"
+    label={<Link to='/'>SCHEDULE</Link>}
     style={style}
     onTouchTap= {props.onScheduleAmbit
     } // create ambit using date, name etc from current state
