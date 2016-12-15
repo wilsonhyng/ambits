@@ -1,6 +1,7 @@
 import React                from 'react';
-import {Component}          from 'react';
+import { Component }          from 'react';
 import Ambit                from './ambitOfWeek.jsx'
+import { Link }               from 'react-router';
 
 //material-ui
 import Paper                from 'material-ui/Paper';
@@ -49,12 +50,15 @@ const paperStyle = {
 
 const Day = (props) => {
   return (
-    <Paper style={paperStyle} zDepth={2}>
-      <FloatingActionButton  
-        backgroundColor='purple' 
-        children={props.day}
-        /*onTouchTap={test}*/>
-      </FloatingActionButton>
+    <Paper style={paperStyle} zDepth={2} onClick={props.handleDayClick.bind(null, props.date)}>
+      <Link to='/'>
+        <FloatingActionButton  
+          backgroundColor='purple' 
+          children={props.day}
+
+          /*onTouchTap={test}*/>
+        </FloatingActionButton>
+      </Link>
 
       <div>
         {props.ambitsOfDay.map((ambit, index) =>
