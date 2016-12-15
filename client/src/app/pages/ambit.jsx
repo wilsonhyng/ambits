@@ -32,25 +32,18 @@ const fakeAmbitData = {
 class Ambit extends Component {
   constructor(props) {
     super(props);
-  this.state = {
-    days: [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday'
-    ]
+    this.state = {
+      days: [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+      ]
+    }
   }
-
-
-
-
-
-  }
-
-
 
   // When the component mounts, load fakeData
   componentDidMount() {
