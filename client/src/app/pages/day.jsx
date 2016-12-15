@@ -79,6 +79,7 @@ class Day extends Component {
         this.props.dispatch(loadAmbits(data));
       }
     });
+    this.props.dispatch(updateTitle(this.state.days[this.props.day]));
   }
 
   getAmbits() {
@@ -122,7 +123,6 @@ class Day extends Component {
 
   render() {
     if(!this.state.loading) {
-      this.props.dispatch(updateTitle(this.state.days[this.props.day]));
       return (
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
