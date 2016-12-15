@@ -13,7 +13,7 @@ import RaisedButton     from 'material-ui/RaisedButton';
 
 // Redux
 import { connect }      from 'react-redux';
-import { loadAmbits, updateAmbit, updateTitle }
+import { loadAmbits, updateAmbit, updateTitle, updateCurBit }
                         from '../_actions/ambit-actions';
 
 
@@ -113,18 +113,23 @@ class Day extends Component {
       });
     });
   }
+  
+  handleViewAmbit(ambit) {
+    this.props.dispatch(updateCurBit(ambit));
+  }
 
   handleShowStats() {}
 
   render() {
     if(!this.state.loading) {
-      this.props.dispatch(updateTitle(this.state.days[(new Date).getDay()]));
+      this.props.dispatch(updateTitle(this.state.days[this.props.day]));
       return (
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
             <AmbitList 
-              ambits={this.props.ambits.filter(ambit => (ambit.weekdays[(new Date).getDay()]))}
+              ambits={this.props.ambits.filter(ambit => (ambit.weekdays[this.props.day]))}
               handleCheckinAmbit={this.handleCheckinAmbit}
+              handleViewAmbit={this.handleViewAmbit}
             />
             
             <RaisedButton 
@@ -154,7 +159,8 @@ class Day extends Component {
 
 
 const mapStateToProps = (state) => ({
-  ambits: state.ambits
+  ambits: state.ambits,
+  day:    state.day
 });
 
 Day = connect(mapStateToProps)(Day);

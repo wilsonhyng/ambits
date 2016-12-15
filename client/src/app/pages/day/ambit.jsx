@@ -71,6 +71,7 @@ class Ambit extends React.Component {
           />
           <FlatButton
             label={<Link to='/ambit' style={linkStyle}>View Ambit</Link>}//send to the stats page of the ambit.
+            onTouchTap={this.props.handleViewAmbit.bind(null, this.props.ambit)}
             style={ambitStyle}
           />
         </CardActions>
