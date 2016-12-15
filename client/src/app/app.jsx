@@ -12,6 +12,7 @@ import injectTapEventPlugin
 import Main             from './Main.jsx'; // Our custom react components
 
 import Day              from './pages/day.jsx';
+import Ambit            from './pages/ambit.jsx';
 import Schedule         from './schedule/components/schedule.jsx'
 import Map              from './map/map.jsx';
 import Display          from './displayAmbit/displayAmbit.jsx';
@@ -37,6 +38,7 @@ render(
     <Router history={browserHistory}>
       <Route component={Main}>
         <Route path='/'         component={Day}/>
+        <Route path='/ambit'    component={Ambit}/>
         <Route path='/schedule' component={Schedule}/>
         <Route path='/map'      component={Map}/>
         <Route path='/display'  component={Display}/>
