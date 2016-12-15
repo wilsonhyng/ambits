@@ -15,7 +15,6 @@ class Week extends Component {
       today: new Date().getDay(),
       ambits: [], 
       days: ['Su', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'],
-      // sortedAmbits: []
     }
   }
 
@@ -35,7 +34,7 @@ class Week extends Component {
       var days = ambit.weekdays;
       days.forEach(function (hasAmbit, day) {
         if (hasAmbit) {
-          sortedAmbits[day].push(ambit); // TODO: change to ambit to get image
+          sortedAmbits[day].push(ambit);
         }
       });
     });
