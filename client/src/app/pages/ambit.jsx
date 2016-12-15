@@ -76,8 +76,8 @@ class Ambit extends Component {
         <GridList
             cols={1} cellHeight={250} padding={5} style={styles.gridList} >
           <div>
-            <AmbitWeekdays/>
-            <AmbitDescription/>
+            <AmbitWeekdays ambit={this.props.ambit}/>
+            <AmbitDescription ambit={this.props.ambit}/>
           </div>
           <AmbitMap coords={coords}/>
         </GridList>
@@ -88,7 +88,7 @@ class Ambit extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ambits: state.ambits
+  ambit: state.ambit
 });
 
 Ambit = connect(mapStateToProps)(Ambit);
