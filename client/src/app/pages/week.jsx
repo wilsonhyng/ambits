@@ -61,9 +61,7 @@ class Week extends Component {
     }
 
     return (    
-      <div>
         <WeekList days={sortedDays} ambits={sortedAmbitsByCurrentDay} />
-      </div>
     );
   }
 }

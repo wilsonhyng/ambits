@@ -13,10 +13,10 @@ const paperStyle = {
   margin: 10,
   textAlign: 'center',
   float: 'left',
-  display: 'inline-block'
+  display: 'inline-block',
 
-  // marginTop: 12,
-  // marginRight: 10
+  marginTop: 12,
+  marginRight: 10
 };
 
 const dayStyle = {
@@ -38,12 +38,16 @@ const h1Style = {
   // textAlign: 'center'
 }
 
+
 const Day = (props) => {
   return (
     <Paper style={paperStyle} zDepth={2}>
-      <FloatingActionButton mini={false} backgroundColor='purple' secondary={true}/*onTouchTap={test}*/>
-        <ContentAdd style = {dayStyle} {props.day} />
+      <FloatingActionButton mini={false} backgroundColor='purple' /*onTouchTap={test}*/>
+        <div style={h1Style}>
+            <h1>{props.day}</h1>
+          </div>
       </FloatingActionButton>
+
       <div>
         {props.ambitsOfDay.map((ambit, index) =>
           <Ambit 
