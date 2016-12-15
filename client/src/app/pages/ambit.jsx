@@ -25,6 +25,7 @@ class Ambit extends Component {
 
   render() {
 
+
     // styling for Grids
     const styles = {
       gridList: {
