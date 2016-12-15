@@ -79,7 +79,7 @@ class Ambit extends Component {
             <AmbitWeekdays ambit={this.props.ambit}/>
             <AmbitDescription ambit={this.props.ambit}/>
           </div>
-          <AmbitMap coords={coords}/>
+          <AmbitMap ambit={this.props.ambit}/>
         </GridList>
       </div>
 
