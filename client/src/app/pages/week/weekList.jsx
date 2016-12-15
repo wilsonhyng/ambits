@@ -10,7 +10,7 @@ const weekList = (props) => {
     <List>
       <ListItem>
         {props.days.map((day, index) => 
-          <Day day={day} ambits={props.ambits[index]} />
+          <Day day={day} ambits={props.ambits[index]} key={index} />
         )}
       </ListItem>
     </List>

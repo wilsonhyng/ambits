@@ -9,10 +9,10 @@ const style = {
   width: 315,
   margin: 10,
   textAlign: 'center',
-  display: 'inline-block',
+  display: 'inline-block'
 
-  marginTop: 12,
-  marginRight: 10
+  // marginTop: 12,
+  // marginRight: 10
 };
 
 const divStyle = {
@@ -26,29 +26,24 @@ const h1Style = {
   bottom: 16,
   left: 'auto',
   position: 'fixed',
+  textAlign: 'center'
 }
-
-
-
 
 const Day = (props) => {
   return (
     <Paper style={style} zDepth={2}>
-      <div>
-        <FloatingActionButton mini={true} /*disabled={!this.state.weekdays[0]}*/ style={style} backgroundColor='purple' /*onTouchTap={test}*/>
+        <FloatingActionButton mini={false} backgroundColor='purple' /*onTouchTap={test}*/>
           <div style={h1Style}>
             <h1>{props.day}</h1>
           </div>
         </FloatingActionButton>
-
         <div>
-          {props.ambits.map((ambit) =>
+          {props.ambits.map((ambit, index) =>
             <Ambit 
-              ambit={ambit}
+              ambit={ambit} key={index}
             />
           )}
         </div>
-      </div>
     </Paper>
   );
 }
