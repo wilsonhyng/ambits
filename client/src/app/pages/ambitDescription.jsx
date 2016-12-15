@@ -1,13 +1,8 @@
 import React                  from 'react';
 import {Component}            from 'react';
 
-import {GridList, GridTile}   from 'material-ui/GridList';
 import FlatButton       from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
-
-import AmbitMap                    from './ambitMap.jsx';
-import AmbitDescription            from './ambitDescription.jsx';
-import AmbitWeekdays               from './ambitWeekdays.jsx';
 
 // -------------------- FakeData -------------------
 const fakeAmbitData = {
@@ -23,7 +18,8 @@ const fakeAmbitData = {
 }
 // -----------------------------------------------
 
-class Ambit extends Component {
+
+class AmbitDescription extends Component {
   constructor(props) {
     super(props);
   }
@@ -36,13 +32,9 @@ class Ambit extends Component {
     // ** assume that ambitData is passed down via mapStateToProps **
     const ambitData = fakeAmbitData;
 
-    // styling for Grids
-    const styles = {
-      gridList: {
-        // height: 250,
-        overflowY: 'auto',
-        margin: '10px'
-      },
+    // styling for CardStyle
+    const cardStyle = {
+      margin: '0px'
     };
 
     // prepare varialbe to display Description
@@ -55,19 +47,22 @@ class Ambit extends Component {
 
     return(
       <div>
-        <GridList
-            cols={1} cellHeight={250} padding={5} style={styles.gridList} >
-          <div>
-            <AmbitWeekdays/>
-            <AmbitDescription/>
-          </div>
-          <AmbitMap coords={coords}/>
-        </GridList>
+        <Card style={cardStyle}>
+          <CardHeader
+            title = {'Activity: ' + name}
+            avatar = "http://www.19130fitness.com/wp-content/uploads/2015/07/crossfit-barbell.png"
+            subtitle = {'Start Date: ' + startDate}
+          />
+          <CardActions>
+            <FlatButton
+              label= {'checkin'}
+            />
+          </CardActions>
+        </Card>
       </div>
-
     );
   }
 }
 
 
-export default Ambit;
+export default AmbitDescription;
