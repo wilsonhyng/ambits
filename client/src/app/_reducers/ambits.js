@@ -1,4 +1,8 @@
-const ambits = (state = { ambits: [] }, action) => {
+const ambits =
+      (state = {
+        title: 'Ambitually',
+        ambits: []
+      }, action) => {
   switch (action.type) {
     case 'LOAD_AMBITS':
       return {
@@ -13,7 +17,12 @@ const ambits = (state = { ambits: [] }, action) => {
       return {
         ...state,
         ambits: a
-      }
+      };
+    case 'UPDATE_TITLE':
+      return {
+        ...state,
+        title: action.title
+      };
     default:
       return state;
   }

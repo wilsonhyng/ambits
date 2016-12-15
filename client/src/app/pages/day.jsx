@@ -13,7 +13,7 @@ import RaisedButton     from 'material-ui/RaisedButton';
 
 // Redux
 import { connect }      from 'react-redux';
-import { loadAmbits, updateAmbit }
+import { loadAmbits, updateAmbit, updateTitle }
                         from '../_actions/ambit-actions';
 
 
@@ -51,8 +51,16 @@ class Day extends Component {
     super(props);
 
     this.state = {
-//      ambits: [],
       loading: false,
+      days: [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+      ],
       feedback: {
         open: false,
         autoHideDuration: 3000,
@@ -110,11 +118,14 @@ class Day extends Component {
 
   render() {
     if(!this.state.loading) {
+      this.props.dispatch(updateTitle(this.state.days[(new Date).getDay()]));
       return (
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            <AmbitList ambits={this.props.ambits} 
-            handleCheckinAmbit={this.handleCheckinAmbit}/>
+            <AmbitList 
+              ambits={this.props.ambits.filter(ambit => (ambit.weekdays[(new Date).getDay()]))}
+              handleCheckinAmbit={this.handleCheckinAmbit}
+            />
             
             <RaisedButton 
             // onTouchTap={this.handleCreateAmbit} 

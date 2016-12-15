@@ -15,6 +15,10 @@ import TextField        from 'material-ui/TextField';
 import Login            from './login/login.jsx';
 import * as loginCtrl   from './login/loginCtrl';
 
+// Redux
+import { connect }      from 'react-redux';
+
+
 const styles = {
   container: {
     textAlign: 'center',
@@ -58,7 +62,7 @@ class Main extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <AppBar 
-            title='Ambitually'
+            title={this.props.title}
             iconElementRight={logOutButton}
           />
           {LoginModal}
@@ -68,6 +72,13 @@ class Main extends Component {
     );
   }
 }
+
+
+const mapStateToProps = (state) => ({
+  title: state.title
+});
+
+Main = connect(mapStateToProps)(Main);
 
 
 export default Main;

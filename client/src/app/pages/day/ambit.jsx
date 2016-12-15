@@ -73,7 +73,7 @@ class Ambit extends React.Component {
             label={<Link to='/ambit' style={linkStyle}>View Ambit</Link>}//send to the stats page of the ambit.
             style={ambitStyle}
           />
-        </CardActions> 
+        </CardActions>
       </Card>
     );
   }
