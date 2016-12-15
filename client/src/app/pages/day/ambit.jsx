@@ -11,30 +11,36 @@ const notCheckedStyle = {
   color: 'white', //TODO: not working colors... 
   rippleColor: 'green', 
   backgroundColor:'green',
+  fontSize: 30%,
 };
 
 const checkedStyle = {
   color: 'white',
   backgroundColor:'blue',
+  fontSize: 30%,
 };
 
 const statsStyle = {
   color: 'white',
   backgroundColor:'red',
+  fontSize: 30%,
 };
 
 const ambitStyle = {
   color: 'white',
   backgroundColor:'blue',
+  fontSize: 30%,
 };
 
 const cardStyle = {
-  'margin': '10px'
+  margin: '10px',
+  fontSize: 30%,
 };
 
 const linkStyle = {
   color:'white',
-  'textDecoration':'none'
+  textDecoration:'none',
+  fontSize: 30%,
 };
 
 
