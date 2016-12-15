@@ -5,6 +5,14 @@ import loadGoogleMapsAPI  from 'load-google-maps-api';
 class AmbitMap extends Component {
   constructor(props) {
     super(props);
+    this.state ={
+      checkIns: this.props.ambit.checkIns,
+      coords: this.props.ambit.coords,
+      name:  this.props.ambit.name,
+      refId:  this.props.ambit.refId,
+      startDate: this.props.ambit.startDate,
+      weekdays:  this.props.ambit.weekdays,
+    }
   }
 
 
@@ -25,8 +33,8 @@ class AmbitMap extends Component {
   initMap(googleMaps) {
 
     let ambitLocation = {
-      lat: this.props.coords.latitude,
-      lng: this.props.coords.longitude
+      lat: this.state.coords.latitude,
+      lng: this.state.coords.longitude
     }
 
     let map = new googleMaps.Map(document.getElementById('map'), {
