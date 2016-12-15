@@ -1,23 +1,32 @@
-import React            from 'react';
-import {Component}      from 'react';
-import Ambit            from './ambitOfWeek.jsx'
-import Paper            from 'material-ui/Paper';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+import React                from 'react';
+import {Component}          from 'react';
+import Ambit                from './ambitOfWeek.jsx'
 
-const style = {
+//material-ui
+import Paper                from 'material-ui/Paper';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd           from 'material-ui/svg-icons/content/add';
+
+const paperStyle = {
   height: 60,
   width: 315,
   margin: 10,
   textAlign: 'center',
+  float: 'left',
   display: 'inline-block',
 
   marginTop: 12,
   marginRight: 10
 };
 
-const divStyle = {
-  textAlign: 'center'
+const dayStyle = {
+  textAlign: 'center',
+  marginRight: 20
 };
+
+const ambitStyle = {
+  float: 'left'
+}
 
 const h1Style = {
   margin: 0,
@@ -25,29 +34,26 @@ const h1Style = {
   right: 8,
   bottom: 16,
   left: 'auto',
-  position: 'fixed',
+  position: 'fixed'
+  // textAlign: 'center'
 }
-
-
 
 
 const Day = (props) => {
   return (
-    <Paper style={style} zDepth={2}>
-      <div>
-        <FloatingActionButton mini={true} /*disabled={!this.state.weekdays[0]}*/ style={style} backgroundColor='purple' /*onTouchTap={test}*/>
-          <div style={h1Style}>
+    <Paper style={paperStyle} zDepth={2}>
+      <FloatingActionButton mini={false} backgroundColor='purple' /*onTouchTap={test}*/>
+        <div style={h1Style}>
             <h1>{props.day}</h1>
           </div>
-        </FloatingActionButton>
+      </FloatingActionButton>
 
-        <div>
-          {props.ambits.map((ambit) =>
-            <Ambit 
-              ambit={ambit}
-            />
-          )}
-        </div>
+      <div>
+        {props.ambitsOfDay.map((ambit, index) =>
+          <Ambit 
+            ambit={ambit} key={index}
+          />
+        )}
       </div>
     </Paper>
   );

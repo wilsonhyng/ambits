@@ -13,7 +13,7 @@ import Main             from './Main.jsx'; // Our custom react components
 
 import Day              from './pages/day.jsx';
 import Ambit            from './pages/ambit.jsx';
-import Week             from './pages/week/week.jsx';
+import Week             from './pages/week.jsx';
 import Schedule         from './schedule/components/schedule.jsx'
 import Map              from './map/map.jsx';
 import Display          from './displayAmbit/displayAmbit.jsx';
@@ -38,7 +38,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route component={Main}>
-        <Route path='/'         component={Day}/>
+        <Route path='/'         component={Week}/>
         <Route path='/ambit'    component={Ambit}/>
         <Route path='/week'     component={Week}/>
         <Route path='/schedule' component={Schedule}/>
