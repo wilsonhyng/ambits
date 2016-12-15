@@ -10,16 +10,8 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 class AmbitWeekdays extends Component {
   constructor(props) {
     super(props);
-    this.state ={
-      checkIns: this.props.ambit.checkIns,
-      coords: this.props.ambit.coords,
-      name:  this.props.ambit.name,
-      refId:  this.props.ambit.refId,
-      startDate: this.props.ambit.startDate,
-      weekdays:  this.props.ambit.weekdays, 
-    }
   }
-  
+
   render() {
 
     const style = {
@@ -45,12 +37,12 @@ class AmbitWeekdays extends Component {
     }
 
     function changeAmbitDay() {
-      var ambitState = this.state; //state of current ambit
-      
+      // var ambitState = this.state; //state of current ambit
+
       // create utils function
       // Utils.changeAmbitDay(ambitState, () => {
       //   console.log('Changed Ambit Day')
-      // });      
+      // });
     }
 
     function dayOnOff() {
@@ -60,43 +52,43 @@ class AmbitWeekdays extends Component {
     return (
       <div style={divStyle}>
 
-        <FloatingActionButton mini={true} disabled={!this.state.weekdays[0]}style={style} backgroundColor='purple' onTouchTap={test}>
+        <FloatingActionButton mini={true} disabled={!this.props.ambit.weekdays[0]}style={style} backgroundColor='purple' onTouchTap={test}>
           <div style={h1Style}>
             <h1>M</h1>
           </div>
         </FloatingActionButton>
 
-        <FloatingActionButton mini={true} disabled={!this.state.weekdays[1]} style={style} backgroundColor='purple' onTouchTap={changeAmbitDay}>
+        <FloatingActionButton mini={true} disabled={!this.props.ambit.weekdays[1]} style={style} backgroundColor='purple' onTouchTap={changeAmbitDay}>
           <div style={h1Style}>
             <h1>Tu</h1>
           </div>
         </FloatingActionButton>
 
-        <FloatingActionButton mini={true} disabled={!this.state.weekdays[2]} style={style} backgroundColor='purple' onTouchTap={test}>
+        <FloatingActionButton mini={true} disabled={!this.props.ambit.weekdays[2]} style={style} backgroundColor='purple' onTouchTap={test}>
           <div style={h1Style}>
             <h1>W</h1>
           </div>
         </FloatingActionButton>
 
-        <FloatingActionButton mini={true} disabled={!this.state.weekdays[3]} style={style} backgroundColor='purple' onTouchTap={test}>
+        <FloatingActionButton mini={true} disabled={!this.props.ambit.weekdays[3]} style={style} backgroundColor='purple' onTouchTap={test}>
           <div style={h1Style}>
             <h1>Th</h1>
           </div>
         </FloatingActionButton>
-   
-        <FloatingActionButton mini={true} disabled={!this.state.weekdays[4]} style={style} backgroundColor='purple' onTouchTap={test}>
+
+        <FloatingActionButton mini={true} disabled={!this.props.ambit.weekdays[4]} style={style} backgroundColor='purple' onTouchTap={test}>
           <div style={h1Style}>
             <h1>F</h1>
           </div>
         </FloatingActionButton>
 
-        <FloatingActionButton mini={true} disabled={!this.state.weekdays[5]} style={style} backgroundColor='purple' onTouchTap={test}>
+        <FloatingActionButton mini={true} disabled={!this.props.ambit.weekdays[5]} style={style} backgroundColor='purple' onTouchTap={test}>
           <div style={h1Style}>
             <h1>Sa</h1>
           </div>
         </FloatingActionButton>
 
-        <FloatingActionButton mini={true} disabled={!this.state.weekdays[6]} style={style} backgroundColor='purple' onTouchTap={test}>
+        <FloatingActionButton mini={true} disabled={!this.props.ambit.weekdays[6]} style={style} backgroundColor='purple' onTouchTap={test}>
           <div style={h1Style}>
             <h1>Su</h1>
           </div>
@@ -106,7 +98,5 @@ class AmbitWeekdays extends Component {
       )
   }
 }
-
-
 
 export default AmbitWeekdays;

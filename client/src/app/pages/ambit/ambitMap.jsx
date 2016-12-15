@@ -5,16 +5,7 @@ import loadGoogleMapsAPI  from 'load-google-maps-api';
 class AmbitMap extends Component {
   constructor(props) {
     super(props);
-    this.state ={
-      checkIns: this.props.ambit.checkIns,
-      coords: this.props.ambit.coords,
-      name:  this.props.ambit.name,
-      refId:  this.props.ambit.refId,
-      startDate: this.props.ambit.startDate,
-      weekdays:  this.props.ambit.weekdays,
-    }
   }
-
 
   // When the component mounts, initialze the map
   componentDidMount() {
@@ -31,10 +22,11 @@ class AmbitMap extends Component {
 
   // initialize the map with a marker at ambitLocation
   initMap(googleMaps) {
+    let selectedAmbit = this.props.ambit;
 
     let ambitLocation = {
-      lat: this.state.coords.latitude,
-      lng: this.state.coords.longitude
+      lat: selectedAmbit.coords.latitude,
+      lng: selectedAmbit.coords.longitude
     }
 
     let map = new googleMaps.Map(document.getElementById('map'), {

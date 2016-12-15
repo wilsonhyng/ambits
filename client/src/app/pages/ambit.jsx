@@ -14,51 +14,24 @@ import { connect }      from 'react-redux';
 import { loadAmbits, updateAmbit, updateTitle }
                         from '../_actions/ambit-actions';
 
-
-// -------------------- FakeData -------------------
-const fakeAmbitData = {
-  refId: 1234,
-  name: 'Gym',
-  coords: {
-    latitude: 37.784,
-    longitude: -122.40903
-  },
-  weekdays:[true,true,true,true,true,true,true],
-  startDate:'2016-12-12',
-  checkIns:[]
-}
-// -----------------------------------------------
-
 class Ambit extends Component {
   constructor(props) {
     super(props);
   }
 
-  // When the component mounts, load fakeData
   componentDidMount() {
+    this.props.dispatch(updateTitle(this.props.ambit.name));
   }
 
   render() {
-    this.props.dispatch(updateTitle(this.props.ambit.name));
-    // ** assume that ambitData is passed down via mapStateToProps **
-    const ambitData = fakeAmbitData;
 
     // styling for Grids
     const styles = {
       gridList: {
-        // height: 250,
         overflowY: 'auto',
         margin: '10px'
       },
     };
-
-    // prepare varialbe to display Description
-    let refId = ambitData.refId;
-    let name = ambitData.name;
-    let coords = ambitData.coords;
-    let weekdays = ambitData.weekdays;
-    let startDate = ambitData.startDate;
-    let checkIns = ambitData.checkIns;
 
     return(
       <div>
@@ -81,6 +54,5 @@ const mapStateToProps = (state) => ({
 });
 
 Ambit = connect(mapStateToProps)(Ambit);
-
 
 export default Ambit;
