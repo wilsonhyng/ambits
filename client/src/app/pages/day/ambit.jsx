@@ -19,7 +19,7 @@ const checkedStyle = {
   color: 'white',
   backgroundColor:'blue',
   height: '40px',
-  width: '80px',
+  width: '100px',
 };
 
 const statsStyle = {
@@ -31,7 +31,7 @@ const statsStyle = {
 
 const ambitStyle = {
   color: 'white',
-  backgroundColor:'blue',
+  backgroundColor:'purple',
   height: '40px',
   width: '100px',
 };
