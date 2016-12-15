@@ -10,31 +10,41 @@ import {Link}           from 'react-router';
 const notCheckedStyle = {
   color: 'white', //TODO: not working colors... 
   rippleColor: 'green', 
-  backgroundColor:'green'
+  backgroundColor:'green',
+  height: '40px',
+  width: '80px',
 };
 
 const checkedStyle = {
   color: 'white',
-  backgroundColor:'blue'
+  backgroundColor:'blue',
+  height: '40px',
+  width: '100px',
 };
 
 const statsStyle = {
   color: 'white',
-  backgroundColor:'red'
+  backgroundColor:'red',
+  height: '40px',
+  width: '80px',
 };
 
 const ambitStyle = {
   color: 'white',
-  backgroundColor:'blue'
+  backgroundColor:'purple',
+  height: '40px',
+  width: '100px',
 };
 
 const cardStyle = {
-  margin: '10px'
+  margin: '10px',
+  fontSize: '11px',
 };
 
 const linkStyle = {
   color:'white',
-  textDecoration:'none'
+  textDecoration:'none',
+  fontSize: '11px',
 };
 
 
@@ -56,7 +66,9 @@ class Ambit extends React.Component {
         <CardActions>
           <FlatButton
             label= {
-              this.props.ambit.checkedIn ? "Checked In":"Check In!"
+              <span style={linkStyle}>
+                {this.props.ambit.checkedIn ? "Checked In":"Check In!"}
+              </span>
             }
             onTouchTap={() => { 
               this.props.handleCheckinAmbit(this.props.ambit); 
