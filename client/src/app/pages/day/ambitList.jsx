@@ -6,7 +6,12 @@ const AmbitList = (props) => {
   return (<div className='ambitList'> 
   {
     props.ambits.map((item, index) => 
-      (<Ambit ambit={item} handleCheckinAmbit={props.handleCheckinAmbit} key={index}/>))
+      (<Ambit
+         ambit={item}
+         handleCheckinAmbit={props.handleCheckinAmbit}
+         handleViewAmbit={props.handleViewAmbit}
+         key={index}
+        />))
   }
   </div>);
 }

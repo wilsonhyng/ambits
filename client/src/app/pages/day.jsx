@@ -129,7 +129,7 @@ class Day extends Component {
             <AmbitList 
               ambits={this.props.ambits.filter(ambit => (ambit.weekdays[this.props.day]))}
               handleCheckinAmbit={this.handleCheckinAmbit}
-              handleViewAmbit={this.handleViewAmbit}
+              handleViewAmbit={this.handleViewAmbit.bind(this)}
             />
             
             <RaisedButton 
