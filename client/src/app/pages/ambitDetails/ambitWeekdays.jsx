@@ -6,7 +6,6 @@ import injectTapEventPlugin
 
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 
 const fakeAmbit = {
         refId: 1234,
@@ -60,10 +59,7 @@ class AmbitWeekdays extends Component {
       // create utils function
       // Utils.changeAmbitDay(ambitState, () => {
       //   console.log('Changed Ambit Day')
-      // });
-
-
-      
+      // });      
     }
 
     function dayOnOff() {
@@ -71,7 +67,6 @@ class AmbitWeekdays extends Component {
     }
 
     return (
-// 
       <div style={divStyle}>
 
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[0]}style={style} backgroundColor='purple' onTouchTap={test}>
