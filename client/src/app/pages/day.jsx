@@ -27,7 +27,10 @@ const muiTheme = getMuiTheme({
 const createStyle = {
   color: 'white',
   backgroundColor:'orange',
-  'marginTop': '6px'
+  'marginTop': '6px',
+  paddingTop: '8px',
+  height: '50px',
+  fontSize: '20px',
 };
 
 const spinnerStyle  = {
