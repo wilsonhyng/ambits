@@ -5,9 +5,9 @@ import {GridList, GridTile}   from 'material-ui/GridList';
 import FlatButton       from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
 
-import AmbitMap                    from './ambitMap.jsx';
-import AmbitDescription            from './ambitDescription.jsx';
-import AmbitWeekdays               from './ambitWeekdays.jsx';
+import AmbitMap                    from './ambitDetails/ambitMap.jsx';
+import AmbitDescription            from './ambitDetails/ambitDescription.jsx';
+import AmbitWeekdays               from './ambitDetails/ambitWeekdays.jsx';
 
 // -------------------- FakeData -------------------
 const fakeAmbitData = {
