@@ -7,6 +7,7 @@ class AmbitMap extends Component {
     super(props);
   }
 
+
   // When the component mounts, initialze the map
   componentDidMount() {
     loadGoogleMapsAPI({
