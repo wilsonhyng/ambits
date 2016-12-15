@@ -23,6 +23,11 @@ const statsStyle = {
   backgroundColor:'red',
 };
 
+const ambitStyle = {
+  color: 'white',
+  backgroundColor:'blue',
+};
+
 const cardStyle = {
   'margin': '10px'
 };
@@ -63,6 +68,10 @@ class Ambit extends React.Component {
           <FlatButton
             label={<Link to='/display' style={linkStyle}>Stats</Link>}//send to the stats page of the ambit.
             style={statsStyle}
+          />
+          <FlatButton
+            label={<Link to='/ambit' style={linkStyle}>View Ambit</Link>}//send to the stats page of the ambit.
+            style={ambitStyle}
           />
         </CardActions> 
       </Card>
