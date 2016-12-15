@@ -2,6 +2,8 @@ import React              from 'react';
 import {Component}        from 'react';
 import loadGoogleMapsAPI  from 'load-google-maps-api';
 
+let loadedGoogleMaps = undefined;
+
 class AmbitMap extends Component {
   constructor(props) {
     super(props);
@@ -9,15 +11,21 @@ class AmbitMap extends Component {
 
   // When the component mounts, initialze the map
   componentDidMount() {
-    loadGoogleMapsAPI({
-      // This is public; restricted by IP
-      key: "AIzaSyAHJfNJp8pbRxf_05L1TIm5ru-Dvcla-Nw",
-      v: '3.25'
-    })
-    .then((googleMaps) => {
-      // when googlMaps is ready pass it to initMap method
-      this.initMap(googleMaps);
-    });
+
+    if (loadedGoogleMaps === undefined) {
+      loadGoogleMapsAPI({
+        // This is public; restricted by IP
+        key: "AIzaSyAHJfNJp8pbRxf_05L1TIm5ru-Dvcla-Nw",
+        v: '3.25'
+      })
+      .then((googleMaps) => {
+        // when googlMaps is ready pass it to initMap method
+        loadedGoogleMaps = googleMaps;
+        this.initMap(loadedGoogleMaps);
+      });
+    } else {
+        this.initMap(loadedGoogleMaps);
+    }
   }
 
   // initialize the map with a marker at ambitLocation
