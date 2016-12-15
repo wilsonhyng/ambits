@@ -1,7 +1,7 @@
 import React            from 'react';
 import {Component}      from 'react';
 import * as Utils       from '../utils/utils.js';
-import AmbitList        from '../checkin/components/ambitList.jsx';
+import AmbitList        from './day/ambitList.jsx';
 import {deepOrange500}  from 'material-ui/styles/colors';
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
