@@ -15,7 +15,7 @@ class Week extends Component {
       today: new Date().getDay(),
       ambits: [], 
       days: ['Su', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'],
-      sortedAmbits: []
+      // sortedAmbits: []
     }
   }
 
@@ -25,7 +25,6 @@ class Week extends Component {
         throw error;
       } else {       
         this.props.dispatch(loadAmbits(data));
-        // this.setState({ambits: data});
       }
     });
   }
@@ -36,7 +35,7 @@ class Week extends Component {
       var days = ambit.weekdays;
       days.forEach(function (hasAmbit, day) {
         if (hasAmbit) {
-          sortedAmbits[day].push(ambit.name);
+          sortedAmbits[day].push(ambit); // TODO: change to ambit to get image
         }
       });
     });
@@ -51,21 +50,19 @@ class Week extends Component {
     var counter = 0;
     var dayOfTheWeek = this.state.today;
     var sortedDays = [];
-    var sortedAmbitsByDay = [];
-    var sortedAmbits = this.sortAmbitsByDay(this.props.ambits);
+    var sortedAmbitsByDay = this.sortAmbitsByDay(this.props.ambits);
+    var sortedAmbitsByCurrentDay = [];
 
     while (counter < 7) {
       sortedDays.push(this.state.days[dayOfTheWeek]);
-      sortedAmbitsByDay.push(sortedAmbits[dayOfTheWeek]);
+      sortedAmbitsByCurrentDay.push(sortedAmbitsByDay[dayOfTheWeek]);
       dayOfTheWeek === 6 ? dayOfTheWeek = 0 : dayOfTheWeek ++;
       counter ++;
     }
-    console.log ('UNSORTED AMBITS', this.props.ambits);
-    console.log ('SORTED AMBITS', sortedAmbitsByDay);
-    console.log ('AMBITS PASSED TO WEEKLIST', sortedAmbits);
+
     return (    
       <div>
-        <WeekList days={sortedDays} ambits={sortedAmbitsByDay} />
+        <WeekList days={sortedDays} ambits={sortedAmbitsByCurrentDay} />
       </div>
     );
   }

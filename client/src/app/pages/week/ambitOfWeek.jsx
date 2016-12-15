@@ -3,9 +3,7 @@ import {Component}      from 'react';
 
 const Ambit = (props) => {
   return (
-    <ul>
       <div>{props.ambit.name}</div>
-    </ul>
   );
 }
 
