@@ -2,18 +2,9 @@ import React              from 'react';
 import {Component}        from 'react';
 import loadGoogleMapsAPI  from 'load-google-maps-api';
 
-var Coords = {
-  latitude: 0,
-  longitude: 0
-};
-
 class AmbitMap extends Component {
   constructor(props) {
     super(props);
-
-    this.mapInstance = {};
-    this.googleMaps = {};
-    this.centerMarker = {};
   }
 
   // When the component mounts, initialze the map
@@ -24,16 +15,8 @@ class AmbitMap extends Component {
       v: '3.25'
     })
     .then((googleMaps) => {
-      // initializeMap
+      // when googlMaps is ready pass it to initMap method
       this.initMap(googleMaps);
-
-      let map = this.mapInstance;
-
-      googleMaps.event.addListener(map, 'drag', () => {
-        let centerLatLng = map.getCenter();
-        this.centerMarker.setPosition(centerLatLng);
-      });
-
     });
   }
 
@@ -46,28 +29,26 @@ class AmbitMap extends Component {
     }
 
     let map = new googleMaps.Map(document.getElementById('map'), {
-      zoom: 17,
+      zoom: 16,
+      disableDefaultUI: true,
+      draggable: false,
+      scrollwheel: false,
+      panControl: false,
       center: ambitLocation,
-      disableDefaultUI: true
     });
 
-    let marker = new googleMaps.Marker({
+    let targetMarker = new googleMaps.Marker({
       position: ambitLocation,
       map: map
     });
 
     // showMyLocation (getting curr loc takes sometime)
-    this.showMyLocation(googleMaps, map)
-
-    // Awful, impure pattern, fix ?????
-    this.mapInstance = map;
-    this.centerMarker = marker;
-    this.googleMaps = googleMaps;
+    this.showMyLocation(googleMaps, map, ambitLocation)
   }
 
   // Use HTML5 geolocation to find the current location
   // getMyPosition Using Promise and place a blue dot on the map
-  showMyLocation(googleMaps, map) {
+  showMyLocation(googleMaps, map, ambitLocation) {
     const getMyPosition = () => {
       return new Promise(function (resolve, reject) {
         navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -78,16 +59,30 @@ class AmbitMap extends Component {
       .then((position) => {
 
         // concert position to Google Map convention
-        let currentLocation = {
+        let myLocation = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        let midLocation = {
+          lat: (myLocation.lat + ambitLocation.lat)/2,
+          lng: (myLocation.lng + ambitLocation.lng)/2
+        };
+
+        //extend the bounds to include each marker's position
+        let bounds = new googleMaps.LatLngBounds();
+        bounds.extend(new googleMaps.LatLng(myLocation.lat, myLocation.lng));
+        bounds.extend(new googleMaps.LatLng(ambitLocation.lat, ambitLocation.lng));
+
         // place a blue dot on my current locaiton
-        let marker2 = new googleMaps.Marker({
-          position: currentLocation,
+        let myLocMarker = new googleMaps.Marker({
+          position: myLocation,
           map: map,
           icon: 'http://www.robotwoods.com/dev/misc/bluecircle.png'
         });
+
+        //now fit the map to the newly inclusive bounds
+        map.fitBounds(bounds);
+
       })
       .catch((err) => {
         console.error(err.message);
