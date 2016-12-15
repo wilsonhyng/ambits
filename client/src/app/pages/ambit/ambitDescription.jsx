@@ -4,21 +4,6 @@ import {Component}            from 'react';
 import FlatButton       from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
 
-// -------------------- FakeData -------------------
-const fakeAmbitData = {
-  refId: 1234,
-  name: 'Gym',
-  coords: {
-    latitude: 37.784,
-    longitude: -122.40903
-  },
-  weekdays:[true,true,true,true,true,true,true],
-  startDate:'2016-12-12',
-  checkIns:[]
-}
-// -----------------------------------------------
-
-
 class AmbitDescription extends Component {
   constructor(props) {
     super(props);
