@@ -34,7 +34,8 @@ class AmbitDescription extends Component {
 
     // styling for CardStyle
     const cardStyle = {
-      margin: '0px'
+      margin: '0px',
+      marginTop: 20
     };
 
     // prepare varialbe to display Description
