@@ -4,6 +4,9 @@
  */
 import React            from 'react';
 import {Component}      from 'react';
+import {Router, Route, Link}
+                        from 'react-router';
+
 import RaisedButton     from 'material-ui/RaisedButton';
 import Dialog           from 'material-ui/Dialog';
 import {deepOrange500}  from 'material-ui/styles/colors';
@@ -79,10 +82,19 @@ class Main extends Component {
             width={150}
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}
-          >
-            <MenuItem onTouchTap={this.handleClose}>Ambit</MenuItem>
-            <MenuItem onTouchTap={this.handleClose}>Day View</MenuItem>
-            <MenuItem onTouchTap={this.handleClose}>Week View</MenuItem>
+            >
+
+            <MenuItem onTouchTap={this.handleClose}>
+              <Link to='/ambit'>Ambit</Link>
+            </MenuItem>
+
+            <MenuItem onTouchTap={this.handleClose}>
+              <Link to='/'>Day View</Link>
+            </MenuItem>
+
+            <MenuItem onTouchTap={this.handleClose}>
+              <Link to='/week'>Week View</Link>
+            </MenuItem>
           </Drawer>
 
 
