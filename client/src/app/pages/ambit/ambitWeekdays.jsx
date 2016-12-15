@@ -7,19 +7,17 @@ import injectTapEventPlugin
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
-const fakeAmbit = {
-        refId: 1234,
-        name: 'Gym',
-        coords: {
-          latitude: 37.784,
-          longitude: -122.40903
-        },
-        weekdays:[true,true,false,true,true,false,false],
-        startDate:'2016-12-12',
-        checkIns:[]
-      };
-
-
+// const fakeAmbit = {
+//         refId: 1234,
+//         name: 'Gym',
+//         coords: {
+//           latitude: 37.784,
+//           longitude: -122.40903
+//         },
+//         weekdays:[true,true,false,true,true,false,false],
+//         startDate:'2016-12-12',
+//         checkIns:[]
+//       };
 
 class AmbitWeekdays extends Component {
   constructor(props) {
@@ -33,17 +31,6 @@ class AmbitWeekdays extends Component {
       weekdays:  this.props.ambit.weekdays, 
     }
   }
-
-  // getInitialState: function() {
-  //  return {
-  //   checkIns: this.props.ambit.checkIns,
-  //   coords: this.props.ambit.coords,
-  //   name:  this.props.ambit.name,
-  //   refId:  this.props.ambit.refId,
-  //   startDate: this.props.ambit.startDate,
-  //   weekdays:  this.props.ambit.weekdays, 
-  //  }
-  // }
   
   render() {
 
