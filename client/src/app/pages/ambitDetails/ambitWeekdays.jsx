@@ -25,7 +25,6 @@ const fakeAmbit = {
 class AmbitWeekdays extends Component {
   constructor(props) {
     super(props);
-    console.log('imported');
     this.state ={
       weekdays: [true,true,false,true,true,false,false]
     }
@@ -41,6 +40,15 @@ class AmbitWeekdays extends Component {
     const divStyle = {
       textAlign: 'center'
     };
+
+    const h1Style = {
+      margin: 0,
+      top: 'auto',
+      right: 8,
+      bottom: 16,
+      left: 'auto',
+      position: 'fixed',
+    }
 
     function test() {
       console.log('hello');
@@ -67,31 +75,45 @@ class AmbitWeekdays extends Component {
       <div style={divStyle}>
 
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[0]}style={style} backgroundColor='purple' onTouchTap={test}>
-          <h1>M</h1>
+          <div style={h1Style}>
+            <h1>M</h1>
+          </div>
         </FloatingActionButton>
 
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[1]} style={style} backgroundColor='purple' onTouchTap={changeAmbitDay}>
-          <h1>Tu</h1>
+          <div style={h1Style}>
+            <h1>Tu</h1>
+          </div>
         </FloatingActionButton>
 
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[2]} style={style} backgroundColor='purple' onTouchTap={test}>
-          <h1>W</h1>
+          <div style={h1Style}>
+            <h1>W</h1>
+          </div>
         </FloatingActionButton>
 
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[3]} style={style} backgroundColor='purple' onTouchTap={test}>
-          <h1>Th</h1>
+          <div style={h1Style}>
+            <h1>Th</h1>
+          </div>
         </FloatingActionButton>
    
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[4]} style={style} backgroundColor='purple' onTouchTap={test}>
-          <h1>F</h1>
+          <div style={h1Style}>
+            <h1>F</h1>
+          </div>
         </FloatingActionButton>
 
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[5]} style={style} backgroundColor='purple' onTouchTap={test}>
-          <h1>Sa</h1>
+          <div style={h1Style}>
+            <h1>Sa</h1>
+          </div>
         </FloatingActionButton>
 
         <FloatingActionButton mini={true} disabled={!this.state.weekdays[6]} style={style} backgroundColor='purple' onTouchTap={test}>
-          <h1>Su</h1>
+          <div style={h1Style}>
+            <h1>Su</h1>
+          </div>
         </FloatingActionButton>
 
       </div>
