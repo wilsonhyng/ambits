@@ -9,6 +9,12 @@ import AmbitMap                    from './ambitDetails/ambitMap.jsx';
 import AmbitDescription            from './ambitDetails/ambitDescription.jsx';
 import AmbitWeekdays               from './ambitDetails/ambitWeekdays.jsx';
 
+// Redux
+import { connect }      from 'react-redux';
+import { loadAmbits, updateAmbit, updateTitle }
+                        from '../_actions/ambit-actions';
+
+
 // -------------------- FakeData -------------------
 const fakeAmbitData = {
   refId: 1234,
@@ -26,13 +32,32 @@ const fakeAmbitData = {
 class Ambit extends Component {
   constructor(props) {
     super(props);
+  this.state = {
+    days: [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday'
+    ]
   }
+
+
+
+
+
+  }
+
+
 
   // When the component mounts, load fakeData
   componentDidMount() {
   }
 
   render() {
+    this.props.dispatch(updateTitle(this.state.days[(new Date).getDay()]));
     // ** assume that ambitData is passed down via mapStateToProps **
     const ambitData = fakeAmbitData;
 
@@ -68,6 +93,12 @@ class Ambit extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  ambits: state.ambits
+});
+
+Ambit = connect(mapStateToProps)(Ambit);
 
 
 export default Ambit;
