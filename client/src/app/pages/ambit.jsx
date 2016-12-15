@@ -32,17 +32,6 @@ const fakeAmbitData = {
 class Ambit extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      days: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ]
-    }
   }
 
   // When the component mounts, load fakeData
@@ -50,7 +39,7 @@ class Ambit extends Component {
   }
 
   render() {
-    this.props.dispatch(updateTitle(this.state.days[(new Date).getDay()]));
+    this.props.dispatch(updateTitle(this.props.ambit.name));
     // ** assume that ambitData is passed down via mapStateToProps **
     const ambitData = fakeAmbitData;
 
