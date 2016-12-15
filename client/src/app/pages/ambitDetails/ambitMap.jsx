@@ -76,6 +76,7 @@ class AmbitMap extends Component {
 
     getMyPosition()
       .then((position) => {
+
         // concert position to Google Map convention
         let currentLocation = {
           lat: position.coords.latitude,
