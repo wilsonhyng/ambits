@@ -4,17 +4,15 @@ const ambits =
         ambits: [],
         day:    (new Date).getDay(),
         ambit:  {
-          const fakeAmbitData = {
-            refId: 1234,
-            name: '',
-            coords: {
-              latitude: 37.784,
-              longitude: -122.40903
-            },
-            weekdays:[false,false,false,false,false,false,false],
-            startDate:'1970-1-1',
-            checkIns:[]
-          }
+          refId: 1234,
+          name: '',
+          coords: {
+            latitude: 37.784,
+            longitude: -122.40903
+          },
+          weekdays:[false,false,false,false,false,false,false],
+          startDate:'1970-1-1',
+          checkIns:[]
         }
       }, action) => {
   switch (action.type) {
