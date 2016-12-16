@@ -32,61 +32,63 @@ const linkStyle = {
   'textDecoration':'none'
 };
 
-var Coords = {
+let Coords = {
   latitude: 0,
   longitude: 0
 };
 
+// load GoogleMap only once
+window.loadedGoogleMaps = window.loadedGoogleMaps;
 
 class Map extends Component {
   constructor(props, context) {
     super(props, context);
-
-    this.mapInstance = {};
-    this.googleMaps = {};
-    this.centerMarker = {};
   }
+
   componentDidMount() {
-    // This is public; restricted by IP
-    loadGoogleMapsAPI({
-      key: "AIzaSyAHJfNJp8pbRxf_05L1TIm5ru-Dvcla-Nw",
-      v: '3.25'
-    }).then((googleMaps) => {
-      this.initMap(googleMaps); // sets instance vars atm
-      var map = this.mapInstance;
 
-      googleMaps.event.addListener(map, 'drag', () => {
-        var centerLatLng = map.getCenter();
-        this.centerMarker.setPosition(centerLatLng);
+    if (window.loadedGoogleMaps === undefined) {
+      // This is public; restricted by IP
+      loadGoogleMapsAPI({
+        key: "AIzaSyAHJfNJp8pbRxf_05L1TIm5ru-Dvcla-Nw",
+        v: '3.25'
+      }).then((googleMaps) => {
+        window.loadedGoogleMaps = googleMaps;
+        this.initMap(googleMaps);
       });
+    } else {
+        this.initMap(window.loadedGoogleMaps);
+    }
 
-    });
   }
 
   initMap(googleMaps) {
-    // console.log('called initMap');
-    var hackReactor = { lat: 37.791066, lng: -122.3991683 }
-    var uluru = {lat: -25.363, lng: 131.044};
-    var map = new googleMaps.Map(document.getElementById('map'), {
+    // hackReactor is assumed to the current position
+    let hackReactor = { lat: 37.791066, lng: -122.3991683 }
+
+    let map = new googleMaps.Map(document.getElementById('map'), {
       zoom: 17,
       center: hackReactor
     });
-    var marker = new googleMaps.Marker({
+    this.map = map; // save to 'this.map' for getCoordinates method
+
+    let marker = new googleMaps.Marker({
       position: hackReactor,
       map: map
     });
-    // Awful, impure pattern, fix:
-    this.mapInstance = map;
-    this.centerMarker = marker;
-    this.googleMaps = googleMaps;
+
+    googleMaps.event.addListener(map, 'drag', () => {
+      let centerLatLng = map.getCenter();
+      marker.setPosition(centerLatLng);
+    });
+
   }
 
   getCoordinates() {
     Coords = {
-      latitude: this.mapInstance.getCenter().lat(),
-      longitude: this.mapInstance.getCenter().lng()
+      latitude: this.map.getCenter().lat(),
+      longitude: this.map.getCenter().lng()
     };
-    // console.log(Coords);
   }
 
   render() {
@@ -100,7 +102,6 @@ class Map extends Component {
           label ={<Link to='/schedule' style ={linkStyle} >Schedule for this Location</Link> }
           buttonStyle={actionStyle}
           primary = {true}
-          // containerElement={<Link to='/schedule'/>}
           fullWidth={false}
           ></RaisedButton>
       </div>
@@ -108,7 +109,6 @@ class Map extends Component {
     )
   }
 }
-
 
 export { Coords }; //there is single-entry point to schedule and it is through maps.
 export default Map;
