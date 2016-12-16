@@ -19,17 +19,16 @@ const btnText = {
   lineHeight: 'none'
 };
 
-const Ambit = (props) => {
-  return (
-    <FloatingActionButton
-      style={btnStyle}
-      mini={true}
-      /*onTouchTap={test}*/
-    >
-      <p style={btnText}> {props.ambit.name} </p>
-    </FloatingActionButton>
-  );
-}
+
+const Ambit = (props) => (
+  <FloatingActionButton
+    style={btnStyle}
+    mini={true}
+    /*onTouchTap={test}*/
+  >
+    <p style={btnText}> {props.ambit.name} </p>
+  </FloatingActionButton>
+);
 
 
 export default Ambit;

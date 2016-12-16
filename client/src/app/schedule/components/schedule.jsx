@@ -104,50 +104,50 @@ export default class ScheduleContainer extends React.Component {
 //////////////////////////////////////////////////
 
 
-// DONT JUDGE ME, IM PRESSED FOR TIME D;
-//////////////////////////////////////////////////
-onSelectDaysInputSunday(event, checked) {
-  var currentState = this.state;
-  currentState.weekdays[0] = checked;
-  this.setState(currentState);
-}
+  // DONT JUDGE ME, IM PRESSED FOR TIME D;
+  //////////////////////////////////////////////////
+  onSelectDaysInputSunday(event, checked) {
+    var currentState = this.state;
+    currentState.weekdays[0] = checked;
+    this.setState(currentState);
+  }
 
-onSelectDaysInputMonday(event, checked) {
-  var currentState = this.state;
-  currentState.weekdays[1] = checked;
-  this.setState(currentState)
-}
+  onSelectDaysInputMonday(event, checked) {
+    var currentState = this.state;
+    currentState.weekdays[1] = checked;
+    this.setState(currentState)
+  }
 
-onSelectDaysInputTuesday(event, checked) {
-  var currentState = this.state;
-  currentState.weekdays[2] = checked;
-  this.setState(currentState);
-}
+  onSelectDaysInputTuesday(event, checked) {
+    var currentState = this.state;
+    currentState.weekdays[2] = checked;
+    this.setState(currentState);
+  }
 
-onSelectDaysInputWednesday(event, checked) {
-  var currentState = this.state;
-  currentState.weekdays[3] = checked;
-  this.setState(currentState)
-}
+  onSelectDaysInputWednesday(event, checked) {
+    var currentState = this.state;
+    currentState.weekdays[3] = checked;
+    this.setState(currentState)
+  }
 
-onSelectDaysInputThursday(event, checked) {
-  var currentState = this.state;
-  currentState.weekdays[4] = checked;
-  this.setState(currentState)
-}
+  onSelectDaysInputThursday(event, checked) {
+    var currentState = this.state;
+    currentState.weekdays[4] = checked;
+    this.setState(currentState)
+  }
 
-onSelectDaysInputFriday(event, checked) {
-  var currentState = this.state;
-  currentState.weekdays[5] = checked;
-  this.setState(currentState)
-}
+  onSelectDaysInputFriday(event, checked) {
+    var currentState = this.state;
+    currentState.weekdays[5] = checked;
+    this.setState(currentState)
+  }
 
-onSelectDaysInputSaturday(event, checked) {
-  var currentState = this.state;
-  currentState.weekdays[6] = checked;
-  this.setState(currentState)
-}
-//////////////////////////////////////////////////
+  onSelectDaysInputSaturday(event, checked) {
+    var currentState = this.state;
+    currentState.weekdays[6] = checked;
+    this.setState(currentState)
+  }
+  //////////////////////////////////////////////////
 
 
   render() {
@@ -157,27 +157,29 @@ onSelectDaysInputSaturday(event, checked) {
           <AmbitNameInput
             onNameInput={this.onNameInput}
             name={this.state.name}
-            />
+          />
         </div>
         <div>
           <StartDate
             onStartDateSet={this.onStartDateSet}
-            startDate={this.state.startDate}/>
+            startDate={this.state.startDate}
+          />
         </div>
         <div>
-        <SelectTime
-            onSelectTime={this.onSelectTime}/>
+          <SelectTime onSelectTime={this.onSelectTime}/>
         </div>
         <Divider />
         <div>
-        <SelectDays
+          <SelectDays
             onSelectDays={this.onSelectDays}
-            weekdays={this.state.weekdays}/>
+            weekdays={this.state.weekdays}
+          />
         </div>
         <div>
           <CommitButton
             currentState = {this.state}
-            onScheduleAmbit = {this.onScheduleAmbit}/>
+            onScheduleAmbit = {this.onScheduleAmbit}
+          />
         </div>
       </div>
     );
