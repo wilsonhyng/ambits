@@ -28,7 +28,6 @@ class AmbitDescription extends Component {
 
   render() {
     // convert data into more sensible format
-
     const date = Utils.convertDate(new Date(this.props.ambit.startDate));
     const time = Utils.convertTime(new Date(this.props.ambit.startDate));
 

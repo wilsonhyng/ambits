@@ -60,7 +60,8 @@ class Main extends Component {
   handleClose = () => this.setState({open: false});
 
   render() {
-    const logOutButton = this.state.isLoggedIn ? 
+
+    const logOutButton = this.state.isLoggedIn ?
       (<FlatButton label="Logout"
         onTouchTap={this.handleLogout.bind(this)}
        />
@@ -72,9 +73,9 @@ class Main extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <AppBar 
+          <AppBar
             title={this.props.title}
-            iconElementRight={logOutButton} 
+            iconElementRight={logOutButton}
             onLeftIconButtonTouchTap={this.handleToggle}
           />
           <Drawer
@@ -84,9 +85,11 @@ class Main extends Component {
             onRequestChange={(open) => this.setState({open})}
             >
 
-            <MenuItem onTouchTap={this.handleClose}>
-              <Link to='/ambit'>Ambit</Link>
-            </MenuItem>
+            { this.props.ambit === null ?
+              <div></div> :
+              <MenuItem onTouchTap={this.handleClose}>
+                <Link to='/ambit'>Ambit</Link>
+              </MenuItem> }
 
             <MenuItem onTouchTap={this.handleClose}>
               <Link to='/'>Day View</Link>
@@ -108,7 +111,8 @@ class Main extends Component {
 
 
 const mapStateToProps = (state) => ({
-  title: state.title
+  title: state.title,
+  ambit: state.ambit
 });
 
 Main = connect(mapStateToProps)(Main);
