@@ -18,7 +18,7 @@ const DropDownList = (props) => {
       value={props.dropdownValue}
       style={dropDownStyles.customWidth}
       onChange={props.onDropDownSelect}/* add in parameter from MenuItem */
-      >
+    >
       <MenuItem value={1} primaryText="Daily"></MenuItem>
       <MenuItem value={2} primaryText="Weekly"></MenuItem>
       <MenuItem value={3} primaryText="Monthly"></MenuItem>
