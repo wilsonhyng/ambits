@@ -1,9 +1,20 @@
-import React            from 'react';
-import {Component}      from 'react';
+import React              from 'react';
+import {Component}        from 'react';
 import loadGoogleMapsAPI
-                        from 'load-google-maps-api';
-import RaisedButton     from 'material-ui/RaisedButton';
-import {Link}           from 'react-router';
+                          from 'load-google-maps-api';
+import {Link}             from 'react-router';
+
+import RaisedButton       from 'material-ui/RaisedButton';
+import {deepOrange500}    from 'material-ui/styles/colors';
+import getMuiTheme        from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider   from 'material-ui/styles/MuiThemeProvider';
+// -------------------------------------------------------
+
+const muiTheme = getMuiTheme({
+  palette: {
+    accent1Color: deepOrange500,
+  },
+});
 
 const actionStyle = {
   color: 'white',
@@ -72,27 +83,28 @@ class Map extends Component {
 
   getCoordinates() {
     Coords = {
-      latitude: this.mapInstance.getCenter().lat(), 
-      longitude: this.mapInstance.getCenter().lng() 
-    }; 
+      latitude: this.mapInstance.getCenter().lat(),
+      longitude: this.mapInstance.getCenter().lng()
+    };
     // console.log(Coords);
   }
 
   render() {
     return (
+      <MuiThemeProvider muiTheme={muiTheme}>
       <div>
-        <div id="map"> 
-        </div>
-        <RaisedButton 
-        
-        onTouchTap={this.getCoordinates.bind(this)}   
-        label ={<Link to='/schedule' style ={linkStyle} >Schedule for this Location</Link> }
-        buttonStyle={actionStyle}
-        primary = {true}
-        // containerElement={<Link to='/schedule'/>}
-        fullWidth={false}
-        ></RaisedButton>
+          <div id="map">
+          </div>
+          <RaisedButton
+          onTouchTap={this.getCoordinates.bind(this)}
+          label ={<Link to='/schedule' style ={linkStyle} >Schedule for this Location</Link> }
+          buttonStyle={actionStyle}
+          primary = {true}
+          // containerElement={<Link to='/schedule'/>}
+          fullWidth={false}
+          ></RaisedButton>
       </div>
+      </MuiThemeProvider>
     )
   }
 }

@@ -43,10 +43,9 @@ render(
         <Route path='/ambit'    component={Ambit}/>
         <Route path='/week'     component={Week}/>
         <Route path='/schedule' component={Schedule}/>
-        <Route path='/map'      component={Map}/>
         <Route path='/display'  component={Display}/>
-        
       </Route>
+        <Route path='/map'      component={Map}/>
     </Router>
   </Provider>,
   document.getElementById('app')
