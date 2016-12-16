@@ -1,5 +1,6 @@
 html {
-  font-family: 'Roboto', sans-serif;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Didact Gothic', sans-serif;
   margin: 0px;
   padding: 0px;
 }
@@ -18,4 +19,14 @@ body {
 
 .hidden {
   display: none;
+}
+
+.loginTitle {
+  font-family: 'Didact Gothic', sans-serif;
+  color: '#3C3C3B';
+  font-size: 30px;
+}
+
+.loginTitle span {
+  font-size: 20px;
 }
