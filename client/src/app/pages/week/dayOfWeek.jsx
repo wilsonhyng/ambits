@@ -24,36 +24,39 @@ const style = {
 //   float: 'left'
 // }
 
-const h1Style = {
-  margin: 0,
-  top: 'auto',
-  right: 8,
-  bottom: 16,
-  left: 'auto',
-  position: 'fixed'
-  // textAlign: 'center'
-}
-
 const paperStyle = {
   height: 60,
   width: 315,
   margin: 10,
+  marginTop: 12,
+  marginRight: 10,
   textAlign: 'center',
   float: 'left',
-  display: 'inline-block',
-
-  marginTop: 12,
-  marginRight: 10
+  display: 'flex',
+};
+const btnStyle = {
+  margin: 0,
+  marginTop: 3,
+  marginLeft: 3,
+  marginRight: 3,
+  color: '#f7f2f7',
+  fontSize: 10
+};
+const btnText = {
+  fontSize: '20px',
+  color: 'white',
+  lineHeight: 'none'
 };
 
-
 const Day = (props) => {
+
   return (
     <Paper style={paperStyle} zDepth={2}>
-      <FloatingActionButton  
-        backgroundColor='purple' 
-        children={props.day}
+      <FloatingActionButton
+        style={btnStyle}
+        backgroundColor='purple'
         /*onTouchTap={test}*/>
+        <p style={btnText}> {props.day} </p>
       </FloatingActionButton>
 
       <div>
