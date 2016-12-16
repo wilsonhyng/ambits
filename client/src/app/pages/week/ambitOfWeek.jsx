@@ -5,8 +5,8 @@ import {Component}      from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 const btnStyle = {
-  margin: 0,
-  marginTop: 3,
+  // margin: 0,
+  marginTop: 10,
   marginLeft: 3,
   marginRight: 3,
   color: '#f7f2f7',
@@ -24,6 +24,7 @@ const Ambit = (props) => (
   <FloatingActionButton
     style={btnStyle}
     mini={true}
+    zDepth={0}
     /*onTouchTap={test}*/
   >
     <p style={btnText}> {props.ambit.name} </p>

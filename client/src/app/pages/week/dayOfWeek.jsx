@@ -21,19 +21,20 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 // }
 
 const paperStyle = {
-  height: 60,
+  height: 65,
   width: 315,
-  margin: 10,
-  marginTop: 12,
-  marginRight: 10,
+  marginTop: '5%',
+  // marginRight: 10,
   textAlign: 'center',
-  float: 'left',
+  float: 'none',
+  marginLeft: 'auto',
+  marginRight: 'auto',
   display: 'flex',
 };
 
 const btnStyle = {
   margin: 0,
-  marginTop: 3,
+  marginTop: 4,
   marginLeft: 3,
   marginRight: 3,
   color: '#f7f2f7',
@@ -53,6 +54,7 @@ const Day = (props) => (
       <FloatingActionButton  
         backgroundColor='purple'
         style={btnStyle}
+        zDepth={0}
       >
         <p style={btnText}> {props.day} </p>
       </FloatingActionButton>
