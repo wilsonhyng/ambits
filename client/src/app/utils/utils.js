@@ -89,6 +89,18 @@ export const postCheckin = function (ambitId, callback) {
     });
 };
 
+export const deleteAmbit = function (ambitId, callback) {
+  axios({
+    method:'delete',
+    url:'/ambits/' + ambitId,
+    contentType: 'application/json'
+    }).then(function(response){
+      callback();
+    }).catch(function(err){
+      throw err;
+    });
+};
+
 export const postAmbit = function (ambit, callback){
   axios({
     method:'post',

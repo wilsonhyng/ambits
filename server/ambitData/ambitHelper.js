@@ -4,14 +4,15 @@ var q = require('q');
 var findAmbit = q.nbind(Ambit.findOne, Ambit);
 var findAllAmbits = q.nbind(Ambit.find, Ambit);
 var createAmbit = q.nbind(Ambit.create, Ambit);
+var removeAmbit = q.nbind(Ambit.remove, Ambit);
 
 module.exports.addAmbit = function (req, res, next) {
-  //records a new ambit from the user
+  // Records a new ambit from the user
   var ambit = req.body.ambit;
   ambit.checkIns = [];
   ambit.refId = Math.round(Math.random() * 10000);
 
-  findAmbit({refId: ambit.refId}) //should check per user as well
+  findAmbit({refId: ambit.refId}) // Should check per user as well
     .then(function (found) {
       if (found) {
         return next(new Error('Ambit refId already exists'));
@@ -30,7 +31,7 @@ module.exports.addAmbit = function (req, res, next) {
 };
 
 module.exports.saveCheckIn = function (req, res, next) {
-  //add the current date to the ambits checkIn property
+  // Add the current date to the ambits checkIn property
   var refId = req.params.id;
   
   findAmbit({refId: refId})
@@ -56,8 +57,18 @@ module.exports.saveCheckIn = function (req, res, next) {
     });
 };
 
+module.exports.deleteAmbit = function (req, res, next) {
+  // Delete an ambit from the database
+  var refId = req.params.id;
+  
+  removeAmbit({refId: refId})
+    .then(function (ambit) {
+      res.json('removed');
+    });
+};
+
 module.exports.getAmbits = function (req, res, next) {
-  //send an array containing all the ambits back to the user.
+  // Send an array containing all the ambits back to the user.
 
   findAllAmbits()
     .then(function (ambits) {

@@ -1,10 +1,12 @@
-import React                  from 'react';
-import {Component}            from 'react';
+import React            from 'react';
+import {Component}      from 'react';
+import * as Utils       from '../../utils/utils.js';
 
 import FlatButton       from 'material-ui/FlatButton';
-import {Card, CardActions, CardHeader}  from 'material-ui/Card';
+import {Card, CardActions, CardHeader}
+                        from 'material-ui/Card';
 
-import * as Utils       from '../../utils/utils.js';
+import {Link}           from 'react-router';
 
 const notCheckedStyle = {
   color: 'white', //TODO: not working colors...
@@ -16,6 +18,12 @@ const checkedStyle = {
   color: 'white',
   backgroundColor:'blue'
 };
+
+const deleteStyle = {
+  color: 'white',
+  backgroundColor:'red'
+};
+
 
 class AmbitDescription extends Component {
   constructor(props) {
@@ -65,11 +73,17 @@ class AmbitDescription extends Component {
               disabled = {this.props.ambit.checkedIn}
               style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
             />
+            <FlatButton
+              label={<Link to='/' style={linkStyle}>Delete Ambit</Link>}
+              onTouchTap={this.props.handleDeleteAmbit.bind(null, this.props.ambit)}
+              style={deleteStyle}
+            />
           </CardActions>
         </Card>
       </div>
     );
   }
 }
+
 
 export default AmbitDescription;
