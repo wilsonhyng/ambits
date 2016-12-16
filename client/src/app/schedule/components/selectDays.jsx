@@ -1,5 +1,5 @@
-import React            from 'react';
-import Checkbox         from 'material-ui/Checkbox';
+import React, {Component}     from 'react';
+import Checkbox from 'material-ui/Checkbox';
 
 const styles = {
   block: {
@@ -7,10 +7,9 @@ const styles = {
   },
   checkbox: {
     marginTop:  '16px',
-    marginLeft: '45px',
+    marginLeft: '45px'
   },
 };
-
 
 const SelectDays = (props) => (
   <div style={styles.block}>
@@ -55,8 +54,6 @@ const SelectDays = (props) => (
       style={styles.checkbox}
       onCheck={props.onSelectDays.onSelectDaysInputSaturday}
     />
-
-
 
   </div>
 );

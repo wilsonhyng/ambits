@@ -53,7 +53,7 @@ class Map extends Component {
   }
 
   initMap(googleMaps) {
-    console.log('called initMap');
+    // console.log('called initMap');
     var hackReactor = { lat: 37.791066, lng: -122.3991683 }
     var uluru = {lat: -25.363, lng: 131.044};
     var map = new googleMaps.Map(document.getElementById('map'), {
@@ -75,7 +75,7 @@ class Map extends Component {
       latitude: this.mapInstance.getCenter().lat(), 
       longitude: this.mapInstance.getCenter().lng() 
     }; 
-    console.log(Coords);
+    // console.log(Coords);
   }
 
   render() {

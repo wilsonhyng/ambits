@@ -1,15 +1,17 @@
-import React            from 'react';
-import DropDownList     from './dropdown.jsx';
-import CommitButton     from './commitButton.jsx';
-import StartDate        from './startDate.jsx';
-import SelectDays       from './selectDays.jsx';
-import AmbitNameInput   from './ambitNameInput.jsx';
-import SelectTime       from './selectTime.jsx';
-import SelectFrequency  from './selectFrequency.jsx';
-import Divider          from 'material-ui/Divider';
-import * as Utils       from '../../utils/utils.js';
-import {Coords}         from '../../map/map.jsx';
+import React, {Component}   from 'react';
+import DropDownList         from './dropdown.jsx';
+import CommitButton         from './commitButton.jsx';
+import StartDate            from './startDate.jsx';
+import SelectDays           from './selectDays.jsx';
+import AmbitNameInput       from './ambitNameInput.jsx';
+import SelectTime           from './selectTime.jsx';
+import SelectFrequency      from './selectFrequency.jsx';
+import * as Utils           from '../../utils/utils.js';
+import {Coords}             from '../../map/map.jsx';
+import SelectIcon           from './selectIcon.jsx';
 
+// material-ui
+import Divider              from 'material-ui/Divider';
 
 export default class ScheduleContainer extends React.Component {
   constructor (props) {
@@ -23,9 +25,8 @@ export default class ScheduleContainer extends React.Component {
       },
       // frequency:'',
       weekdays: [false, false, false, false, false, false, false],
-      //[Su,M,T,w,Th,F,Sa]
-      startDate: null,
-      startTime:null,
+      startDate: {},
+      startTime: {},
       checkIns:[]
     };
     
@@ -59,7 +60,6 @@ export default class ScheduleContainer extends React.Component {
       startDate: date
     });
   }
-
 
 // Need to reformat time object to not include current date before passing into database
   onSelectTime(event, time) {
@@ -100,10 +100,10 @@ export default class ScheduleContainer extends React.Component {
     // }
     // // time to write some UGLY MFIN CODE.
 //////////////////////////////////////////////////
-
-
-  // DONT JUDGE ME, IM PRESSED FOR TIME D;
-  //////////////////////////////////////////////////
+//
+//
+// DONT JUDGE ME, IM PRESSED FOR TIME D;
+//////////////////////////////////////////////////
   onSelectDaysInputSunday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[0] = checked;
@@ -145,8 +145,9 @@ export default class ScheduleContainer extends React.Component {
     currentState.weekdays[6] = checked;
     this.setState(currentState)
   }
-  //////////////////////////////////////////////////
 
+  
+  //////////////////////////////////////////////////
 
   render() {
     return (
@@ -158,6 +159,9 @@ export default class ScheduleContainer extends React.Component {
           />
         </div>
         <div>
+          <SelectIcon />
+        </div>
+        <div>
           <StartDate
             onStartDateSet={this.onStartDateSet}
             startDate={this.state.startDate}
@@ -165,8 +169,7 @@ export default class ScheduleContainer extends React.Component {
         </div>
         <div>
           <SelectTime onSelectTime={this.onSelectTime}/>
-        </div>
-        <Divider />
+        </div>  
         <div>
           <SelectDays
             onSelectDays={this.onSelectDays}
