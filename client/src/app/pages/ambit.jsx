@@ -22,7 +22,7 @@ const userFeedback = {
   cheat:'Not at the Location',
   geoNotFount: 'Geolocation feature is not enabled',
   successfulCheckin: 'Check in successful',
-  checkInternetConnection:'Cannot fetch ambits:( Check internet connection'  
+  checkInternetConnection:'Cannot fetch ambits:( Check internet connection'
 };
 
 // styling for Grids
@@ -86,6 +86,7 @@ class Ambit extends Component {
   }
 
   render() {
+
     if(!this.state.loading) {
       return(
         <div>
@@ -93,15 +94,15 @@ class Ambit extends Component {
               cols={1} cellHeight={250} padding={5} style={styles.gridList} >
             <div>
 
-              <AmbitWeekdays 
+              <AmbitWeekdays
                 ambit={this.props.ambit}/>
 
-              <AmbitDescription 
-                ambit={this.props.ambit} 
+              <AmbitDescription
+                ambit={this.props.ambit}
                 handleCheckinAmbit={this.handleCheckinAmbit}/>
             </div>
 
-            <AmbitMap 
+            <AmbitMap
               ambit={this.props.ambit}/>
 
           </GridList>
@@ -113,7 +114,7 @@ class Ambit extends Component {
           />
 
         </div>
-      );      
+      );
     } else {
       return (
         <div>
