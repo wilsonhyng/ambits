@@ -34,11 +34,15 @@ module.exports.saveCheckIn = function(req, res, next) {
   //TODO: check for a preexisting check-in for this date first
 
   var refId = req.params.id;
-
+  
   findAmbit({refId: refId})
-    .then(function(ambit) {
-      var now = new Date;
-      var today = now.toDateString();
+  .then(function(ambit) {
+    var now = new Date;
+    var today = now.toDateString();
+    if (ambit.checkIns.length < 1) {
+      ambit.checkIns.push( now );
+      return ambit.save();
+    } else {
       var lastCheck = ambit.checkIns[ambit.checkIns.length -1].toDateString();
       if (today !== lastCheck){
         ambit.checkIns.push( now );
@@ -46,10 +50,11 @@ module.exports.saveCheckIn = function(req, res, next) {
       } else {
         res.json('already checked in');
       }
-    })
-    .then(function(savedAmbit) {
-      res.send(savedAmbit);
-    });
+    }
+  })
+  .then(function(savedAmbit) {
+    res.send(savedAmbit);
+  });
 };
 
 module.exports.getAmbits = function(req, res, next) {
