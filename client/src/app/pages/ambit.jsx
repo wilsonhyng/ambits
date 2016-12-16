@@ -6,6 +6,7 @@ import {GridList, GridTile}   from 'material-ui/GridList';
 import FlatButton       from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
+import Snackbar         from 'material-ui/Snackbar';
 
 import AmbitMap                    from './ambit/ambitMap.jsx';
 import AmbitDescription            from './ambit/ambitDescription.jsx';
@@ -104,6 +105,13 @@ class Ambit extends Component {
               ambit={this.props.ambit}/>
 
           </GridList>
+
+          <Snackbar
+            open={this.state.feedback.open}
+            message={this.state.feedback.message}
+            autoHideDuration={this.state.feedback.autoHideDuration}
+          />
+
         </div>
       );      
     } else {
