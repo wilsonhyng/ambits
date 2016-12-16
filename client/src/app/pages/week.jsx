@@ -5,7 +5,7 @@ import { getAllAmbits }   from '../utils/utils'
 
 // Redux
 import { connect }      from 'react-redux';
-import { loadAmbits, updateTitle }
+import { loadAmbits, updateTitle, updateCurDay }
                         from '../_actions/ambit-actions';
 
 class Week extends Component {
@@ -41,6 +41,10 @@ class Week extends Component {
     return sortedAmbits;
   }
 
+  handleDayClick(day) {
+    this.props.dispatch(updateCurDay(day));
+  }
+
   //clickHandler here for clicks on the Day component
 
   //clickHandler here for clicks on the Ambit component
@@ -53,14 +57,18 @@ class Week extends Component {
     var sortedAmbitsByCurrentDay = [];
 
     while (counter < 7) {
-      sortedDays.push(this.state.days[dayOfTheWeek]);
+      var day = {
+        day: this.state.days[dayOfTheWeek],
+        number: dayOfTheWeek
+      };
+      sortedDays.push(day);
       sortedAmbitsByCurrentDay.push(sortedAmbitsByDay[dayOfTheWeek]);
       dayOfTheWeek === 6 ? dayOfTheWeek = 0 : dayOfTheWeek ++;
       counter ++;
     }
 
     return (    
-        <WeekList days={sortedDays} ambits={sortedAmbitsByCurrentDay} />
+        <WeekList days={sortedDays} ambits={sortedAmbitsByCurrentDay} handleDayClick={this.handleDayClick.bind(this)} />
     );
   }
 }
