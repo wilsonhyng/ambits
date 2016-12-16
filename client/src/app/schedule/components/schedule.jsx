@@ -29,20 +29,20 @@ export default class ScheduleContainer extends React.Component {
       checkIns:[]
     };
     
-    this.onNameInput = this.onNameInput.bind(this);
-    this.onStartDateSet = this.onStartDateSet.bind(this);
-    this.onSelectTime = this.onSelectTime.bind(this);
-    this.onScheduleAmbit = this.onScheduleAmbit.bind(this);
+    this.onNameInput      = this.onNameInput.bind(this);
+    this.onStartDateSet   = this.onStartDateSet.bind(this);
+    this.onSelectTime     = this.onSelectTime.bind(this);
+    this.onScheduleAmbit  = this.onScheduleAmbit.bind(this);
     // this.onFrequencyChange = this.onFrequencyChange.bind(this);
     // this.onDropDownSelect = this.onDropDownSelect.bind(this);
     this.onSelectDays = {
-      onSelectDaysInputSunday: this.onSelectDaysInputSunday.bind(this),
-      onSelectDaysInputMonday: this.onSelectDaysInputMonday.bind(this),
-      onSelectDaysInputTuesday: this.onSelectDaysInputTuesday.bind(this),
+      onSelectDaysInputSunday:    this.onSelectDaysInputSunday.bind(this),
+      onSelectDaysInputMonday:    this.onSelectDaysInputMonday.bind(this),
+      onSelectDaysInputTuesday:   this.onSelectDaysInputTuesday.bind(this),
       onSelectDaysInputWednesday: this.onSelectDaysInputWednesday.bind(this),
-      onSelectDaysInputThursday: this.onSelectDaysInputThursday.bind(this),
-      onSelectDaysInputFriday: this.onSelectDaysInputFriday.bind(this),
-      onSelectDaysInputSaturday: this.onSelectDaysInputSaturday.bind(this),
+      onSelectDaysInputThursday:  this.onSelectDaysInputThursday.bind(this),
+      onSelectDaysInputFriday:    this.onSelectDaysInputFriday.bind(this),
+      onSelectDaysInputSaturday:  this.onSelectDaysInputSaturday.bind(this),
     };
   }
 
