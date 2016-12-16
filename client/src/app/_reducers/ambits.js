@@ -3,17 +3,7 @@ const ambits =
         title:  'Ambitually',
         ambits: [],
         day:    (new Date).getDay(),
-        ambit:  {
-          refId: 1234,
-          name: '',
-          coords: {
-            latitude: 37.784,
-            longitude: -122.40903
-          },
-          weekdays:[false,false,false,false,false,false,false],
-          startDate:'1970-1-1',
-          checkIns:[]
-        }
+        ambit:  null,
       }, action) => {
   switch (action.type) {
     case 'LOAD_AMBITS':
@@ -44,6 +34,13 @@ const ambits =
         ...state,
         ambit: action.ambit
       };
+    case 'DELETE_AMBIT':
+      var i = state.ambits.findIndex(item => action.ambit.name === item.name)
+      var a = state.ambits.splice(i, 1);
+      return {
+        ...state,
+        ambits: a
+      }
     default:
       return state;
   }

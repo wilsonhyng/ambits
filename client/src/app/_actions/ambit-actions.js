@@ -7,3 +7,5 @@ export const updateTitle  = (title)   => ({ type: 'UPDATE_TITLE'  , title   });
 export const updateCurDay = (day)     => ({ type: 'UPDATE_CUR_DAY', day     });
 
 export const updateCurBit = (ambit)   => ({ type: 'UPDATE_CUR_BIT', ambit   });
+
+export const deleteAmbit  = (ambit)   => ({ type: 'DELETE_AMBIT'  , ambit   });
