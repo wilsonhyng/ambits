@@ -31,8 +31,6 @@ module.exports.addAmbit = function (req, res, next) {
 
 module.exports.saveCheckIn = function (req, res, next) {
   //add the current date to the ambits checkIn property
-  //TODO: check for a preexisting check-in for this date first
-
   var refId = req.params.id;
   
   findAmbit({refId: refId})
