@@ -53,7 +53,6 @@ module.exports.saveCheckIn = function(req, res, next) {
     }
   })
   .then(function(savedAmbit) {
-  console.log(savedAmbit);
     res.send(savedAmbit);
   });
 };
