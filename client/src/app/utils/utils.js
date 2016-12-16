@@ -64,7 +64,7 @@ const decorateAmbits = function(ambits) {
     //check if the user is already checked in for the day:
     //TODO: make the date time specific.
     var now = (new Date()).toDateString();
-    var recentCheckin = ambit.checkIns[ambit.checkIns.length - 1];
+    var recentCheckin = new Date(ambit.checkIns[ambit.checkIns.length - 1]);
     if(recentCheckin && recentCheckin.toDateString() === now) {
       ambit.checkedIn = true;
     } else {
