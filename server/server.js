@@ -66,6 +66,7 @@ app.get('/ambits', ambitHelper.getAmbits);
 app.post('/ambits', ambitHelper.addAmbit);
 
 app.post('/ambits/:id', ambitHelper.saveCheckIn);
+app.delete('/ambits/:id', ambitHelper.deleteAmbit);
 
 app.post('/register', ctrlAuth.register);
 app.post('/login', ctrlAuth.login);

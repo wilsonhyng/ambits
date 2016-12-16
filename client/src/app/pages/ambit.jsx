@@ -1,20 +1,22 @@
-import React                  from 'react';
-import {Component}            from 'react';
+import React            from 'react';
+import {Component}      from 'react';
 import * as Utils       from '../utils/utils.js';
 
-import {GridList, GridTile}   from 'material-ui/GridList';
+import {GridList, GridTile}
+                        from 'material-ui/GridList';
 import FlatButton       from 'material-ui/FlatButton';
-import {Card, CardActions, CardHeader}  from 'material-ui/Card';
+import {Card, CardActions, CardHeader}
+                        from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
 import Snackbar         from 'material-ui/Snackbar';
 
-import AmbitMap                    from './ambit/ambitMap.jsx';
-import AmbitDescription            from './ambit/ambitDescription.jsx';
-import AmbitWeekdays               from './ambit/ambitWeekdays.jsx';
+import AmbitMap         from './ambit/ambitMap.jsx';
+import AmbitDescription from './ambit/ambitDescription.jsx';
+import AmbitWeekdays    from './ambit/ambitWeekdays.jsx';
 
 // Redux
 import { connect }      from 'react-redux';
-import { loadAmbits, updateAmbit, updateTitle }
+import { loadAmbits, updateAmbit, updateTitle, deleteAmbit, updateCurBit }
                         from '../_actions/ambit-actions';
 
 const userFeedback = {
@@ -22,7 +24,7 @@ const userFeedback = {
   cheat:'Not at the Location',
   geoNotFount: 'Geolocation feature is not enabled',
   successfulCheckin: 'Check in successful',
-  checkInternetConnection:'Cannot fetch ambits:( Check internet connection'
+  checkInternetConnection:'Cannot fetch ambits:( Check internet connection )'
 };
 
 // styling for Grids
@@ -39,6 +41,7 @@ const spinnerStyle  = {
   left: '50%',
   transform: 'translate(-50%, -50%)'
 };
+
 
 class Ambit extends Component {
   constructor(props) {
@@ -84,27 +87,38 @@ class Ambit extends Component {
       });
     });
   }
+  
+  handleDeleteAmbit(ambit) {
+    //delete ambit:
+    Utils.deleteAmbit(ambit.refId, () => {
+      //if deleted update the state
+      this.props.dispatch(deleteAmbit(ambit));
+      this.props.dispatch(updateCurBit(null));
+    });
+  }
 
   render() {
-
     if(!this.state.loading) {
       return(
         <div>
           <GridList
-              cols={1} cellHeight={250} padding={5} style={styles.gridList} >
+            cols={1} cellHeight={250} padding={5} style={styles.gridList}
+          >
             <div>
-
               <AmbitWeekdays
-                ambit={this.props.ambit}/>
+                ambit={this.props.ambit}
+              />
 
               <AmbitDescription
                 ambit={this.props.ambit}
-                handleCheckinAmbit={this.handleCheckinAmbit}/>
+                handleCheckinAmbit={this.handleCheckinAmbit}
+                handleDeleteAmbit={this.handleDeleteAmbit.bind(this)}
+              />
             </div>
 
             <AmbitMap
-              ambit={this.props.ambit}/>
-
+              ambit={this.props.ambit}
+            />
           </GridList>
 
           <Snackbar
@@ -112,7 +126,6 @@ class Ambit extends Component {
             message={this.state.feedback.message}
             autoHideDuration={this.state.feedback.autoHideDuration}
           />
-
         </div>
       );
     } else {
@@ -125,10 +138,12 @@ class Ambit extends Component {
   }
 }
 
+
 const mapStateToProps = (state) => ({
   ambit: state.ambit
 });
 
 Ambit = connect(mapStateToProps)(Ambit);
+
 
 export default Ambit;

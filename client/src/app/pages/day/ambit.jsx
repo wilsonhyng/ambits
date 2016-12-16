@@ -24,7 +24,7 @@ const checkedStyle = {
 
 const statsStyle = {
   color: 'white',
-  backgroundColor:'red',
+  backgroundColor:'#e8687c',
   height: '40px',
   width: '80px',
 };
