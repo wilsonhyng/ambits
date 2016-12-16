@@ -4,6 +4,17 @@ import {Component}            from 'react';
 import FlatButton       from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
 
+const notCheckedStyle = {
+  color: 'white', //TODO: not working colors... 
+  rippleColor: 'green', 
+  backgroundColor:'green'
+};
+
+const checkedStyle = {
+  color: 'white',
+  backgroundColor:'blue'
+};
+
 class AmbitDescription extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +42,15 @@ class AmbitDescription extends Component {
           />
           <CardActions>
             <FlatButton
-              label= {'checkin'}
+              label= {
+                this.props.ambit.checkedIn ? "Checked In":"Check In!"
+              }
+              onTouchTap={() => { 
+                this.props.handleCheckinAmbit(this.props.ambit);
+                } 
+              }
+              disabled = {this.props.ambit.checkedIn}
+              style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
             />
           </CardActions>
         </Card>
@@ -39,6 +58,5 @@ class AmbitDescription extends Component {
     );
   }
 }
-
 
 export default AmbitDescription;

@@ -97,7 +97,7 @@ class Day extends Component {
     Utils.checkinAmbit(ambit, () => {
       //if valid update the state
       ambit.checkedIn = true;
-      this.props.dispatch(updateAmbit(ambit))
+      this.props.dispatch(updateAmbit(ambit));
       this.setState({
         loading:  false,
         feedback: {open: true, message: userFeedback.successfulCheckin}
