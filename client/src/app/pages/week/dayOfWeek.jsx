@@ -44,27 +44,28 @@ const btnStyle = {
 const btnText = {
   fontSize: '20px',
   color: 'white',
-  lineHeight: 'none'
+  lineHeight: 'none',
+  textAlign: 'center'
 };
 
 
 const Day = (props) => (
-  <Paper style={paperStyle} zDepth={2} onClick={props.handleDayClick.bind(null, props.date)}>
-    <Link to='/'>
-      <FloatingActionButton  
-        backgroundColor='purple'
-        style={btnStyle}
-        zDepth={0}
-      >
-        <p style={btnText}> {props.day} </p>
-      </FloatingActionButton>
-    </Link>
-    <div>
-      {props.ambitsOfDay.map((ambit, index) =>
-        <Ambit ambit={ambit} key={index}/>
-      )}
-    </div>
-  </Paper>
+  <Link to='/'>
+    <Paper style={paperStyle} zDepth={2} onClick={props.handleDayClick.bind(null, props.date)}>
+        <FloatingActionButton  
+          backgroundColor='purple'
+          style={btnStyle}
+          zDepth={0}
+        >
+          <p style={btnText}> {props.day} </p>
+        </FloatingActionButton>
+      <div>
+        {props.ambitsOfDay.map((ambit, index) =>
+          <Ambit ambit={ambit} key={index}/>
+        )}
+      </div>
+    </Paper>
+  </Link>
 );
 
 
