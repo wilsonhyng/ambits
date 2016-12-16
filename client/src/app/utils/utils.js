@@ -167,9 +167,11 @@ export const convertDate = (date) => ((date.getUTCMonth() + 1) + '/' + date.getU
 export const convertTime = (time) => {
   var pretty;
   if (time.getHours() > 12) {
-    pretty = (time.getHours() - 12)  + ':' + time.getMinutes() + ' pm';
+    var mins = time.getMinutes();
+    pretty = (time.getHours() - 12)  + ':' + ((mins < 10) ? '0' + mins : mins) + ' pm';
   } else {
-    pretty = time.getHours() + ':' + time.getMinutes() + ' am';
+    var mins = time.getMinutes();
+    pretty = time.getHours() + ':' + ((mins < 10) ? '0' + mins : mins) + ' am';
   }
   return pretty;
 };
