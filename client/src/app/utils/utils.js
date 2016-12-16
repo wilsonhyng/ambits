@@ -161,3 +161,15 @@ export const checkinAmbit = function(ambit, successCb,errorCb) {
   console.log('your device does not support geolocation :(');
  }
 };
+
+export const convertDate = (date) => ((date.getUTCMonth() + 1) + '/' + date.getUTCDate() + '/' + date.getUTCFullYear());
+
+export const convertTime = (time) => {
+  var pretty;
+  if (time.getHours() > 12) {
+    pretty = (time.getHours() - 12)  + ':' + time.getMinutes() + ' pm';
+  } else {
+    pretty = time.getHours() + ':' + time.getMinutes() + ' am';
+  }
+  return pretty;
+};
