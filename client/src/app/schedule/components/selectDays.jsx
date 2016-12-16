@@ -6,7 +6,8 @@ const styles = {
     maxWidth: 250,
   },
   checkbox: {
-    marginBottom: 16,
+    marginTop:  '16px',
+    marginLeft: '45px',
   },
 };
 

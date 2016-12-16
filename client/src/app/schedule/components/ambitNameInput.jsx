@@ -8,6 +8,7 @@ const AmbitNameInput = (props) => (
       hintText= "Ambit Name"
       // errorText="Please enter an Ambit Name"
       onChange={props.onNameInput}
+      style={{marginLeft: '40px'}}
     />
   </div>
 );

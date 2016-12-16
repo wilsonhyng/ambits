@@ -7,7 +7,8 @@ const SelectTime = (props) => (
     <TimePicker
       hintText="Select Ambit Time"
       autoOk={true}
-      onChange= {props.onSelectTime}
+      onChange={props.onSelectTime}
+      style={{marginLeft: '40px'}}
     />
   </div>
 );
