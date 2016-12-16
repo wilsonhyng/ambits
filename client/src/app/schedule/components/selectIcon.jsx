@@ -1,42 +1,41 @@
 import React, {Component} from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import ActionHome from 'material-ui/svg-icons/action/home';
-import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
+import ActionFlightTakeoff  from 'material-ui/svg-icons/action/flight-takeoff';
+import FontIcon from 'material-ui/FontIcon';
+
+const selectFieldStyle = {
+  width: '80%',
+  marginLeft: '40px'
+};
 
 const iconStyles = {
   marginRight: 24,
 };
 
-const selectIconStyle = {
-  width = 80%,
-  marginLeft = '40px'
-
-}
-var plane = <ActionFlightTakeoff style={iconStyles} />;
-
-const icons = [<MenuItem value={plane} key={1}/>];
-
-export default class SelectIcon extends Component {
+export default class SelectFieldExampleNullable extends Component {
   state = {
-    value: plane,
-  }
+    value: null
+  };
 
-  handleChange = (event, index, value) => {
-    this.setState({value: value});
-  }
+  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return (
-      <SelectField
-        style={selectIconStyle}
-        value={this.state.value}
-        onChange={this.handleChange}
-        maxHeight={100}
-        floatingLabelText= "Ambit Icon"
-      >
-        {icons}
-      </SelectField>
+      <div style={selectFieldStyle}>
+        <SelectField
+          floatingLabelText="Select Icon"
+          value={this.state.value}
+          onChange={this.handleChange}
+        >
+          <MenuItem 
+          value={<div><ActionFlightTakeoff style={iconStyles} /></div>} 
+          leftIcon={<ActionFlightTakeoff style={iconStyles} />} 
+          primaryText="Flight" 
+          />
+
+        </SelectField>
+      </div>
     );
   }
 }
