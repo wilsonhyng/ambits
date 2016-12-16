@@ -48,9 +48,9 @@ export default class ScheduleContainer extends React.Component {
 
 
   onNameInput(nameInput) {
-      this.setState({
-        name: nameInput.target.value
-      });
+    this.setState({
+      name: nameInput.target.value
+    });
   }
 
 // Need to reformat date object to not include current time before passing into database
@@ -58,16 +58,14 @@ export default class ScheduleContainer extends React.Component {
     this.setState({
       startDate: date
     });
-    console.log(this.state);
   }
 
 
 // Need to reformat time object to not include current date before passing into database
   onSelectTime(event, time) {
-    // this.setState({
-    //   startTime:time
-    // });
-    // console.log(this.state);
+    this.setState({
+      startTime:time
+    });
   }
 
   onScheduleAmbit() {
