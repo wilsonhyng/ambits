@@ -4,9 +4,11 @@ import {Component}            from 'react';
 import FlatButton       from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
 
+import * as Utils       from '../../utils/utils.js';
+
 const notCheckedStyle = {
-  color: 'white', //TODO: not working colors... 
-  rippleColor: 'green', 
+  color: 'white', //TODO: not working colors...
+  rippleColor: 'green',
   backgroundColor:'green'
 };
 
@@ -25,6 +27,10 @@ class AmbitDescription extends Component {
   }
 
   render() {
+    // convert data into more sensible format
+
+    const date = Utils.convertDate(new Date(this.props.ambit.startDate));
+    const time = Utils.convertTime(new Date(this.props.ambit.startDate));
 
     // styling for CardStyle
     const cardStyle = {
@@ -38,16 +44,16 @@ class AmbitDescription extends Component {
           <CardHeader
             title = {'Activity: ' + this.props.ambit.name}
             avatar = "http://www.19130fitness.com/wp-content/uploads/2015/07/crossfit-barbell.png"
-            subtitle = {'Start Date: ' + this.props.ambit.startDate}
+            subtitle = { date + ' ' + time }
           />
           <CardActions>
             <FlatButton
               label= {
                 this.props.ambit.checkedIn ? "Checked In":"Check In!"
               }
-              onTouchTap={() => { 
+              onTouchTap={() => {
                 this.props.handleCheckinAmbit(this.props.ambit);
-                } 
+                }
               }
               disabled = {this.props.ambit.checkedIn}
               style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
