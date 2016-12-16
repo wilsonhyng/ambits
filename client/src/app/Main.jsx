@@ -4,7 +4,7 @@
  */
 import React            from 'react';
 import {Component}      from 'react';
-import {Router, Route, Link}
+import {Router, Route, Link, browserHistory}
                         from 'react-router';
 
 import RaisedButton     from 'material-ui/RaisedButton';
@@ -53,6 +53,7 @@ class Main extends Component {
     this.setState({
       isLoggedIn: false
     });
+    browserHistory.push('/loginsplash')
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
