@@ -93,7 +93,6 @@ class Main extends Component {
             onRequestChange={(open) => this.setState({open})}
             >
 
-            // shown Ambit button after ambit has been selected
             { this.props.ambit === null ?
               <div></div> :
               <MenuItem onTouchTap={this.handleClose}>
