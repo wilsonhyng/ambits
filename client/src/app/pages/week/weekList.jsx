@@ -12,7 +12,7 @@ const dayStyle = {
 const weekList = (props) => {
   return (
     <div style={dayStyle}>
-      {props.days.map((day, index) => 
+      {props.days.map((day, index) =>
         <Day day={day} ambitsOfDay={props.ambits[index]} key={index} />
       )}
     </div>
