@@ -136,16 +136,16 @@ class Day extends Component {
             />
             
             <RaisedButton 
-            // onTouchTap={this.handleCreateAmbit} 
-            buttonStyle={createStyle}
-            containerElement={<Link to='/map'/>}
-            fullWidth = {true}
+              // onTouchTap={this.handleCreateAmbit} 
+              buttonStyle={createStyle}
+              containerElement={<Link to='/map'/>}
+              fullWidth = {true}
             >Create Ambit</RaisedButton>
             
             <Snackbar
-            open={this.state.feedback.open}
-            message={this.state.feedback.message}
-            autoHideDuration={this.state.feedback.autoHideDuration}
+              open={this.state.feedback.open}
+              message={this.state.feedback.message}
+              autoHideDuration={this.state.feedback.autoHideDuration}
             />
           </div>
         </MuiThemeProvider>
