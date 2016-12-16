@@ -2,7 +2,6 @@ import React                  from 'react';
 import {Component}            from 'react';
 
 import FlatButton       from 'material-ui/FlatButton';
-import Snackbar         from 'material-ui/Snackbar';
 import {Card, CardActions, CardHeader}  from 'material-ui/Card';
 
 const notCheckedStyle = {
