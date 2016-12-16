@@ -17,7 +17,7 @@ import Week             from './pages/week.jsx';
 import Schedule         from './schedule/components/schedule.jsx'
 import Map              from './map/map.jsx';
 import Display          from './displayAmbit/displayAmbit.jsx';
-
+import LoginSplash            from './pages/loginsplash.jsx';
 // Redux
 import { createStore }  from 'redux';
 import { Provider }     from 'react-redux';
@@ -44,6 +44,7 @@ render(
         <Route path='/schedule' component={Schedule}/>
         <Route path='/map'      component={Map}/>
         <Route path='/display'  component={Display}/>
+        <Route path='/loginsplash'    component={LoginSplash}/>
       </Route>
     </Router>
   </Provider>,
