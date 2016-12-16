@@ -8,43 +8,40 @@ import Paper                from 'material-ui/Paper';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 
-const style = {
-  height: 100,
-  width: 100,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-};
-
-// const dayStyle = {
+// const style = {
+//   height: 100,
+//   width: 100,
+//   margin: 20,
 //   textAlign: 'center',
-//   marginRight: 20
+//   display: 'inline-block',
 // };
 
-// const ambitStyle = {
-//   float: 'left'
-// }
-
-const h1Style = {
-  margin: 0,
-  top: 'auto',
-  right: 8,
-  bottom: 16,
-  left: 'auto',
-  position: 'fixed'
-  // textAlign: 'center'
-}
 
 const paperStyle = {
   height: 60,
   width: 315,
   margin: 10,
-  textAlign: 'center',
-  float: 'left',
-  display: 'inline-block',
-
   marginTop: 12,
   marginRight: 10
+  textAlign: 'center',
+  float: 'left',
+  display: 'flex'
+};
+
+const btnStyle = {
+  margin: 0,
+  marginTop: 3,
+  marginLeft: 3,
+  marginRight: 3,
+  color: '#f7f2f7',
+  fontSize: 10
+};
+
+
+const btnText = {
+  fontSize: '20px',
+  color: 'white',
+  lineHeight: 'none'
 };
 
 
@@ -53,13 +50,11 @@ const Day = (props) => {
     <Paper style={paperStyle} zDepth={2} onClick={props.handleDayClick.bind(null, props.date)}>
       <Link to='/'>
         <FloatingActionButton  
-          backgroundColor='purple' 
-          children={props.day}
-
-          /*onTouchTap={test}*/>
+          backgroundColor='purple'
+          style={btnStyle}
+        ><p style={btnText}> {props.day} </p>
         </FloatingActionButton>
       </Link>
-
       <div>
         {props.ambitsOfDay.map((ambit, index) =>
           <Ambit ambit={ambit} key={index}/>
