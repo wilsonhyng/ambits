@@ -9,7 +9,9 @@ import {Router, Route, Link, browserHistory}
 
 import RaisedButton     from 'material-ui/RaisedButton';
 import Dialog           from 'material-ui/Dialog';
-import {deepOrange500}  from 'material-ui/styles/colors';
+// import {deepOrange500}  from 'material-ui/styles/colors';
+import {indigo500, indigo700, indigo900, redA200}  from 'material-ui/styles/colors';
+
 import FlatButton       from 'material-ui/FlatButton';
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -34,8 +36,15 @@ const styles = {
 
 const muiTheme = getMuiTheme({
   palette: {
-    accent1Color: deepOrange500,
+    primary1Color: '#FCD0C7',
+    primary2Color: indigo700,
+    accent1Color: redA200,
+    pickerHeaderColor: indigo500,
+    alternateTextColor: '#242424',
   },
+  fontFamily: {
+    fontFamily: 'Didact Gothic, sans-serif'
+  }
 });
 
 
@@ -53,7 +62,7 @@ class Main extends Component {
     this.setState({
       isLoggedIn: false
     });
-    browserHistory.push('/loginsplash')
+    browserHistory.push('/loginsplash');
   }
 
   handleToggle = () => this.setState({open: !this.state.open});

@@ -41,18 +41,17 @@ class LoginSplash extends Component {
 
  
   render() {
-    document.body.style.backgroundColor = "purple";
+    document.body.style.backgroundColor = '#FFF7DF';
 
     const LoginModal = (<Login main={this} />);
 
 
     return (
      <MuiThemeProvider muiTheme={muiTheme}>
-      <div style={splashStyle}>
+      <div className="loginTitle" style={splashStyle}>
         <h1>Ambitually</h1>
+        <span>A Smarty Sprouts Production</span>
         {LoginModal}
-
-
       </div>
     </MuiThemeProvider>
     );

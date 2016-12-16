@@ -1,5 +1,8 @@
 import React            from 'react';
 import {Component}      from 'react';
+import { Router, Route, Link, browserHistory }
+                        from 'react-router';
+
 import RaisedButton     from 'material-ui/RaisedButton';
 import FlatButton       from 'material-ui/FlatButton';
 import Dialog           from 'material-ui/Dialog';
@@ -33,6 +36,7 @@ class Login extends Component {
       this.props.main.setState({
         isLoggedIn: true
       });
+      browserHistory.push('/');
     })
     .catch(err => {
       const msg = err.response.data.message;
@@ -56,6 +60,7 @@ class Login extends Component {
       this.props.main.setState({
         isLoggedIn: true
       });
+      browserHistory.push('/');
     })
     .catch(err => {
       const msg = err.response.data.message;
