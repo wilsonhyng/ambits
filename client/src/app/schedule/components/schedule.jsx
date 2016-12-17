@@ -57,31 +57,35 @@ class ScheduleContainer extends React.Component {
   onNameInput(nameInput) {
     this.setState({
       name: nameInput.target.value
-    });
-    this.onChange();
+    }, () => (
+      this.onChange()
+    ));
   }
 
   onSelectIcon(icon) {
     this.setState({
       icon: icon
-    });
-    this.onChange();
+    }, () => (
+      this.onChange()
+    ));
   }
 
 // Need to reformat date object to not include current time before passing into database
   onStartDateSet(event, date) {
     this.setState({
       startDate: date
-    });
-    this.onChange();
+    }, () => (
+      this.onChange()
+    ));
   }
 
 // Need to reformat time object to not include current date before passing into database
   onSelectTime(event, time) {
     this.setState({
       startTime:time
-    });
-    this.onChange();
+    }, () => (
+      this.onChange()
+    ));
   }
 
   onChange() {
@@ -93,10 +97,7 @@ class ScheduleContainer extends React.Component {
     var selectStartTime = JSON.stringify(ambitState.startTime) !== '{}';
     var hasIcon = ambitState.icon !== '';
 
-    console.log (hasName, selectDays, selectStartDate, selectStartTime, hasIcon)
-
     if (hasName && selectDays && selectStartDate && selectStartTime && hasIcon) {
-
       this.props.dispatch(isDisabled(false));
     } else {
       this.props.dispatch(isDisabled(true));
@@ -108,7 +109,6 @@ class ScheduleContainer extends React.Component {
     Utils.postAmbit(ambitState, function() {
       console.log('posted!');
     });
-    this.onChange();
   }
 
   // onDropDownSelect(event, index, value) {
@@ -141,56 +141,62 @@ class ScheduleContainer extends React.Component {
   onSelectDaysInputSunday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[0] = checked;
-    this.setState(currentState);
-    this.onChange();
+    this.setState(currentState, () => (
+      this.onChange()
+    ));
   }
 
   onSelectDaysInputMonday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[1] = checked;
-    this.setState(currentState);
-    this.onChange();
+    this.setState(currentState, () => (
+      this.onChange()
+    ));
   }
 
   onSelectDaysInputTuesday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[2] = checked;
-    this.setState(currentState);
-    this.onChange();
+    this.setState(currentState, () => (
+      this.onChange()
+    ));
   }
 
   onSelectDaysInputWednesday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[3] = checked;
-    this.setState(currentState);
-    this.onChange();
+    this.setState(currentState, () => (
+      this.onChange()
+    ));
   }
 
   onSelectDaysInputThursday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[4] = checked;
-    this.setState(currentState);
-    this.onChange();
+    this.setState(currentState, () => (
+      this.onChange()
+    ));
   }
 
   onSelectDaysInputFriday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[5] = checked;
-    this.setState(currentState);
-    this.onChange();
+    this.setState(currentState, () => (
+      this.onChange()
+    ));
   }
 
   onSelectDaysInputSaturday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[6] = checked;
-    this.setState(currentState);
-    this.onChange();
+    this.setState(currentState, () => (
+      this.onChange()
+    ));
   }
 
   //////////////////////////////////////////////////
 
   render() {
-    console.log(this.props.disabled);
     return (
       <div>
         <div>
