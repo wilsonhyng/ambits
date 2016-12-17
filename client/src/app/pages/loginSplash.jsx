@@ -1,20 +1,21 @@
-import React              from 'react';
-import { Component }      from 'react';
-
+import React            from 'react';
+import { Component }      
+                        from 'react';
+import { browserHistory } 
+                        from 'react-router';
 
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {deepOrange500}  from 'material-ui/styles/colors';
 
-
 import Login            from '../login/login.jsx';
 import * as loginCtrl   from '../login/loginCtrl';
+import { getJwt }       from '../login/loginCtrl.js'
 
 // Redux
 import { connect }      from 'react-redux';
-import { loadAmbits, updateTitle, updateCurDay }
+import { loadAmbits, updateTitle, updateCurDay }     
                         from '../_actions/ambit-actions';
-
 
 const styles = {
   container: {
@@ -39,12 +40,16 @@ class LoginSplash extends Component {
     super(props);
   }
 
- 
+  componentDidMount() {
+    if (!!getJwt()) {
+      browserHistory.push('/day');
+    }
+  }
+
   render() {
     document.body.style.backgroundColor = '#f5eacd';
 
     const LoginModal = (<Login main={this} />);
-
 
     return (
      <MuiThemeProvider muiTheme={muiTheme}>
@@ -57,7 +62,5 @@ class LoginSplash extends Component {
     );
   }
 }
-
-
 
 export default LoginSplash;
