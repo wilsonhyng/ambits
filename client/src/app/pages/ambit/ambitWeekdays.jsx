@@ -37,6 +37,7 @@ class AmbitWeekdays extends Component {
               disabled={this.props.ambit.weekdays[index]}
               iconStyle={btnText}
               style={styleSpacing}
+              key={index}
             >
             </FloatingActionButton>
         )}
