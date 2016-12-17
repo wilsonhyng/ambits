@@ -1,17 +1,18 @@
-import React, {Component}   from 'react';
-import DropDownList         from './dropdown.jsx';
-import CommitButton         from './commitButton.jsx';
-import StartDate            from './startDate.jsx';
-import SelectDays           from './selectDays.jsx';
-import AmbitNameInput       from './ambitNameInput.jsx';
-import SelectTime           from './selectTime.jsx';
-import SelectFrequency      from './selectFrequency.jsx';
-import * as Utils           from '../../utils/utils.js';
-import {Coords}             from '../../map/map.jsx';
-import SelectIcon           from './selectIcon.jsx';
+import React            from 'react';
+import {Component}      from 'react';
+import DropDownList     from './dropdown.jsx';
+import CommitButton     from './commitButton.jsx';
+import StartDate        from './startDate.jsx';
+import SelectDays       from './selectDays.jsx';
+import AmbitNameInput   from './ambitNameInput.jsx';
+import SelectTime       from './selectTime.jsx';
+import SelectFrequency  from './selectFrequency.jsx';
+import * as Utils       from '../../utils/utils.js';
+import {Coords}         from '../../map/map.jsx';
+import SelectIcon       from './selectIcon.jsx';
 
 // material-ui
-import Divider              from 'material-ui/Divider';
+import Divider          from 'material-ui/Divider';
 
 // Redux
 import { connect }      from 'react-redux';
@@ -23,17 +24,17 @@ class ScheduleContainer extends React.Component {
     super(props);
 
     this.state = {
-      name: '',
-      coords:{
+      name:       '',
+      coords:     {
         latitude: Coords.latitude,
         longitude:Coords.longitude
       },
       // frequency:'',
-      weekdays: [false, false, false, false, false, false, false],
-      startDate: {},
-      startTime: {},
-      checkIns:[],
-      icon: ''
+      weekdays:   [false, false, false, false, false, false, false],
+      startDate:  {},
+      startTime:  {},
+      checkIns:   [],
+      icon:       '',
     };
 
     this.onSelectDays = {
@@ -82,7 +83,6 @@ class ScheduleContainer extends React.Component {
 
     Utils.postAmbit(ambitState, function() {
       console.log('posted!');
-      // console.log(ambitState);
     });
   }
 
@@ -155,7 +155,6 @@ class ScheduleContainer extends React.Component {
     this.setState(currentState)
   }
 
-
   //////////////////////////////////////////////////
 
   render() {
@@ -199,6 +198,8 @@ class ScheduleContainer extends React.Component {
   }
 }
 
+
 ScheduleContainer = connect()(ScheduleContainer);
+
 
 export default ScheduleContainer;
