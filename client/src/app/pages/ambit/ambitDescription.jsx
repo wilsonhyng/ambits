@@ -74,7 +74,7 @@ class AmbitDescription extends Component {
               style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
             />
             <FlatButton
-              label={<Link to='/' style={linkStyle}>Delete Ambit</Link>}
+              label={<Link to='/day' style={linkStyle}>Delete Ambit</Link>}
               onTouchTap={this.props.handleDeleteAmbit.bind(null, this.props.ambit)}
               style={deleteStyle}
             />

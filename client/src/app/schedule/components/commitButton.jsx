@@ -18,7 +18,7 @@ const linkStyle = {
 const CommitButton = (props) => (
   <div>
     <FlatButton
-      label={<Link to='/' style={linkStyle}>SCHEDULE</Link>}
+      label={<Link to='/day' style={linkStyle}>SCHEDULE</Link>}
       style={style}
       onTouchTap= {props.onScheduleAmbit} // create ambit using date, name etc from current state
     />
