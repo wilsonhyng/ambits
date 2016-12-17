@@ -74,6 +74,7 @@ export default class ScheduleContainer extends React.Component {
 
     Utils.postAmbit(ambitState, function() {
       console.log('posted!');
+      console.log(ambitState);
     });
   }
 
