@@ -13,7 +13,12 @@ import SelectIcon           from './selectIcon.jsx';
 // material-ui
 import Divider              from 'material-ui/Divider';
 
-export default class ScheduleContainer extends React.Component {
+// Redux
+import { connect }      from 'react-redux';
+import { updateTitle }  from '../../_actions/ambit-actions';
+
+
+class ScheduleContainer extends React.Component {
   constructor (props) {
     super(props);
 
@@ -40,6 +45,10 @@ export default class ScheduleContainer extends React.Component {
       onSelectDaysInputFriday:    this.onSelectDaysInputFriday.bind(this),
       onSelectDaysInputSaturday:  this.onSelectDaysInputSaturday.bind(this),
     };
+  }
+  
+  componentDidMount() {
+    this.props.dispatch(updateTitle('Schedule an Ambit'));
   }
 
   onNameInput(nameInput) {
@@ -189,3 +198,7 @@ export default class ScheduleContainer extends React.Component {
     );
   }
 }
+
+ScheduleContainer = connect()(ScheduleContainer);
+
+export default ScheduleContainer;
