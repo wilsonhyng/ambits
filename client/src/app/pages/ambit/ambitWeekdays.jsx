@@ -17,19 +17,18 @@ const styleSpacing = {
   marginRight: 10
 };
 
+const days = ['Su', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'];
+
 class AmbitWeekdays extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      days: ['Su', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'],
-    }
   }
 
   render() {
     return (
       <div style={divStyle}>
         {
-          this.state.days.map((day, index) => 
+          days.map((day, index) => 
             <FloatingActionButton
               backgroundColor={'purple'}
               mini={true}
@@ -37,6 +36,7 @@ class AmbitWeekdays extends Component {
               disabled={this.props.ambit.weekdays[index]}
               iconStyle={btnText}
               style={styleSpacing}
+              key={index}
             >
             </FloatingActionButton>
         )}
