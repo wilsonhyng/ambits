@@ -4,32 +4,36 @@ import {Component}      from 'react';
 //material-ui
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
+import MapsDirectionsBike     from 'material-ui/svg-icons/maps/directions-bike';
+import MapsDirectionsRun      from 'material-ui/svg-icons/maps/directions-run';
+import PlacesFitnessCenter    from 'material-ui/svg-icons/places/fitness-center';
+import PlacesBusinessCenter   from 'material-ui/svg-icons/places/business-center';
+
 const btnStyle = {
-  // margin: 0,
-  marginTop: 10,
-  marginLeft: 3,
-  marginRight: 3,
-  color: '#f7f2f7',
-  backgroundColor: '#f7f2f7'
+  marginTop: 15,
+  marginRight: 10,
 };
 
-const btnText = {
-  fontSize: '10px',
-  color: 'white',
-  lineHeight: 'none'
+const IconList = {
+  MapsDirectionsBike: <MapsDirectionsBike />,
+  MapsDirectionsRun: <MapsDirectionsRun />,
+  PlacesFitnessCenter: <PlacesFitnessCenter />,
+  PlacesBusinessCenter: <PlacesBusinessCenter />,
 };
 
+const Ambit = (props) => {
 
-const Ambit = (props) => (
-  <FloatingActionButton
-    style={btnStyle}
-    mini={true}
-    zDepth={0}
-    /*onTouchTap={test}*/
-  >
-    <p style={btnText}> {props.ambit.name} </p>
-  </FloatingActionButton>
-);
-
+  const selctedIcon = props.ambit.icon || 'PlacesBusinessCenter';
+  let iconElement = IconList[selctedIcon];
+  return (
+     <FloatingActionButton
+      disabled={true}
+      mini={true}
+      children={iconElement}
+      style={btnStyle}
+      zDepth={0} >
+    </FloatingActionButton>
+  );
+}
 
 export default Ambit;

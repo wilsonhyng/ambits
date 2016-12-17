@@ -30,7 +30,7 @@ export default class ScheduleContainer extends React.Component {
       checkIns:[],
       icon: ''
     };
-    
+
     this.onSelectDays = {
       onSelectDaysInputSunday:    this.onSelectDaysInputSunday.bind(this),
       onSelectDaysInputMonday:    this.onSelectDaysInputMonday.bind(this),
@@ -70,11 +70,10 @@ export default class ScheduleContainer extends React.Component {
 
   onScheduleAmbit() {
     var ambitState = this.state;
-    console.log(ambitState);
 
     Utils.postAmbit(ambitState, function() {
       console.log('posted!');
-      console.log(ambitState);
+      // console.log(ambitState);
     });
   }
 
@@ -147,7 +146,7 @@ export default class ScheduleContainer extends React.Component {
     this.setState(currentState)
   }
 
-  
+
   //////////////////////////////////////////////////
 
   render() {
@@ -160,7 +159,7 @@ export default class ScheduleContainer extends React.Component {
           />
         </div>
         <div>
-          <SelectIcon 
+          <SelectIcon
             onSelectIcon={this.onSelectIcon.bind(this)}
             icon={this.state.icon}
           />
@@ -173,7 +172,7 @@ export default class ScheduleContainer extends React.Component {
         </div>
         <div>
           <SelectTime onSelectTime={this.onSelectTime.bind(this)}/>
-        </div>  
+        </div>
         <div>
           <SelectDays
             onSelectDays={this.onSelectDays}

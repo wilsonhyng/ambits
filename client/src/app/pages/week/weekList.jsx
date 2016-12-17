@@ -9,14 +9,12 @@ const dayStyle = {
   color: 'white'
 }
 
-
 const weekList = (props) => (
   <div style={dayStyle}>
-    {props.days.map((day, index) => 
+    {props.days.map((day, index) =>
       <Day day={day.day} ambitsOfDay={props.ambits[index]} key={index} date={day.number} handleDayClick={props.handleDayClick}/>
     )}
   </div>
 );
-
 
 export default weekList;
