@@ -125,6 +125,8 @@ class Ambit extends Component {
             open={this.state.feedback.open}
             message={this.state.feedback.message}
             autoHideDuration={this.state.feedback.autoHideDuration}
+            bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
+            
           />
         </div>
       );
