@@ -11,17 +11,23 @@ import {Link}           from 'react-router';
 const notCheckedStyle = {
   color: 'white', //TODO: not working colors...
   rippleColor: 'green',
-  backgroundColor:'green'
+  backgroundColor:'green',
+  height: '40px',
+  width: '80px',
 };
 
 const checkedStyle = {
   color: 'white',
-  backgroundColor:'blue'
+  backgroundColor:'blue',
+  height: '40px',
+  width: '100px',
 };
 
 const deleteStyle = {
   color: 'white',
-  backgroundColor:'red'
+  backgroundColor:'red',
+  height: '40px',
+  width: '120px',
 };
 
 
