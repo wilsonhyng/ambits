@@ -17,7 +17,7 @@ import Week             from './pages/week.jsx';
 import Schedule         from './schedule/components/schedule.jsx'
 import Map              from './map/map.jsx';
 import Display          from './displayAmbit/displayAmbit.jsx';
-import LoginSplash            from './pages/loginsplash.jsx';
+import LoginSplash      from './pages/loginsplash.jsx';
 // Redux
 import { createStore }  from 'redux';
 import { Provider }     from 'react-redux';
@@ -37,15 +37,15 @@ render(
   //React-Router with nested routes
   <Provider store={store}>
     <Router history={browserHistory}>
-    <Route path='/'    component={LoginSplash}/>
-      <Route component={Main}>
-        <Route path='/day'         component={Day}/>
+      <Route   path='/'         component={LoginSplash}/>
+      <Route   path='/map'      component={Map}/>
+      <Route                    component={Main}>
+        <Route path='/day'      component={Day}/>
         <Route path='/ambit'    component={Ambit}/>
         <Route path='/week'     component={Week}/>
         <Route path='/schedule' component={Schedule}/>
         <Route path='/display'  component={Display}/>
       </Route>
-        <Route path='/map'      component={Map}/>
     </Router>
   </Provider>,
   document.getElementById('app')
