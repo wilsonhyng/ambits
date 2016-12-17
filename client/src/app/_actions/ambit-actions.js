@@ -10,4 +10,4 @@ export const updateCurBit = (ambit)   => ({ type: 'UPDATE_CUR_BIT', ambit   });
 
 export const deleteAmbit  = (ambit)   => ({ type: 'DELETE_AMBIT'  , ambit   });
 
-export const canSchedule  = (bool)    => ({ type: 'CAN_SCHEDULE'  , bool    });
+export const isDisabled   = (bool)    => ({ type: 'IS_DISABLED'   , bool    });
