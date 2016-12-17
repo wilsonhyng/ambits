@@ -16,7 +16,9 @@ import Divider          from 'material-ui/Divider';
 
 // Redux
 import { connect }      from 'react-redux';
-import { updateTitle }  from '../../_actions/ambit-actions';
+import { updateTitle, canSchedule }  
+                        from '../../_actions/ambit-actions';
+
 
 
 class ScheduleContainer extends React.Component {
@@ -56,12 +58,14 @@ class ScheduleContainer extends React.Component {
     this.setState({
       name: nameInput.target.value
     });
+    this.onChange();
   }
 
   onSelectIcon(icon) {
     this.setState({
       icon: icon
     });
+    this.onChange();
   }
 
 // Need to reformat date object to not include current time before passing into database
@@ -69,6 +73,7 @@ class ScheduleContainer extends React.Component {
     this.setState({
       startDate: date
     });
+    this.onChange();
   }
 
 // Need to reformat time object to not include current date before passing into database
@@ -76,9 +81,10 @@ class ScheduleContainer extends React.Component {
     this.setState({
       startTime:time
     });
+    this.onChange();
   }
 
-  isAmbitFilledOut() {
+  onChange() {
     var ambitState = this.state;
 
     var hasName = ambitState.name !== '';
@@ -88,9 +94,9 @@ class ScheduleContainer extends React.Component {
     var hasIcon = ambitState.icon !== '';
 
     if (hasName && selectDays && selectStartDate && selectStartTime && hasIcon) {
-      return true;
+      this.props.dispatch(canSchedule(true));
     } else {
-      return false;
+      this.props.dispatch(canSchedule(false));
     }
   }
 
@@ -99,6 +105,7 @@ class ScheduleContainer extends React.Component {
     Utils.postAmbit(ambitState, function() {
       console.log('posted!');
     });
+    this.onChange();
   }
 
   // onDropDownSelect(event, index, value) {
@@ -132,42 +139,49 @@ class ScheduleContainer extends React.Component {
     var currentState = this.state;
     currentState.weekdays[0] = checked;
     this.setState(currentState);
+    this.onChange();
   }
 
   onSelectDaysInputMonday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[1] = checked;
-    this.setState(currentState)
+    this.setState(currentState);
+    this.onChange();
   }
 
   onSelectDaysInputTuesday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[2] = checked;
     this.setState(currentState);
+    this.onChange();
   }
 
   onSelectDaysInputWednesday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[3] = checked;
-    this.setState(currentState)
+    this.setState(currentState);
+    this.onChange();
   }
 
   onSelectDaysInputThursday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[4] = checked;
-    this.setState(currentState)
+    this.setState(currentState);
+    this.onChange();
   }
 
   onSelectDaysInputFriday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[5] = checked;
-    this.setState(currentState)
+    this.setState(currentState);
+    this.onChange();
   }
 
   onSelectDaysInputSaturday(event, checked) {
     var currentState = this.state;
     currentState.weekdays[6] = checked;
-    this.setState(currentState)
+    this.setState(currentState);
+    this.onChange();
   }
 
   //////////////////////////////////////////////////
@@ -188,7 +202,9 @@ class ScheduleContainer extends React.Component {
           />
         </div>
         <div>
-          <SelectTime onSelectTime={this.onSelectTime.bind(this)}/>
+          <SelectTime 
+            onSelectTime={this.onSelectTime.bind(this)}
+          />
         </div>
         <div>
           <SelectIcon
@@ -204,9 +220,9 @@ class ScheduleContainer extends React.Component {
         </div>
         <div>
           <CommitButton
-            currentState = {this.state}
-            onScheduleAmbit = {this.onScheduleAmbit.bind(this)}
-            isAmbitFilledOut = {this.isAmbitFilledOut.bind(this)}
+            currentState ={this.state}
+            onScheduleAmbit ={this.onScheduleAmbit.bind(this)}
+            disabled={this.props.disabled}
           />
         </div>
       </div>
@@ -214,6 +230,9 @@ class ScheduleContainer extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  disabled: state.disabled
+});
 
 ScheduleContainer = connect()(ScheduleContainer);
 
