@@ -36,7 +36,7 @@ class Login extends Component {
       this.props.main.setState({
         isLoggedIn: true
       });
-      browserHistory.push('/');
+      browserHistory.push('/day');
     })
     .catch(err => {
       const msg = err.response.data.message;

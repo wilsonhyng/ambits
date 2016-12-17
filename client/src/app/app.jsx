@@ -37,9 +37,9 @@ render(
   //React-Router with nested routes
   <Provider store={store}>
     <Router history={browserHistory}>
-    <Route path='/loginsplash'    component={LoginSplash}/>
+    <Route path='/'    component={LoginSplash}/>
       <Route component={Main}>
-        <Route path='/'         component={Day}/>
+        <Route path='/day'         component={Day}/>
         <Route path='/ambit'    component={Ambit}/>
         <Route path='/week'     component={Week}/>
         <Route path='/schedule' component={Schedule}/>
