@@ -89,11 +89,14 @@ class ScheduleContainer extends React.Component {
 
     var hasName = ambitState.name !== '';
     var selectDays = ambitState.weekdays.indexOf(true) >= 0;
-    var selectStartDate = JSON.stringify(ambitState.startDate) === '{}';
-    var selectStartTime = JSON.stringify(ambitState.startDate) !== '{}';
+    var selectStartDate = JSON.stringify(ambitState.startDate) !== '{}';
+    var selectStartTime = JSON.stringify(ambitState.startTime) !== '{}';
     var hasIcon = ambitState.icon !== '';
 
+    console.log (hasName, selectDays, selectStartDate, selectStartTime, hasIcon)
+
     if (hasName && selectDays && selectStartDate && selectStartTime && hasIcon) {
+
       this.props.dispatch(isDisabled(false));
     } else {
       this.props.dispatch(isDisabled(true));
