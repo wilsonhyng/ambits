@@ -13,7 +13,7 @@ const ambits =
         ambits: action.ambits
       };
     case 'UPDATE_AMBIT':
-      var i = state.ambits.findIndex(item => action.ambit.name === item.name)
+      var i = state.ambits.findIndex(item => action.ambit._id === item._id)
       var a = state.ambits.slice();
       a[i] = action.ambit;
       return {
@@ -36,7 +36,7 @@ const ambits =
         ambit: action.ambit
       };
     case 'DELETE_AMBIT':
-      var i = state.ambits.findIndex(item => action.ambit.name === item.name)
+      var i = state.ambits.findIndex(item => action.ambit._id === item._id)
       var a = state.ambits.splice(i, 1);
       return {
         ...state,
