@@ -33,7 +33,6 @@ const log = () => {
   console.log('mouse over')
 };
 
-
 const Day = (props) => (
   <Link to='/' >
     <Paper

@@ -22,7 +22,7 @@ const IconList = {
 };
 
 const Ambit = (props) => {
-  // change this line when hooked up to the database
+
   const selctedIcon = props.ambit.icon || 'PlacesBusinessCenter';
   let iconElement = IconList[selctedIcon];
   return (

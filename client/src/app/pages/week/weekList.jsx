@@ -17,5 +17,4 @@ const weekList = (props) => (
   </div>
 );
 
-
 export default weekList;
