@@ -118,7 +118,7 @@ class Ambit extends React.Component {
         <CardHeader
           title = {this.props.ambit.name}
           avatar = {avatar}
-          subtitle = {this.props.ambit.frequency}
+          subtitle = {this.generateFreq()}
         />
         <CardActions>
           <FlatButton
