@@ -167,12 +167,6 @@ class ScheduleContainer extends React.Component {
           />
         </div>
         <div>
-          <SelectIcon
-            onSelectIcon={this.onSelectIcon.bind(this)}
-            icon={this.state.icon}
-          />
-        </div>
-        <div>
           <StartDate
             onStartDateSet={this.onStartDateSet.bind(this)}
             startDate={this.state.startDate}
@@ -180,6 +174,12 @@ class ScheduleContainer extends React.Component {
         </div>
         <div>
           <SelectTime onSelectTime={this.onSelectTime.bind(this)}/>
+        </div>
+        <div>
+          <SelectIcon
+            onSelectIcon={this.onSelectIcon.bind(this)}
+            icon={this.state.icon}
+          />
         </div>
         <div>
           <SelectDays

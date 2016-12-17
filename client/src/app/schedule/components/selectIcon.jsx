@@ -3,25 +3,32 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 // material-ui icons
-import MapsDirectionsRun from 'material-ui/svg-icons/maps/directions-run';
-import MapsDirectionsBike from 'material-ui/svg-icons/maps/directions-bike';
-import PlacesFitnessCenter from 'material-ui/svg-icons/places/fitness-center';
-import PlacesBusinessCenter from 'material-ui/svg-icons/places/business-center';
+import MapsDirectionsRun      from 'material-ui/svg-icons/maps/directions-run';
+import MapsDirectionsBike     from 'material-ui/svg-icons/maps/directions-bike';
+import PlacesFitnessCenter    from 'material-ui/svg-icons/places/fitness-center';
+import PlacesBusinessCenter   from 'material-ui/svg-icons/places/business-center';
+import ActionShoppingCart     from 'material-ui/svg-icons/action/shopping-cart';
+import ActionAlarm            from 'material-ui/svg-icons/action/alarm';
+import MapsDirectionsTransit  from 'material-ui/svg-icons/maps/directions-transit';
+
 
 const selectFieldStyle = {
   width: '80%',
+  marginTop: '0%',
   marginLeft: '40px'
 };
 
 const iconStyle = {
   marginTop: '15px',
-  marginLeft: '1em',
   marginRight: '1em'
 };
 
 const textStyle = {
   // marginTop: '1em'
 };
+
+const icons = [];
+
 
 export default class SelectFieldExampleNullable extends Component {
   constructor(props) {
@@ -38,18 +45,25 @@ export default class SelectFieldExampleNullable extends Component {
       value: value,
       floatingText: ''
     }); 
-    console.log (value);
     this.props.onSelectIcon(value);
   }
 
   render() {
     return (
-      <div style={selectFieldStyle}>
+      <div>
         <SelectField
           floatingLabelText={this.state.floatingText}
           value={this.state.value}
           onChange={this.handleChange.bind(this)}
+          style={selectFieldStyle}
         >
+          <MenuItem 
+            value='ActionAlarm'
+            primaryText={<span>
+              <ActionAlarm style={iconStyle} />
+              <span style={textStyle}>Default</span>
+            </span> }
+          />
           <MenuItem 
             value='MapsDirectionsRun'
             primaryText={<span>
@@ -77,6 +91,20 @@ export default class SelectFieldExampleNullable extends Component {
               <PlacesBusinessCenter style={iconStyle} />
               <span style={textStyle}>Work</span>
             </span>}
+          />
+          <MenuItem 
+            value='ActionShoppingCart'
+            primaryText={<span>
+              <ActionShoppingCart style={iconStyle} />
+              <span style={textStyle}>Shopping</span>
+            </span>}
+          />
+          <MenuItem 
+            value='MapsDirectionsTransit'
+            primaryText={<span>
+              <MapsDirectionsTransit style={iconStyle} />
+              <span style={textStyle}>Transit</span>
+            </span> }
           />
         </SelectField>
       </div>
