@@ -9,7 +9,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import Snackbar         from 'material-ui/Snackbar';
 import {Router, Route, Link}
                         from 'react-router';
-import RaisedButton     from 'material-ui/RaisedButton';
+import Flatbutton     from 'material-ui/Flatbutton';
 
 // Redux
 import { connect }      from 'react-redux';
@@ -31,6 +31,8 @@ const createStyle = {
   paddingTop: '8px',
   height: '50px',
   fontSize: '20px',
+  width: '100%',
+  borderRadius: '0px',
 };
 
 const spinnerStyle  = {
@@ -135,12 +137,11 @@ class Day extends Component {
               handleViewAmbit={this.handleViewAmbit.bind(this)}
             />
             
-            <RaisedButton 
+            <Flatbutton 
               // onTouchTap={this.handleCreateAmbit} 
-              buttonStyle={createStyle}
+              style={createStyle}
               containerElement={<Link to='/map'/>}
-              fullWidth = {true}
-            >Create Ambit</RaisedButton>
+            >Create Ambit</Flatbutton>
             
             <Snackbar
               open={this.state.feedback.open}
