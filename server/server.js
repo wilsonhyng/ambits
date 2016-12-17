@@ -4,6 +4,7 @@ var app         = express();
 var path        = require('path');
 var bodyParser  = require('body-parser');
 var passport    = require('passport');
+var favicon     = require('serve-favicon');
 var mongoose    = require('mongoose');
 
 var ambitHelper = require('./ambitData/ambitHelper.js');
@@ -41,7 +42,9 @@ if (process.env.NODE_ENV !== 'production') {
   // app.use(webpackHotMiddleware(compiler, {
   //   log: console.log
   // }));
-
+  app.use(favicon(path.join(__dirname, 'client/src/www', 'favicon.ico')));
+} else {
+  app.use(favicon(path.join(__dirname, 'client/dist', 'favicon.ico')));
 }
 
 
