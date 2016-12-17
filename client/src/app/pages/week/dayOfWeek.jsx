@@ -7,7 +7,6 @@ import { Link }             from 'react-router';
 import Paper                from 'material-ui/Paper';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
-
 let paperStyle = {
   height: 70,
   marginTop: '12px',
