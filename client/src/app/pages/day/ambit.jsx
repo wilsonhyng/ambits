@@ -58,8 +58,32 @@ const linkStyle = {
 class Ambit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+  }
+  
+  generateFreq() {
+    var str = '';
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var longdays = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday'
+    ];
+    if (this.props.ambit) {
+      var wkds = this.props.ambit.weekdays;
+      if (wkds.indexOf(true) === -1)                              str += 'Never';
+      else if (wkds.indexOf(false) === -1)                        str += 'Daily';
+      else if (wkds[0] === true && wkds.indexOf(true, 1) === 6)   str += 'Weekends';
+      else if (wkds.indexOf(true, wkds.indexOf(true) + 1) === -1) str += longdays[wkds.indexOf(true)];
+      else wkds.forEach((e, i) => {
+        if (e && wkds.indexOf(true, i + 1) !== -1) str += days[i] + ', ';
+        else if (e) str += days[i];
+      });
+    }
+    return str;
   }
 
   render () {
@@ -68,7 +92,7 @@ class Ambit extends React.Component {
         <CardHeader
           title = {this.props.ambit.name}
           avatar = "http://www.19130fitness.com/wp-content/uploads/2015/07/crossfit-barbell.png"
-          subtitle = {this.props.ambit.frequency}
+          subtitle = {this.generateFreq()}
         />
         <CardActions>
           <FlatButton
