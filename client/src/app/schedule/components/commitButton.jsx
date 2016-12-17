@@ -15,10 +15,16 @@ const linkStyle = {
   fontSize: '12px',
 };
 
+
+
 const CommitButton = (props) => (
   <div>
     <FlatButton
-      label={<Link to='/day' style={linkStyle}>SCHEDULE</Link>}
+      label={
+        props.isAmbitFilledOut() ?
+        <Link to='/day' style={linkStyle}>SCHEDULE</Link> :
+        <Link to='/schedule' style={linkStyle}>SCHEDULE</Link>
+      }
       style={style}
       onTouchTap= {props.onScheduleAmbit} // create ambit using date, name etc from current state
     />
