@@ -22,12 +22,19 @@ const checkedStyle = {
   width: '100px',
 };
 
-const statsStyle = {
-  color: 'white',
-  backgroundColor:'#e8687c',
-  height: '40px',
-  width: '80px',
-};
+// Stats Button Style:
+//const statsStyle = {
+//  color: 'white',
+//  backgroundColor:'#e8687c',
+//  height: '40px',
+//  width: '80px',
+//};
+
+// Stats Button:
+//<FlatButton
+//  label={<Link to='/display' style={linkStyle}>Stats</Link>}//send to the stats page of the ambit.
+//  style={statsStyle}
+///>
 
 const ambitStyle = {
   color: 'white',
@@ -76,10 +83,6 @@ class Ambit extends React.Component {
             }
             disabled = {this.props.ambit.checkedIn}
             style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
-          />
-          <FlatButton
-            label={<Link to='/display' style={linkStyle}>Stats</Link>}//send to the stats page of the ambit.
-            style={statsStyle}
           />
           <FlatButton
             label={<Link to='/ambit' style={linkStyle}>View Ambit</Link>}//send to the stats page of the ambit.

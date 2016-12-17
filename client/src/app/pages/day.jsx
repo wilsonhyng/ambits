@@ -130,7 +130,7 @@ class Day extends Component {
     this.props.dispatch(updateCurBit(ambit));
   }
 
-  handleShowStats() {}
+//  handleShowStats() {}
 
   render() {
     if(!this.state.loading) {
