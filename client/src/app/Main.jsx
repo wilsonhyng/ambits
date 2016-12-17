@@ -10,15 +10,16 @@ import {Router, Route, Link, browserHistory}
 import RaisedButton     from 'material-ui/RaisedButton';
 import Dialog           from 'material-ui/Dialog';
 // import {deepOrange500}  from 'material-ui/styles/colors';
-import {indigo500, indigo700, indigo900, redA200}  from 'material-ui/styles/colors';
+import {indigo500, indigo700, indigo900, redA200}
+                        from 'material-ui/styles/colors';
 
 import FlatButton       from 'material-ui/FlatButton';
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar           from 'material-ui/AppBar';
 import TextField        from 'material-ui/TextField';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import Drawer           from 'material-ui/Drawer';
+import MenuItem         from 'material-ui/MenuItem';
 
 import Login            from './login/login.jsx';
 import * as loginCtrl   from './login/loginCtrl';
@@ -91,10 +92,12 @@ class Main extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
+          <div style={{height: '65px'}}></div>
           <AppBar
             title={this.props.title}
             iconElementRight={logOutButton}
             onLeftIconButtonTouchTap={this.handleToggle}
+            style={{position: 'fixed', top: '0'}}
           />
           <Drawer
             docked={false}
