@@ -64,7 +64,7 @@ class Map extends Component {
 
   initMap(googleMaps) {
     // hackReactor is assumed to the current position
-    let hackReactor = { lat: 37.791066, lng: -122.3991683 }
+    let hackReactor = { lat: 37.7836924, lng: -122.4111553 }
 
     let map = new googleMaps.Map(document.getElementById('map'), {
       zoom: 17,

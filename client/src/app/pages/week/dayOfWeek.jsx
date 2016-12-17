@@ -34,7 +34,7 @@ const log = () => {
 };
 
 const Day = (props) => (
-  <Link to='/' >
+  <Link to='/day' >
     <Paper
       style={paperStyle}
       zDepth={2}
