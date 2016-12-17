@@ -33,6 +33,12 @@ const createStyle = {
   fontSize: '20px',
   width: '100%',
   borderRadius: '0px',
+  position: 'fixed',
+  bottom: '0',
+};
+
+const spacer = {
+  height: '50px',
 };
 
 const spinnerStyle  = {
@@ -142,6 +148,8 @@ class Day extends Component {
               style={createStyle}
               containerElement={<Link to='/map'/>}
             >Create Ambit</Flatbutton>
+            
+            <div style={spacer}></div>
             
             <Snackbar
               open={this.state.feedback.open}
