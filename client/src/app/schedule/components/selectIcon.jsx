@@ -7,8 +7,8 @@ import MapsDirectionsRun      from 'material-ui/svg-icons/maps/directions-run';
 import MapsDirectionsBike     from 'material-ui/svg-icons/maps/directions-bike';
 import PlacesFitnessCenter    from 'material-ui/svg-icons/places/fitness-center';
 import PlacesBusinessCenter   from 'material-ui/svg-icons/places/business-center';
-import ActionShoppingCart     from 'material-ui/svg-icons/actions/shopping-cart';
-import ActionAlarm            from 'material-ui/svg-icons/actions/alarm';
+import ActionShoppingCart     from 'material-ui/svg-icons/action/shopping-cart';
+import ActionAlarm            from 'material-ui/svg-icons/action/alarm';
 import MapsDirectionsTransit  from 'material-ui/svg-icons/maps/directions-transit';
 
 
@@ -23,9 +23,12 @@ const iconStyle = {
   marginRight: '1em'
 };
 
-// const textStyle = {
-//   marginTop: '1em'
-// };
+const textStyle = {
+  // marginTop: '1em'
+};
+
+const icons = [];
+
 
 export default class SelectFieldExampleNullable extends Component {
   constructor(props) {
@@ -55,6 +58,13 @@ export default class SelectFieldExampleNullable extends Component {
           style={selectFieldStyle}
         >
           <MenuItem 
+            value='ActionAlarm'
+            primaryText={<span>
+              <ActionAlarm style={iconStyle} />
+              <span style={textStyle}>Default</span>
+            </span> }
+          />
+          <MenuItem 
             value='MapsDirectionsRun'
             primaryText={<span>
               <MapsDirectionsRun style={iconStyle} />
@@ -82,7 +92,20 @@ export default class SelectFieldExampleNullable extends Component {
               <span style={textStyle}>Work</span>
             </span>}
           />
-
+          <MenuItem 
+            value='ActionShoppingCart'
+            primaryText={<span>
+              <ActionShoppingCart style={iconStyle} />
+              <span style={textStyle}>Shopping</span>
+            </span>}
+          />
+          <MenuItem 
+            value='MapsDirectionsTransit'
+            primaryText={<span>
+              <MapsDirectionsTransit style={iconStyle} />
+              <span style={textStyle}>Transit</span>
+            </span> }
+          />
         </SelectField>
       </div>
     );
