@@ -9,3 +9,5 @@ export const updateCurDay = (day)     => ({ type: 'UPDATE_CUR_DAY', day     });
 export const updateCurBit = (ambit)   => ({ type: 'UPDATE_CUR_BIT', ambit   });
 
 export const deleteAmbit  = (ambit)   => ({ type: 'DELETE_AMBIT'  , ambit   });
+
+export const canSchedule  = (bool)    => ({ type: 'CAN_SCHEDULE'  , bool    });
