@@ -78,9 +78,24 @@ class ScheduleContainer extends React.Component {
     });
   }
 
-  onScheduleAmbit() {
+  isAmbitFilledOut() {
     var ambitState = this.state;
 
+    var hasName = ambitState.name !== '';
+    var selectDays = ambitState.weekdays.indexOf(true) >= 0;
+    var selectStartDate = JSON.stringify(ambitState.startDate) === '{}';
+    var selectStartTime = JSON.stringify(ambitState.startDate) !== '{}';
+    var hasIcon = ambitState.icon !== '';
+
+    if (hasName && selectDays && selectStartDate && selectStartTime && hasIcon) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  onScheduleAmbit() {
+    var ambitState = this.state;
     Utils.postAmbit(ambitState, function() {
       console.log('posted!');
     });
@@ -191,6 +206,7 @@ class ScheduleContainer extends React.Component {
           <CommitButton
             currentState = {this.state}
             onScheduleAmbit = {this.onScheduleAmbit.bind(this)}
+            isAmbitFilledOut = {this.isAmbitFilledOut.bind(this)}
           />
         </div>
       </div>
