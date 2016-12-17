@@ -105,9 +105,10 @@ class ScheduleContainer extends React.Component {
   }
 
   onScheduleAmbit() {
+    var ctx = this;
     var ambitState = this.state;
     Utils.postAmbit(ambitState, function() {
-      console.log('posted!');
+      ctx.props.router.go('/day');
     });
   }
 
