@@ -27,15 +27,10 @@ export default class ScheduleContainer extends React.Component {
       weekdays: [false, false, false, false, false, false, false],
       startDate: {},
       startTime: {},
-      checkIns:[]
+      checkIns:[],
+      icon: ''
     };
     
-    this.onNameInput      = this.onNameInput.bind(this);
-    this.onStartDateSet   = this.onStartDateSet.bind(this);
-    this.onSelectTime     = this.onSelectTime.bind(this);
-    this.onScheduleAmbit  = this.onScheduleAmbit.bind(this);
-    // this.onFrequencyChange = this.onFrequencyChange.bind(this);
-    // this.onDropDownSelect = this.onDropDownSelect.bind(this);
     this.onSelectDays = {
       onSelectDaysInputSunday:    this.onSelectDaysInputSunday.bind(this),
       onSelectDaysInputMonday:    this.onSelectDaysInputMonday.bind(this),
@@ -47,10 +42,15 @@ export default class ScheduleContainer extends React.Component {
     };
   }
 
-
   onNameInput(nameInput) {
     this.setState({
       name: nameInput.target.value
+    });
+  }
+
+  onSelectIcon(icon) {
+    this.setState({
+      icon: icon
     });
   }
 
@@ -154,21 +154,24 @@ export default class ScheduleContainer extends React.Component {
       <div>
         <div>
           <AmbitNameInput
-            onNameInput={this.onNameInput}
+            onNameInput={this.onNameInput.bind(this)}
             name={this.state.name}
           />
         </div>
         <div>
-          <SelectIcon />
+          <SelectIcon 
+            onSelectIcon={this.onSelectIcon.bind(this)}
+            icon={this.state.icon}
+          />
         </div>
         <div>
           <StartDate
-            onStartDateSet={this.onStartDateSet}
+            onStartDateSet={this.onStartDateSet.bind(this)}
             startDate={this.state.startDate}
           />
         </div>
         <div>
-          <SelectTime onSelectTime={this.onSelectTime}/>
+          <SelectTime onSelectTime={this.onSelectTime.bind(this)}/>
         </div>  
         <div>
           <SelectDays
@@ -179,7 +182,7 @@ export default class ScheduleContainer extends React.Component {
         <div>
           <CommitButton
             currentState = {this.state}
-            onScheduleAmbit = {this.onScheduleAmbit}
+            onScheduleAmbit = {this.onScheduleAmbit.bind(this)}
           />
         </div>
       </div>
