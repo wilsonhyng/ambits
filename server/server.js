@@ -42,9 +42,9 @@ if (process.env.NODE_ENV !== 'production') {
   // app.use(webpackHotMiddleware(compiler, {
   //   log: console.log
   // }));
-  app.use(favicon(path.join(__dirname, 'client/src/www', 'favicon.ico')));
+  app.use(favicon(path.join(__dirname, '../client/src/www', 'favicon.ico')));
 } else {
-  app.use(favicon(path.join(__dirname, 'client/dist', 'favicon.ico')));
+  app.use(favicon(path.join(__dirname, '../client/dist', 'favicon.ico')));
 }
 
 
