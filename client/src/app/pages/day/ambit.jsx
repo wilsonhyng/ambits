@@ -62,7 +62,7 @@ const cardStyle = {
 
 // icons
 const IconList = {
-  MapsDirectionsRun:    <MapsDirectionsRun color='red'/>,
+  MapsDirectionsRun:    <MapsDirectionsRun />,
   MapsDirectionsBike:   <MapsDirectionsBike />,
   PlacesFitnessCenter:  <PlacesFitnessCenter />,
   PlacesBusinessCenter: <PlacesBusinessCenter />,
@@ -107,9 +107,9 @@ class Ambit extends React.Component {
     let selctedIcon = this.props.ambit.icon || 'ActionAlarm';
     let iconElement = IconList[selctedIcon];
     let avatar =  <FloatingActionButton
+                    disabled={true}
                     mini={true}
                     children={iconElement}
-                    backgroundColor={'purple'}
                     zDepth={0} >
                   </FloatingActionButton>
 

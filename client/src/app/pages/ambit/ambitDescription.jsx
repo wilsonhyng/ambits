@@ -75,6 +75,7 @@ class AmbitDescription extends Component {
     let selctedIcon = this.props.ambit.icon || 'ActionAlarm';
     let iconElement = IconList[selctedIcon];
     let avatar =  <FloatingActionButton
+                    disabled={true}
                     mini={true}
                     children={iconElement}
                     backgroundColor={'#f2f2f2'}
