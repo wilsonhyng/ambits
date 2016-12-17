@@ -8,20 +8,19 @@ import Paper                from 'material-ui/Paper';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 
-const paperStyle = {
-  height: '70px',
+let paperStyle = {
+  height: 70,
   marginTop: '12px',
   marginLeft: '8px',
   marginRight: '8px',
   textAlign: 'center',
-  float: 'none',
   display: 'flex',
 };
 
 const btnStyle = {
   marginTop: 5,
   marginLeft: 8,
-  marginRight: 4,
+  marginRight: 15,
   transition: 'none'
 };
 
@@ -36,7 +35,7 @@ const log = () => {
 
 
 const Day = (props) => (
-  <Link to='/'>
+  <Link to='/' >
     <Paper
       style={paperStyle}
       zDepth={2}

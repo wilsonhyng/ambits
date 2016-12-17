@@ -10,10 +10,9 @@ import PlacesFitnessCenter    from 'material-ui/svg-icons/places/fitness-center'
 import PlacesBusinessCenter   from 'material-ui/svg-icons/places/business-center';
 
 const btnStyle = {
-  marginTop: 5,
-  marginRight: 1,
+  marginTop: 15,
+  marginRight: 10,
 };
-
 
 const IconList = {
   MapsDirectionsBike: <MapsDirectionsBike />,
@@ -23,11 +22,13 @@ const IconList = {
 };
 
 const Ambit = (props) => {
-  const selctedIcon = props.ambit.icon || 'MapsDirectionsBike';
+  // change this line when hooked up to the database
+  const selctedIcon = props.ambit.icon || 'PlacesBusinessCenter';
   let iconElement = IconList[selctedIcon];
   return (
      <FloatingActionButton
       disabled={true}
+      mini={true}
       children={iconElement}
       style={btnStyle}
       zDepth={0} >
