@@ -12,7 +12,7 @@ const notCheckedStyle = {
   rippleColor: 'green', 
   backgroundColor:'green',
   height: '40px',
-  width: '80px',
+  width: '90px',
 };
 
 const checkedStyle = {
