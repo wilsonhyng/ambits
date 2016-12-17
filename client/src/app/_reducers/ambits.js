@@ -1,9 +1,10 @@
 const ambits =
       (state = {
-        title:  'Ambitually',
-        ambits: [],
-        day:    (new Date).getDay(),
-        ambit:  null,
+        title:    'Ambitually',
+        ambits:   [],
+        day:      (new Date).getDay(),
+        ambit:    null,
+        disabled: false,
       }, action) => {
   switch (action.type) {
     case 'LOAD_AMBITS':
@@ -40,7 +41,12 @@ const ambits =
       return {
         ...state,
         ambits: a
-      }
+      };
+    case 'CAN_SCHEDULE':
+      return {
+        ...state,
+        disabled: action.bool
+      };
     default:
       return state;
   }
