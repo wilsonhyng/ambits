@@ -5,6 +5,7 @@ import { Link }             from 'react-router';
 
 //material-ui
 import Paper                from 'material-ui/Paper';
+import { List, ListItem }   from 'material-ui/List';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 let paperStyle = {
@@ -38,19 +39,17 @@ const Day = (props) => (
       style={paperStyle}
       zDepth={2}
       onClick={props.handleDayClick.bind(null, props.date)}
-      >
-        <FloatingActionButton
-          backgroundColor={'purple'}
-          children={props.day}
-          style={btnStyle}
-          zDepth={0}
-          iconStyle={btnText}
-        >
-        </FloatingActionButton>
+    >
+      <FloatingActionButton
+        backgroundColor={'purple'}
+        children={props.day}
+        style={btnStyle}
+        zDepth={0}
+        iconStyle={btnText}
+        key={-1}
+      />
       <div>
-        {props.ambitsOfDay.map((ambit, index) =>
-          <Ambit ambit={ambit} key={index}/>
-        )}
+        {props.ambitsOfDay.map((ambit, index) => (index < 4) ? <Ambit ambit={ambit} key={index}/> : null)}
       </div>
     </Paper>
   </Link>
