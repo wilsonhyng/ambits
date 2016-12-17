@@ -36,7 +36,7 @@ const styles = {
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: '#FCD0C7',
+    primary1Color: '#1fda9a',
     primary2Color: indigo700,
     accent1Color: redA200,
     pickerHeaderColor: indigo500,
@@ -62,7 +62,7 @@ class Main extends Component {
     this.setState({
       isLoggedIn: false
     });
-    browserHistory.push('/loginsplash');
+    browserHistory.push('/');
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -112,7 +112,7 @@ class Main extends Component {
               </MenuItem> }
 
             <MenuItem onTouchTap={this.handleClose}>
-              <Link to='/' style={linkStyle} >
+              <Link to='/day' style={linkStyle} >
                 Day View
               </Link>
             </MenuItem>

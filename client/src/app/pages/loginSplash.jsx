@@ -41,7 +41,7 @@ class LoginSplash extends Component {
 
  
   render() {
-    document.body.style.backgroundColor = '#FFF7DF';
+    document.body.style.backgroundColor = '#f5eacd';
 
     const LoginModal = (<Login main={this} />);
 
