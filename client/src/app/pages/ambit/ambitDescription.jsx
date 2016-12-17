@@ -35,8 +35,16 @@ const deleteStyle = {
   color: 'white',
   backgroundColor:'red',
   height: '40px',
-  width: '120px',
+  width: '100px',
 };
+
+const editStyle = {
+  color: 'white',
+  backgroundColor:'orange',
+  height: '40px',
+  width: '100px',
+};
+
 const linkStyle = {
   color:'white',
   textDecoration:'none',
@@ -104,8 +112,15 @@ class AmbitDescription extends Component {
               disabled = {this.props.ambit.checkedIn}
               style={this.props.ambit.checkedIn ? checkedStyle : notCheckedStyle}
             />
+
             <FlatButton
-              label={<Link to='/day' style={linkStyle}>Delete Ambit</Link>}
+              label={<Link to='/schedule' style={linkStyle}>Edit</Link>}
+
+              style={editStyle}
+            />
+
+            <FlatButton
+              label={<Link to='/day' style={linkStyle}>Delete</Link>}
               onTouchTap={this.props.handleDeleteAmbit.bind(null, this.props.ambit)}
               style={deleteStyle}
             />
