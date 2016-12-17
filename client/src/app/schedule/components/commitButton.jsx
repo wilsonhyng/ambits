@@ -25,5 +25,4 @@ const CommitButton = (props) => (
   </div>
 );
 
-
 export default CommitButton;
