@@ -3,8 +3,8 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 // material-ui icons
-import MapsDirectionsBike from 'material-ui/svg-icons/maps/directions-bike';
 import MapsDirectionsRun from 'material-ui/svg-icons/maps/directions-run';
+import MapsDirectionsBike from 'material-ui/svg-icons/maps/directions-bike';
 import PlacesFitnessCenter from 'material-ui/svg-icons/places/fitness-center';
 import PlacesBusinessCenter from 'material-ui/svg-icons/places/business-center';
 
@@ -38,7 +38,8 @@ export default class SelectFieldExampleNullable extends Component {
       value: value,
       floatingText: ''
     }); 
-    // this.props.onSelectIcon(/*a string for icon name*/);
+    console.log (value);
+    this.props.onSelectIcon(value);
   }
 
   render() {
@@ -50,28 +51,28 @@ export default class SelectFieldExampleNullable extends Component {
           onChange={this.handleChange.bind(this)}
         >
           <MenuItem 
-            value='Run'
+            value='MapsDirectionsRun'
             primaryText={<span>
               <MapsDirectionsRun style={iconStyle} />
               <span style={textStyle}>Run</span>
             </span> }
           />
           <MenuItem 
-            value='Bike' 
+            value='MapsDirectionsBike' 
             primaryText={<span>
               <MapsDirectionsBike style={iconStyle} />
               <span style={textStyle}>Bike</span>
             </span>}
           />
           <MenuItem 
-            value='Gym' 
+            value='PlacesFitnessCenter' 
             primaryText={<span>
               <PlacesFitnessCenter style={iconStyle} />
               <span style={textStyle}>Gym</span>
             </span>}
           />
           <MenuItem 
-            value='Work' 
+            value='PlacesBusinessCenter' 
             primaryText={<span>
               <PlacesBusinessCenter style={iconStyle} />
               <span style={textStyle}>Work</span>
