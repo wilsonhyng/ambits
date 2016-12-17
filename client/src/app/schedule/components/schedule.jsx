@@ -16,7 +16,7 @@ import Divider          from 'material-ui/Divider';
 
 // Redux
 import { connect }      from 'react-redux';
-import { updateTitle, canSchedule }  
+import { updateTitle, isDisabled }  
                         from '../../_actions/ambit-actions';
 
 
@@ -94,9 +94,9 @@ class ScheduleContainer extends React.Component {
     var hasIcon = ambitState.icon !== '';
 
     if (hasName && selectDays && selectStartDate && selectStartTime && hasIcon) {
-      this.props.dispatch(canSchedule(true));
+      this.props.dispatch(isDisabled(false));
     } else {
-      this.props.dispatch(canSchedule(false));
+      this.props.dispatch(isDisabled(true));
     }
   }
 
@@ -187,6 +187,7 @@ class ScheduleContainer extends React.Component {
   //////////////////////////////////////////////////
 
   render() {
+    console.log(this.props.disabled);
     return (
       <div>
         <div>
@@ -234,7 +235,7 @@ const mapStateToProps = (state) => ({
   disabled: state.disabled
 });
 
-ScheduleContainer = connect()(ScheduleContainer);
+ScheduleContainer = connect(mapStateToProps)(ScheduleContainer);
 
 
 export default ScheduleContainer;
