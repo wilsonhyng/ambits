@@ -4,9 +4,10 @@ import {Link}           from 'react-router';
 
 const style = {
   margin: '10%',
-  backgroundColor: '#1fda9a',
+  backgroundColor: '#800080',
   height: '40px',
   width: '80%',
+  color: 'white'
 };
 
 
