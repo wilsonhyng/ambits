@@ -26,7 +26,7 @@ const muiTheme = getMuiTheme({
 
 const createStyle = {
   color: 'white',
-  backgroundColor:'orange',
+  backgroundColor:'#ff520e',
   'marginTop': '6px',
   paddingTop: '8px',
   height: '50px',
