@@ -113,8 +113,12 @@ class Login extends Component {
       />
     ];
 
+    const loginStyle = {
+      marginTop: '10%'
+    }
+
     return (
-      <Dialog
+      <Dialog style={loginStyle}
         autoDetectWindowHeight={false}
         overlayClassName='hidden'
         open={this.state.loginIsOpen}

@@ -17,7 +17,7 @@ import Week             from './pages/week.jsx';
 import Schedule         from './schedule/components/schedule.jsx'
 import Map              from './map/map.jsx';
 import Display          from './displayAmbit/displayAmbit.jsx';
-import LoginSplash      from './pages/loginsplash.jsx';
+import LoginSplash      from './pages/loginSplash.jsx';
 // Redux
 import { createStore }  from 'redux';
 import { Provider }     from 'react-redux';

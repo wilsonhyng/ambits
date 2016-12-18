@@ -23,8 +23,12 @@ body {
 
 .loginTitle {
   font-family: 'Didact Gothic', sans-serif;
-  color: '#3C3C3B';
+  color: #3C3C3B;
   font-size: 30px;
+}
+
+.loginTitle h1 {
+  color: #1fda9a;
 }
 
 .loginTitle span {
