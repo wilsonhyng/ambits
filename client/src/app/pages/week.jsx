@@ -13,7 +13,7 @@ class Week extends Component {
     super(props);
     this.state = {
       today: new Date().getDay(),
-      ambits: [], 
+      ambits: [],
       days: ['Su', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'],
     }
   }
@@ -26,6 +26,7 @@ class Week extends Component {
         this.props.dispatch(loadAmbits(data));
       }
     });
+    this.props.dispatch(updateTitle('Week View'));
   }
 
   sortAmbitsByDay (ambits) {
