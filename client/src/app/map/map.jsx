@@ -50,7 +50,7 @@ class Map extends Component {
     if (window.loadedGoogleMaps === undefined) {
       // This is public; restricted by IP
       loadGoogleMapsAPI({
-        key: "AIzaSyAHJfNJp8pbRxf_05L1TIm5ru-Dvcla-Nw",
+        key: "AIzaSyB2G29XZgAWqFa14olTtMnBZqqSZpFOnG4",
         v: '3.25'
       }).then((googleMaps) => {
         window.loadedGoogleMaps = googleMaps;
