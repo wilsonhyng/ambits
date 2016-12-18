@@ -13,7 +13,7 @@ import Dialog           from 'material-ui/Dialog';
 import {indigo500, indigo700, indigo900, redA200}
                         from 'material-ui/styles/colors';
 
-import Flatbutton       from 'material-ui/Flatbutton';
+import Flatbutton       from 'material-ui/FlatButton';
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar           from 'material-ui/AppBar';

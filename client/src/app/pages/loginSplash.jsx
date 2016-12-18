@@ -54,7 +54,7 @@ class LoginSplash extends Component {
     return (
      <MuiThemeProvider muiTheme={muiTheme}>
       <div className="loginTitle" style={splashStyle}>
-        <h1>Ambitually</h1>
+        <h1 className='title'>Ambitually</h1>
         <span>A Smarty Sprouts Production</span>
         {LoginModal}
       </div>

@@ -9,7 +9,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import Snackbar         from 'material-ui/Snackbar';
 import {Router, Route, Link}
                         from 'react-router';
-import Flatbutton     from 'material-ui/Flatbutton';
+import Flatbutton     from 'material-ui/FlatButton';
 
 // Redux
 import { connect }      from 'react-redux';
