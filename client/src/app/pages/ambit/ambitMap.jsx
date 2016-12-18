@@ -17,7 +17,7 @@ class AmbitMap extends Component {
     if (window.loadedGoogleMaps === undefined) {
       loadGoogleMapsAPI({
         // This is public; restricted by IP
-        key: "AIzaSyAHJfNJp8pbRxf_05L1TIm5ru-Dvcla-Nw",
+        key: "AIzaSyB2G29XZgAWqFa14olTtMnBZqqSZpFOnG4",
         v: '3.25'
       })
       .then((googleMaps) => {
