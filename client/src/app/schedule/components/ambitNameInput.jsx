@@ -9,6 +9,7 @@ const AmbitNameInput = (props) => (
       // errorText="Please enter an Ambit Name"
       onChange={props.onNameInput}
       style={{marginLeft: '40px'}}
+      defaultValue = {props.name}
     />
   </div>
 );

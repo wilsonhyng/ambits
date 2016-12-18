@@ -5,6 +5,7 @@ const ambits =
         day:      (new Date).getDay(),
         ambit:    null,
         disabled: true,
+        editAmbit: null
       }, action) => {
   switch (action.type) {
     case 'LOAD_AMBITS':
@@ -24,6 +25,11 @@ const ambits =
       return {
         ...state,
         title: action.title
+      };
+    case 'EDIT_CUR_BIT':
+      return {
+        ...state,
+        editAmbit: action.editAmbit
       };
     case 'UPDATE_CUR_DAY':
       return {

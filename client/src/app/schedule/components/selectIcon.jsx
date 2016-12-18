@@ -35,7 +35,7 @@ export default class SelectFieldExampleNullable extends Component {
     super(props);
 
     this.state = {
-      value: null,
+      value: props.icon,
       floatingText: 'Select Icon'
     };
   }
@@ -56,6 +56,7 @@ export default class SelectFieldExampleNullable extends Component {
           value={this.state.value}
           onChange={this.handleChange.bind(this)}
           style={selectFieldStyle}
+
         >
           <MenuItem 
             value='ActionAlarm'

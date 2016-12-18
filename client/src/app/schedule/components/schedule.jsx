@@ -16,27 +16,24 @@ import Divider          from 'material-ui/Divider';
 
 // Redux
 import { connect }      from 'react-redux';
-import { updateTitle, isDisabled }  
+import { updateTitle, isDisabled, editCurBit }  
                         from '../../_actions/ambit-actions';
-
-
 
 class ScheduleContainer extends React.Component {
   constructor (props) {
     super(props);
 
     this.state = {
-      name:       '',
-      coords:     {
-        latitude: Coords.latitude,
-        longitude:Coords.longitude
-      },
-      // frequency:'',
-      weekdays:   [false, false, false, false, false, false, false],
-      startDate:  {},
-      startTime:  {},
-      checkIns:   [],
-      icon:       '',
+      name:       this.props.editAmbit ? this.props.editAmbit.name : '',
+      coords:     this.props.editAmbit ? this.props.editAmbit.coords : 
+                  { latitude: Coords.latitude,
+                    longitude:Coords.longitude },
+      weekdays:   this.props.editAmbit ? this.props.editAmbit.weekdays :
+                  [false, false, false, false, false, false, false],
+      startDate:  this.props.editAmbit ? new Date(this.props.editAmbit.startDate) : null,
+      startTime:  this.props.editAmbit ? new Date(this.props.editAmbit.startTime) : null,
+      checkIns:   this.props.editAmbit ? this.props.editAmbit.checkIns : [],
+      icon:       this.props.editAmbit ? this.props.editAmbit.icon : ''
     };
 
     this.onSelectDays = {
@@ -52,6 +49,7 @@ class ScheduleContainer extends React.Component {
   
   componentDidMount() {
     this.props.dispatch(updateTitle('Schedule an Ambit'));
+    this.onChange();
   }
 
   onNameInput(nameInput) {
@@ -109,6 +107,7 @@ class ScheduleContainer extends React.Component {
     Utils.postAmbit(ambitState, function() {
       console.log('posted!');
     });
+    this.props.dispatch(editCurBit(null));
   }
 
   // onDropDownSelect(event, index, value) {
@@ -214,6 +213,7 @@ class ScheduleContainer extends React.Component {
         <div>
           <SelectTime 
             onSelectTime={this.onSelectTime.bind(this)}
+            startTime={this.state.startTime}
           />
         </div>
         <div>
@@ -241,7 +241,8 @@ class ScheduleContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  disabled: state.disabled
+  disabled: state.disabled,
+  editAmbit: state.editAmbit
 });
 
 ScheduleContainer = connect(mapStateToProps)(ScheduleContainer);

@@ -33,7 +33,7 @@ class AmbitWeekdays extends Component {
               backgroundColor={'purple'}
               mini={true}
               children={day}
-              disabled={this.props.ambit.weekdays[index]}
+              disabled={!this.props.ambit.weekdays[index]}
               iconStyle={btnText}
               style={styleSpacing}
               key={index}
