@@ -16,7 +16,7 @@ import AmbitWeekdays    from './ambit/ambitWeekdays.jsx';
 
 // Redux
 import { connect }      from 'react-redux';
-import { loadAmbits, updateAmbit, updateTitle, deleteAmbit, updateCurBit }
+import { loadAmbits, updateAmbit, updateTitle, deleteAmbit, updateCurBit, editCurBit }
                         from '../_actions/ambit-actions';
 
 const userFeedback = {
@@ -54,6 +54,7 @@ class Ambit extends Component {
       message: userFeedback.default
       }
     }
+
     this.handleCheckinAmbit = this.handleCheckinAmbit.bind(this);
   }
 
@@ -97,6 +98,16 @@ class Ambit extends Component {
     });
   }
 
+  handleEditAmbit(editAmbit) {
+    this.props.dispatch(editCurBit(editAmbit));
+    Utils.deleteAmbit(editAmbit.refId, () => {
+      //if deleted update the state
+      this.props.dispatch(deleteAmbit(editAmbit));
+      this.props.dispatch(updateCurBit(null));
+    });
+  }
+
+
   render() {
     if(!this.state.loading) {
       return(
@@ -111,8 +122,11 @@ class Ambit extends Component {
 
               <AmbitDescription
                 ambit={this.props.ambit}
+                editAmbit={this.props.editAmbit}
                 handleCheckinAmbit={this.handleCheckinAmbit}
                 handleDeleteAmbit={this.handleDeleteAmbit.bind(this)}
+                handleEditAmbit={this.handleEditAmbit.bind(this)}
+
               />
             </div>
 
@@ -126,7 +140,7 @@ class Ambit extends Component {
             message={this.state.feedback.message}
             autoHideDuration={this.state.feedback.autoHideDuration}
             bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
-            
+
           />
         </div>
       );
@@ -142,7 +156,8 @@ class Ambit extends Component {
 
 
 const mapStateToProps = (state) => ({
-  ambit: state.ambit
+  ambit: state.ambit,
+  editAmbit: state.editAmbit
 });
 
 Ambit = connect(mapStateToProps)(Ambit);

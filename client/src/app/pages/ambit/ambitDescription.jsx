@@ -115,7 +115,10 @@ class AmbitDescription extends Component {
 
             <FlatButton
               label={<Link to='/schedule' style={linkStyle}>Edit</Link>}
-
+              onTouchTap={() => {
+                this.props.handleEditAmbit(this.props.ambit);
+                }
+              }
               style={editStyle}
             />
 
